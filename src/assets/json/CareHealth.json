@@ -1,0 +1,78 @@
+[
+    {
+        "_salutations" :  [
+            {"id" :"0","name":"Title"},
+            {"id" :"MR","name": "MR"},
+            {"id" :"MS","name": "MS"}
+        ],
+        "_MaritalStatus" : [
+            {"id" :"Marital Status","name":"Marital Status"},
+            {"id" :"1","name": "Married"},
+            {"id" :"2","name": "Single"},
+            {"id" :"3","name": "Widowed"},
+            {"id" :"4","name": "Divorced"},
+            {"id" :"5","name": "Separated"}
+        ],
+        "_occupation" : [
+            {"id" :"","name": "Select Occupation"},
+            {"id" :"1","name":"BUSINESS/TRADERS"},
+            {"id" :"2","name":"PROFESSIONAL-DOCTOR"},
+            {"id" :"3","name":"PROFESSIONAL-ENGINEER"},
+            {"id" :"4","name":"PROFESSIONAL-LAWYER"},
+            {"id" :"5","name":"CLERICAL/SUPERVISORY AND RELATED WORKER"},
+            {"id" :"6","name":"HOSPITALITY AND SUPPORT WORKERS"},
+            {"id" :"7","name":"PRODUCTION WORKERS, SKILLED AND NON-AGRICULTURAL"},
+            {"id" :"8","name":"FARMERS AND AGRICULTURAL WORKERS"},
+            {"id" :"9","name":"POLICE/PARA MILITARY/DEFENSE"},
+            {"id" :"10","name":"HOUSEWIFE"},
+            {"id" :"11","name":"RETIRED"},
+            {"id" :"12","name":"STUDENTS-SCHOOL AND COLLEGE"},
+            {"id" :"13","name":"OTHER"}
+        ],
+        "_travelPurpose" : [
+            {"id" :"1","name": "STUDY"},
+            {"id" :"2","name": "HOLIDAY"},
+            {"id" :"3","name": "BUSINESS"},
+            {"id" :"4","name": "OTHER"}
+        ],
+        "_relation" : [
+            {"id" :"SELF","name": "SELF"}
+        ],
+        "nominee_relation" : [
+            {"id" :"0","name": "Relation"},
+            {"id" :"SPOUSE","name": "SPOUSE"},
+            {"id" :"SON","name": "SON"},
+            {"id" :"DAUGHTER","name": "DAUGHTER"},
+            {"id" :"FATHER","name": "FATHER"},
+            {"id" :"MOTHER","name": "MOTHER"}
+        ],
+        "_qualification" : [
+            {"id" :"0","name": "Select Qualification"},
+            {"id" :"1","name": "Graduate"},
+            {"id" :"2","name": "Matric"},
+            {"id" :"3","name": "Non-matric"},
+            {"id" :"4","name": "Professional Course"},
+            {"id" :"5","name": "Other"}
+        ],
+        "_existingDiseases" : [
+            {"id": "128", "name": "Liver Disease"},
+            {"id": "114", "name": "Cancer / Tumor"},
+            {"id": "143", "name": "Coronary Artery Heart Disease"},
+            {"id": "129", "name": "Kidney Disease"},
+            {"id": "164", "name": "Paralysis / Stroke"},
+            {"id": "otherDiseasesDescription", "name": "Any other PED not mentioned above"}
+        ],
+        "_nomineeDetails" : "personal",
+        "hasSubQuestion": false,
+        "QueSubqueArray" : [
+            {
+                "QuestionId": "T001",
+                "QuestionText": "Has anyone been diagnosed / hospitalized / or under any  treatment for any illness / injury during the last 48 months?"
+            },
+            {
+                "QuestionId": "T002",
+                "QuestionText": "Have you ever claimed under any travel policy?"
+            }
+        ]
+    }
+]

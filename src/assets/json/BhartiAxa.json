@@ -1,0 +1,59 @@
+[ {"_salutations" :  [
+    {"id" :"0","name":"Title"},
+    {"id" :"MR","name": "Mr"},
+    {"id" :"MRS","name": "Mrs"},
+    {"id" :"MISS","name": "Miss"}
+],
+"_existingDiseases" : [
+	{"id": "1", "name": "Cancer"},
+	{"id": "2", "name": "Heart Disease"},
+	{"id": "3", "name": "Tumor"},
+	{"id": "4", "name": "Coronary Artery Disease"},
+	{"id": "5", "name": "Diabetes/High Blood Pressure"},
+	{"id": "6", "name": "Kidney Disease"},
+	{"id": "7", "name": "Liver Disease"},
+	{"id": "8", "name": "Stroke"},
+	{"id": "9", "name": "Other"},
+	{"id": "10", "name": "Paralysis"}
+],
+"_occupation" : [
+	{ "id": "0", "name": "Select Occupation" },
+    {"id" :"0001","name": "Media / Sports / Armed forces"},
+    {"id" :"0002","name": "Government employees"},
+    {"id" :"0003","name": "Professionals (CA, Doctor, lawyer)"},
+    {"id" :"0004","name": "Private (Sales and marketing)"},
+    {"id" :"0005","name": "Private (other than Sales / marketing)"},
+    {"id" :"0006","name": "Self employed / self business"},
+    {"id" :"0007","name": "Others"}
+],
+"_relation" : [
+    {"id" :"Self","name": "Self"},
+    {"id" :"Spouse","name": "Spouse"},
+    {"id" :"Mother","name": "Mother"},
+    {"id" :"Son","name": "Son"},
+    {"id" :"Daughter","name": "Daughter"},
+    {"id" :"Father","name": "Father"}
+],
+"nominee_relation" : [
+    {"id" :"0","name": "Relation"},
+    {"id" :"Spouse","name": "Spouse"},
+    {"id" :"Mother","name": "Mother"},
+    {"id" :"Son","name": "Son"},
+    {"id" :"Daughter","name": "Daughter"},
+    {"id" :"Father","name": "Father"}
+],
+
+"_nomineeDetails" : "personal",
+"hasSubQuestion": false,
+"QueSubqueArray":[    
+	{
+		"QuestionId": "201",
+		"QuestionText": "Is any insured Sports Person?"
+	},
+	{
+		"QuestionId": "202",
+		"QuestionText": "Is any insured into Dangerous Activity?"
+	}
+]
+}
+]

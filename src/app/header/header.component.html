@@ -1,0 +1,253 @@
+<!----------------------------------------- Header Section ------------------------------------------>
+<div class="mainHeader header-shadow" id="home">
+    <div class="container">
+        <header>
+            <div class="logo">
+                <a href="https://policyboss.com" title="Policy Boss"> <img src="https://origin-cdnh.policyboss.com/website/UI22/images/logo.png"
+                        alt="Policy Boss" class="img-fluid">
+                </a>
+            </div>
+            <div class="navBlock">
+                <div class="navbarBtn d-lg-none">
+                    <button class="hamburger" id="sidebarCollapse">
+                        <div class="bar">
+                        </div>
+                    </button>
+                </div>
+                <nav class="navbarLink navbar-expand-md" id="sidebar">
+                    <div class="navi_mobile">
+                        <a href="javascript:void(0)" id="dismiss" class="d-lg-none d-md-none"><i class="fa fa-times"
+                                (click)="closeMenu();"></i></a>
+                        <div class="logo mobile-logo">
+                            <a href="https://policyboss.com" title="Policy Boss"> <img src="https://origin-cdnh.policyboss.com/website/UI22/images/logo.png"
+                                    alt="Policy Boss" class="img-fluid">
+                            </a>
+                        </div>
+                        <div class="navbar-collapse">
+                            <ul class="navbar-nav mr-auto navigation-bar">
+                                <li class="dropdown-link-box js_link">
+                                    <a href="javascript:void(0)" title="Explore to Insure">Explore to Insure </a>
+                                    <span class="dropdown-icon">
+                                        <img class="img-fluid icon" src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/dropdown-arrow.png"
+                                            alt="dropdown arrow" />
+                                    </span>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li class="Car">
+                                            <a href="/car-insurance" title="Car Insurance">Car
+                                                Insurance</a>
+                                        </li>
+                                        <li class="Bike">
+                                            <a href="/two-wheeler-insurance" title="Bike Insurance">Bike Insurance</a>
+                                        </li>
+                                        <li class="Health">
+                                            <a href="/health-insurance/" title="Health Insurance">Health
+                                                Insurance</a>
+                                        </li>
+                                        <li class="term-insurance-visible">
+                                            <a href="https://term.policyboss.com/term-insurance?ses_id={{session_id}}"
+                                                title="Term Insurance">Term Insurance</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/travel-insurance" title="Travel Insurance">Travel Insurance</a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/personal-accident-insurance/"
+                                                title="Personal Accident Insurance">Personal Accident Insurance</a>
+                                        </li>
+                                        <li class="CV">
+                                            <a href="/commercial-vehicle-insurance" title="CV Insurance">Commercial
+                                                Vehicle Insurance</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="js_link">
+                                    <a href="/about-us" title="About PolicyBoss">About PolicyBoss</a>
+                                </li>
+                                <li class="js_link">
+                                    <a href="https://blog.policyboss.com/blog/" title="Blogs">Blogs</a>
+                                </li>
+                                <li class="dropdown-link-box js_link">
+                                    <a href="javascript:void(0)" title="Contact Us">Contact Us</a>
+                                    <span class="dropdown-icon">
+                                        <img class="img-fluid icon" src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/dropdown-arrow.png"
+                                            alt="dropdown arrow" />
+                                    </span>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li class="dropdown-link">
+                                            <a class="dropdown-icon-box" href="mailto:customercare@policyboss.com"
+                                                title="Mail">
+                                                <div class="dropdown-text">
+                                                    <div class="icon-box normal-icon">
+                                                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/mail-icon.png" alt="" />
+                                                    </div>
+                                                    <div class="icon-box hover-icon">
+                                                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/mail-icon-white.png" alt="" />
+                                                    </div>
+                                                    customercare@policyboss.com
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-link">
+                                            <a class="dropdown-icon-box" href="tel:1800 419 419 9" title="Call">
+                                                <div class="dropdown-text">
+                                                    <div class="icon-box normal-icon">
+                                                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/call-icon.png" alt="" />
+                                                    </div>
+                                                    <div class="icon-box hover-icon">
+                                                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/call-icon-white.png" alt="" />
+                                                    </div>
+                                                    1800-419-419-9
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-link">
+                                            <a class="dropdown-icon-box" href="https://www.policyboss.com/contact-us"
+                                                title="mail">
+                                                <div class="dropdown-text">
+                                                    <div class="icon-box normal-icon">
+                                                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/mail-icon.png" alt="" />
+                                                    </div>
+                                                    <div class="icon-box hover-icon">
+                                                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/mail-icon-white.png" alt="" />
+                                                    </div>
+                                                    Get in touch
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="nav-box">
+                <ul class="nav-right-box">
+                    <li class="loginButton">
+                        <!-- <a href="https://horizon.policyboss.com/sign-in?ref_login=https://www.policyboss.com/car-insurance"
+                          target="_blank" class="login-btn weight-700" id="login" (click)="showLoginPopup(ss_id)">
+                          <span class="agent_detail">{{agent_desk_mob === undefined ? "Login" : agent_desk_mob}}
+                          </span></a> -->
+                        <div id="login_dropdown" class="language-dropdown language-dropdown2 language-dropdown-custom">
+                            <div class="input-field-box" id="login_input">
+                                <a href="javascript:void(0)" class="account-dropdown" id="account-manage-dropdown"
+                                    role="button" aria-haspopup="true" aria-expanded="false"
+                                    (click)="showLoginPopup(ss_id)">
+                                    <span id="login_span" class="agentName">{{agent_desk_mob === undefined ? "Login" :
+                                        agent_desk_mob}}</span>
+                                </a>
+                                <div id="drop_down_li"
+                                    class="padd_dropdown dropdown-menu dropdown-menu-box select-dropdown-box authTypeLoginDropdown"
+                                    aria-labelledby="dropdownMenuButton48">
+                                    <div class="dropdown-content-wrapper">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li select-dropdown-box-li2">
+                                                <a title="Login" id="password_login"
+                                                    (click)="login_dropdown_value('Login Via Password')"
+                                                    href="https://horizon.policyboss.com/sign-in?ref_login=https://www.policyboss.com"
+                                                    class="dropdown-list-link select-dropdown-box-link" target="_blank"
+                                                    id="login">Login Via Password</a>
+                                            </li>
+                                            <li class="dropdown-list-col select-dropdown-box-li select-dropdown-box-li2">
+                                                <a href="javascript:void(0)" id="auth_login"
+                                                    (click)="login_dropdown_value('Login Via App Token');showTokenLoginPopup()"
+                                                    class="dropdown-list-link select-dropdown-box-link">Login Via App
+                                                    Token</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-popup">
+                            <div class="profile">
+                                <img src="https://origin-cdnh.policyboss.com/website/Images/profile-photo.png"
+                                    class="profileImg">
+                            </div>
+                            <p style="margin-bottom: 0px;">{{agent_name}}</p>
+                            <p style="margin: 0 0 0px;">SS_ID : {{ss_id}}</p>
+                            <p style="margin-bottom: 5px;">ERP_Code : {{UID}}</p>
+                            <div>
+                                <a href="https://www.policyboss.com/profile" target="_self">View Profile</a>
+                            </div>
+                            <div>
+                                <a href="https://horizon.policyboss.com/product" target="_self">Go To HORIZON</a>
+                            </div>
+                            <div style="margin-bottom: 5px;">
+                                <a href="https://www.policyboss.com/wallet-details" target="_self">Wallet Details</a>
+                            </div>
+                            <a href="https://horizon.policyboss.com/sign-out" style="padding: 0px !important;">
+                                <div class="logOut-btn">Log Out</div>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="language-dropdown-li2" style="cursor:pointer" >
+                        <div class="language-dropdown language-dropdown1 language-dropdown-custom" (click)="showLangDropdown();" >
+                            <div class="input-field-box">
+                                <span class="language-dropdown-icon-box">
+                                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/language-dropdown-icon.png" alt="" />
+                                </span>
+                                <input type="text"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick langdropdownselect"
+                                    type="button" id="dropdownMenuButton12" value="English"
+                                    readonly aria-expanded="false" autocomplete="off" />
+                                <div class="dropdown-menu dropdown-menu-box select-dropdown-box langdropdown"
+                                    aria-labelledby="dropdownMenuButton12" style="padding:0px;">
+                                    <div class="dropdown-content-wrapper">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li select-dropdown-box-li1 active">
+                                                <a href="javascript:void(0)"
+                                                    class="dropdown-list-link select-dropdown-box-link">English</a>
+                                            </li>
+                                            <li class="dropdown-list-col select-dropdown-box-li select-dropdown-box-li1">
+                                                <a href="javascript:void(0)"
+                                                    class="dropdown-list-link select-dropdown-box-link">हिन्दी</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="modal menu-popup" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+            aria-labelledby="auth" aria-hidden="true" id="auth">
+            <div class="auth-token-popup">
+                <div class="modal-dialog modal-dialog-centered auth-token-dialog-model">
+                    <div class="modal-content modal-popup-shadow ">
+                        <div class="modal-header">
+                            <div class="title-box">
+                                <h2 class="font-30 title-text " style="font-size:18px;">Login Via App Token(Android)
+                                </h2>
+                            </div>
+                            <button type="button" class="btn-close js_modal_close align-self-start mt-0"
+                                data-bs-dismiss="modal" aria-label="Close" (click)="closeTokenPopup();"></button>
+                        </div>
+                        <div class="modal-body" style="text-align:center;">
+                            <div>
+                                Kindly open PolicyBoss Pro App and Click on "Generate Login Token" button in Left Side
+                                Menu. Once Login Token is generated, Kindly Enter Token here and Click on "Submit Token
+                                to Login"
+                            </div>
+                            <div
+                                style="color:#444;margin-bottom:31px;margin-top:25px;font-family:Helvetica-medium-500;">
+                                <div>
+                                    <input type="text" style="text-align:center;"
+                                        class="input-field border-thick tags tag-field ui-autocomplete-input auth-token-input"
+                                        maxlength="6" oninput="this.value = this.value.toUpperCase()" id="auth_token" placeholder="ENTER TOKEN" autocomplete="off">
+                                </div>
+                                <span class="tokenErr" style="color:Red;"></span>
+                            </div>
+                            <div style="text-align:center;">
+                                <button class="main-btn auth-token-sub-btn " type="button"
+                                    (click)="verifyToken();">Submit Token to Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+[ {"_salutations" :  [
+    {"id" :"0","name":"Title"},
+    {"id" :"Mr","name": "Mr"},
+    {"id" :"Ms","name": "Ms"},
+    {"id" :"Mrs","name": "Mrs"},
+    {"id" :"Miss","name": "Miss"}
+],
+"_existingDiseases" : [
+	{"id": "9", "name": "Any Other"}
+],
+"_occupation" : [
+	{ "id": "0", "name": "Select Occupation" },
+    {"id" :"0001","name": "Media / Sports / Armed forces"},
+    {"id" :"0002","name": "Government employees"},
+    {"id" :"0003","name": "Professionals (CA, Doctor, lawyer)"},
+    {"id" :"0004","name": "Private (Sales and marketing)"},
+    {"id" :"0005","name": "Private (other than Sales / marketing)"},
+    {"id" :"0006","name": "Self employed / self business"},
+    {"id" :"0007","name": "Others"}
+],
+"_relation" : [
+    {"id" :"Self","name": "Self"},
+    {"id" :"Spouse","name": "Spouse"},
+    {"id" :"Son","name": "Son"},
+    {"id" :"Daughter","name": "Daughter"},
+    {"id" :"Father","name": "Father"},
+    {"id" :"Mother","name": "Mother"}  
+],
+"nominee_relation" : [
+    {"id" :"0","name": "Relation"},
+    {"id" :"Spouse","name": "Spouse"},
+    {"id" :"Mother","name": "Mother"},
+    {"id" :"Father","name": "Father"},
+    {"id" :"Son","name": "Son"},
+    {"id" :"Daughter","name": "Daughter"},
+    {"id" :"Brother","name": "Brother"},
+    {"id" :"Sister","name": "Sister"},
+    {"id" :"Grand Son","name": "Grand Son"},
+    {"id" :"Grand Daughter","name": "Grand Daughter"}
+],
+
+"_nomineeDetails" : "personal",
+"hasSubQuestion": false,
+"QueSubqueArray":[    
+	{
+		"QuestionId": "1101",
+		"QuestionText": "Is the traveler(s) residents of India and the trip is starting from India?"
+	}
+]
+}
+]

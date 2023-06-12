@@ -1,0 +1,1890 @@
+<div class="modal menu-popup modal-common" id="submit_loader_popup">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content wrapper-540 modal-popup-shadow">
+      <div class="modal-body">
+        <div style="text-align: center;" id="AgentDiv" style="font-family: Helvetica-medium-500;">
+          <div id="AgentSuccess" style="text-align: center;">
+            <svg style="padding:20px;height:160px;margin-top: 20px;" version="1.1" viewBox="0 0 130.2 130.2"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle class="path circle" cx="65.1" cy="65.1" fill="none" r="62.1" stroke="#73AF55"
+                stroke-miterlimit="10" stroke-width="6"></circle>
+              <polyline class="path check" fill="none" points="100.2,40.2 51.5,88.8 29.8,67.5 " stroke="#73AF55"
+                stroke-linecap="round" stroke-miterlimit="10" stroke-width="6"></polyline>
+            </svg>
+            <br>
+            <div style="font-size: 16px;">{{msg}}</div>
+            <br>
+            <div style="font-size: 16px;color :#4cae4c">Payment Link</div>
+            <br>
+            <div id="short_url" style="font-size: 19px;color:cornflowerblue">{{short_url}}</div>
+          </div>
+          <div id="AgentFail" style="text-align:center; display:none;">
+            <img class="img-responsive" id="Alerticon" src="https://www.policyboss.com/website/Images/Alert.ico"
+              style="text-align: center;width:130px; padding-top: 15px;">
+            <br><br>
+            <div style="font-size: 16px;">Msg: <span id="FailMsg"></span></div>
+          </div><br>
+          <div style="text-align: center;">
+            <button class="main-btn btn   BackButton cursor_pointer" (click)="BackToHome()" id="BackToHome">Back To
+              Home</button>
+            <button class="main-btn btn   BackButton cursor_pointer" (click)="AgentOk()">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loading"
+  style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 9999; background-color: rgba(0, 0, 0, 0.48); display: none;">
+  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/loading.gif"
+    style="height: 120px; position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+    <div id="loaderStatusMsg" style="text-align: center;left: 39%;top: 64%;position:absolute;color: #fff;">{{msg}}</div>
+</div>
+<!----------------------------------- Car Proposal Detail Section --------------------------------------->
+<div
+  class="car-proposal-detail-section car-proposal-detail term-proposal-detail-section travel-proposal-detail-section">
+  <div class="proposal-detail-header header-full">
+    <div class="back-btn-box">
+      <a (click)="back2quotes()" class="back-btn" title="Go Back">
+        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/back-btn-arrow.svg" alt="Go Back" />
+      </a>
+    </div>
+    <div class="tab-control-panel-area">
+      <nav>
+        <div class="nav nav-tabs tab-change-wrap tab-view-main" id="nav-tab" role="tablist">
+          <button class="nav-link tab-change-btn flex-col-4 font-14 active" id="nav-make-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-make" type="button" role="tab" aria-controls="nav-make" aria-selected="true"
+            data-text-mob="1">
+            Proposer Details
+            <span class="tab-text">
+              1
+            </span>
+          </button>
+          <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-model-tab" data-bs-toggle=""
+            data-bs-target="#nav-model" type="button" role="tab" aria-controls="nav-modal" aria-selected="false"
+            data-text-mob="2">
+            Communication Address
+            <span class="tab-text">
+              2
+            </span>
+          </button>
+          <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-fuel-tab" data-bs-toggle=""
+            data-bs-target="#nav-fuel" type="button" role="tab" aria-controls="nav-fuel" aria-selected="false"
+            data-text-mob="3">
+            Insured Member Details
+            <span class="tab-text">
+              3
+            </span>
+          </button>
+          <button *ngIf="Insurer_ID!=11" class="nav-link tab-change-btn flex-col-4 font-14" id="nav-variant-tab" data-bs-toggle=""
+            data-bs-target="#nav-variant" type="button" role="tab" aria-controls="nav-variant" aria-selected="false"
+            data-text-mob="4">
+            Nominee Details
+            <span class="tab-text">
+              4
+            </span>
+          </button>
+          <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-custom-tab" data-bs-toggle=""
+            data-bs-target="#nav-custom" type="button" role="tab" aria-controls="nav-custom" aria-selected="false"
+            data-text-mob="5">
+            Other Details
+            <span class="tab-text">
+              {{Insurer_ID==11?'4':'5'}}
+            </span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="main-row">
+    <div class="main-col flex-70">
+      <div class="proposal-detail-header">
+        <div class="back-btn-box">
+          <a (click)="back2quotes()" class="back-btn" title="Go Back">
+            <img src="https://origin-cdnh.policyboss.com/website/UI22//images/icons/back-btn-arrow.svg" alt="Go Back" />
+          </a>
+        </div>
+        <div class="tab-control-panel-area">
+          <nav>
+            <div class="nav nav-tabs tab-change-wrap tab-view-main" id="nav-tab" role="tablist">
+              <button class="nav-link tab-change-btn flex-col-4 font-14 active" id="nav-make-tab" data-bs-toggle="tab"
+                data-bs-target="#nav-make" type="button" role="tab" aria-controls="nav-make" aria-selected="true"
+                data-text-mob="1">
+                Proposer Details
+                <span class="tab-text">
+                  1
+                </span>
+              </button>
+              <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-model-tab" data-bs-toggle=""
+                data-bs-target="#nav-model" type="button" role="tab" aria-controls="nav-modal" aria-selected="false"
+                data-text-mob="2">
+                Communication Address
+                <span class="tab-text">
+                  2
+                </span>
+              </button>
+              <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-fuel-tab" data-bs-toggle=""
+                data-bs-target="#nav-fuel" type="button" role="tab" aria-controls="nav-fuel" aria-selected="false"
+                data-text-mob="3">
+                Insured Member Details
+                <span class="tab-text">
+                  3
+                </span>
+              </button>
+              <button *ngIf="Insurer_ID!=11" class="nav-link tab-change-btn flex-col-4 font-14" id="nav-variant-tab" data-bs-toggle=""
+                data-bs-target="#nav-variant" type="button" role="tab" aria-controls="nav-variant" aria-selected="false"
+                data-text-mob="4">
+                Nominee Details
+                <span class="tab-text">
+                  4
+                </span>
+              </button>
+              <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-custom-tab" data-bs-toggle=""
+                data-bs-target="#nav-custom" type="button" role="tab" aria-controls="nav-custom" aria-selected="false"
+                data-text-mob="5">
+                Other Details
+                <span class="tab-text">
+                  {{Insurer_ID==11?'4':'5'}}
+                </span>
+              </button>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <div class="proposal-detail-section">
+        <div class="proposal-detail-inner-area">
+          <div class="proposal-detail-header">
+            <div class="back-btn-box">
+              <a (click)="back2quotes()" class="back-btn" title="Go Back">
+                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/back-btn-arrow.svg" alt="Go Back" />
+              </a>
+            </div>
+            <div class="tab-control-panel-area">
+              <nav>
+                <div class="nav nav-tabs tab-change-wrap tab-view-main" id="nav-tab" role="tablist">
+                  <button class="nav-link tab-change-btn flex-col-4 font-14 active" id="nav-make-tab"
+                    data-bs-toggle="tab" data-bs-target="#nav-make" type="button" role="tab" aria-controls="nav-make"
+                    aria-selected="true" data-text-mob="1">
+                    Proposer Details
+                    <span class="tab-text">
+                      1
+                    </span>
+                  </button>
+                  <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-model-tab" data-bs-toggle=""
+                    data-bs-target="#nav-model" type="button" role="tab" aria-controls="nav-modal" aria-selected="false"
+                    data-text-mob="2">
+                    Communication Address
+                    <span class="tab-text">
+                      2
+                    </span>
+                  </button>
+                  <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-fuel-tab" data-bs-toggle=""
+                    data-bs-target="#nav-fuel" type="button" role="tab" aria-controls="nav-fuel" aria-selected="false"
+                    data-text-mob="3">
+                    Insured Member Details
+                    <span class="tab-text">
+                      3
+                    </span>
+                  </button>
+                  <button *ngIf="Insurer_ID!=11" class="nav-link tab-change-btn flex-col-4 font-14" id="nav-variant-tab" data-bs-toggle=""
+                    data-bs-target="#nav-variant" type="button" role="tab" aria-controls="nav-variant"
+                    aria-selected="false" data-text-mob="4">
+                    Nominee Details
+                    <span class="tab-text">
+                      4
+                    </span>
+                  </button>
+                  <button class="nav-link tab-change-btn flex-col-4 font-14 " id="nav-custom-tab" data-bs-toggle=""
+                    data-bs-target="#nav-custom" type="button" role="tab" aria-controls="nav-custom"
+                    aria-selected="false" data-text-mob="5">
+                    Other Details
+                    <span class="tab-text">
+                      {{Insurer_ID==11?'4':'5'}}
+                    </span>
+                  </button>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="proposal-detail-body">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane show active" id="nav-make" role="tabpanel" aria-labelledby="nav-make-tab">
+                <div class="basic-detail-area proposer-detail-area">
+                  <h2 class="font-24 detail-title-text title-text">Proposer Details</h2>
+                  <div class="proposal-detail-box bg-proposal-detail">
+                    <form [formGroup]="proposalForm" class="detail-form" id="proposer_detil_form">
+                      <div class="proposal-detail-row">
+                        <div class="proposal-detail-col">
+                          <div class="proposal-detail-box city-detail">
+                            <label class="label font-18">Salutation</label>
+                            <div class="input-field-box">
+                              <input type="text" value="Title"
+                                class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                id="salutation1" name="salutation" readonly="" data-bs-toggle="dropdown"
+                                aria-expanded="false" autocomplete="off">
+                              <input type="hidden" readonly id="salutation" formControlName="salutation">
+                              <span style="color: red;" class="err" id="sal-err"></span>
+                              <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                aria-labelledby="dropdownMenuButton11">
+                                <div class="dropdown-content-wrapper">
+                                  <form class="dropdown-form">
+                                    <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                      <li class="dropdown-list-col select-dropdown-box-li"
+                                        (click)="activeDropdown($event.currentTarget, k.id, 'main_salutation')"
+                                        *ngFor="let k of _salutations">
+                                        <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link"
+                                          (click)="getdropdown($event.currentTarget,k.name)">{{k.name}}</a>
+                                      </li>
+                                    </ul>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="proposal-detail-col">
+                          <div class="proposal-detail-box owner-detail">
+                            <label for="" class="label font-18">Full Name</label>
+                            <input formControlName="contact_name" id="contact_name" type="text" name="contact_name"
+                               value="" autocomplete="off"
+                              (keypress)="KeyPressEvent($event,'Text')" maxlength="77"
+                              class="input-field border-thick font-18 js-input-group" />
+                            <span style="color: red;" id="contact_name-err"></span>
+                          </div>
+                        </div>
+                        <div class="proposal-detail-col">
+                          <div class="radio-items-box">
+                            <label class="radio-title label font-18">Gender</label>
+                            <div class="radio-item-wrap">
+                              <div class="radio-item-row">
+                                <div class="radio-box">
+                                  <input formControlName="gender" type="radio" class="radio-custom genderCheck"
+                                    value="M" id="check-item-117" name="gender">
+                                  <label class="radio-custom-label font-18 text-extralight"
+                                    for="check-item-117">Male</label>
+                                </div>
+                              </div>
+                              <div class="radio-item-row">
+                                <div class="radio-box">
+                                  <input type="radio" formControlName="gender" class="radio-custom genderCheck"
+                                    value="F" id="check-item-118" name="gender">
+                                  <label class="radio-custom-label font-18 text-extralight"
+                                    for="check-item-118">Female</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <span style="color: red;" id="gender-err"></span>
+                        </div>
+                        <div class="proposal-detail-col">
+                          <div class="proposal-detail-box mobile-detail">
+                            <label for="" class="label font-18">Mobile</label>
+                            <input type="number" autocomplete="off" onKeyPress="if(this.value.length==10) return false;" (keypress)="KeyPressEvent($event,'Number')"
+                              id="mobile" (keyup)="ValidateNumber($event)" formControlName="mobile"
+                              name="phone" maxlength="10" inputmode="numberic" pattern="[1-9]{1}[0-9]{9}"
+                              class="input-field border-thick font-18 js-input-group number-field">
+                            <span style="color: red;" id="mobile-err"></span>
+                          </div>
+                        </div>
+                        <div class="proposal-detail-col">
+                          <div class="proposal-detail-box city-detail">
+                            <label class="label font-18">Relation with Insured Person</label>
+                            <div class="input-field-box">
+                              <input type="text"
+                                class="btn input-field dropdown-toggle select-dropdown relationClick border-thick font-18 js-input-group"
+                                id="relation1" name="relation" readonly="" data-bs-toggle="dropdown"
+                                aria-expanded="false" autocomplete="off">
+                              <input type="hidden" formControlName="relation" id="relation">
+                              <span style="color: red;" id="relation-err"></span>
+                              <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                aria-labelledby="dropdownMenuButton11">
+                                <div class="dropdown-content-wrapper">
+                                  <form class="dropdown-form">
+                                    <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                      <li class="dropdown-list-col select-dropdown-box-li"
+                                        (click)="activeDropdown($event.currentTarget, k.id, 'relation')"
+                                        *ngFor="let k of _relation">
+                                        <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link"
+                                          (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                      </li>
+                                    </ul>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="proposal-detail-col">
+                          <div class="proposal-detail-box city-detail">
+                            <label for="" class="label font-18">Date of Birth</label>
+                            <div class="date-flex-box flex-box">
+                              <div class="date-flex-col">
+                                <div class="input-field-box">
+                                  <input type="text" placeholder="DD"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                    id="day" name="date_of_birth" readonly="" data-bs-toggle="dropdown"
+                                    aria-expanded="false" autocomplete="off">
+                                  <div class="birthDate dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                        <li class="dropdown-list-col select-dropdown-box-li"
+                                          (click)="activeDropdown($event.currentTarget, j, 'adult_day')"
+                                          *ngFor="let j of day">
+                                          <a href="javascript:void(0)"
+                                            class="dropdown-list-link select-dropdown-box-link"
+                                            (click)="getdropdown($event.currentTarget)">{{j<=9?0:""}}{{j}}</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="date-flex-col">
+                                <div class="input-field-box">
+                                  <input type="text" placeholder="MM"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                    id="month" readonly="" data-bs-toggle="dropdown" aria-expanded="false"
+                                    autocomplete="off">
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                        <li class="dropdown-list-col select-dropdown-box-li"
+                                          (click)="activeDropdown($event.currentTarget, j, 'adult_month')"
+                                          *ngFor="let j of months">
+                                          <a href="javascript:void(0)"
+                                            class="dropdown-list-link select-dropdown-box-link"
+                                            (click)="getdropdown($event.currentTarget)">{{j<=9?0:""}}{{j}}</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="date-flex-col">
+                                <div class="input-field-box">
+                                  <input type="text" placeholder="YYYY"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                    id="year" readonly="" data-bs-toggle="dropdown" aria-expanded="false"
+                                    autocomplete="off">
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                        <li class="dropdown-list-col select-dropdown-box-li"
+                                          (click)="activeDropdown($event.currentTarget, j, 'adult_year')"
+                                          *ngFor="let j of adult_year">
+                                          <a href="javascript:void(0)"
+                                            class="dropdown-list-link select-dropdown-box-link"
+                                            (click)="getdropdown($event.currentTarget)">{{j}}</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                           <span id='birth_date-err' style="color: red;" class="err"></span>
+                          </div>
+                        </div>
+                        <div class="proposal-detail-col">
+                          <div class="proposal-detail-box email-detail">
+                            <label for="" class="label font-18">Email</label>
+                            <input formControlName="email" type="email" id="email" maxlength="50" name="email_add"
+                              class="input-field border-thick font-18 js-input-group"
+                              autocomplete="off">
+                            <span id="email-err" style="color: red;"></span>
+                          </div>
+                        </div>
+                        <div class="proposal-detail-col">
+                          <div class="proposal-detail-box city-detail">
+                            <label for="" class="label font-18">Pan Number</label>
+                            <input formControlName="pan" onKeyPress="if(this.value.length==10) return false;" type="text" (keypress)="KeyPressEvent($event,'AlphaNumeric')"
+                            oninput="this.value = this.value.length<=10? this.value.toUpperCase():this.value.substring(0,10)" id="pan" type="text" name="pan"
+                              autocomplete="off" maxlength="10" class="input-field border-thick font-18 js-input-group"
+                              autocomplete="off" />
+                            <span style="color: red;" class="err" id="pan-err"></span>
+                          </div>
+                        </div>
+                        <div class="proposal-detail-col" *ngIf="Insurer_ID == 44 || Insurer_ID == 5 ||  Insurer_ID == 26 ||  Insurer_ID == 11">
+                          <div class="input-field-box">
+                            <label for="visiting_countries" class="label font-18">Visiting Countries</label>
+                            <input  name="visiting_countries" type="text" id="visiting_countries" class="btn input-field value_drop dropdown-toggle select-dropdown border-thick inner-placeholder inner-placeholder-dropdown-input"
+                                                             data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off" readonly value="{{countries_array}}">
+                            <div class="dropdown-menu dropdown-menu-box select-dropdown-box" (click)="Dropdown_close($event)"
+                                                            aria-labelledby="dropdownMenuButton12">
+                                                            <div class="dropdown-content-wrapper">
+                                                                <ul id="visiting_countries_ul"
+                                                                    class="dropdown-list-row select-dropdown-box-ul js-dropdown-field visiting_list">
+                                                                    <li class="dropdown-list-col select-dropdown-box-li" style ="transition:none;" id="{{visit_country.item_id}}" *ngFor="let visit_country of vistingcountry">
+                                                                      <a href='javascript:void(0)' (click)="visiting_countries_dropdown($event.currentTarget)" class='dropdown-list-link select-dropdown-box-link hover'>{{visit_country.item_text}}</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                          </div>
+                            <span style="color: red;" class="err" id="travelCountries-err"></span>
+                        </div>
+                        <div class="proposal-detail-col" *ngIf="Insurer_ID == 6">
+                          <div class="input-field-box">
+                            <label for="visiting_cities" class="label font-18">Visiting Cities</label>
+                            <!-- <input  name="visiting_cities" type="text" id="visiting_cities" class="btn input-field value_drop dropdown-toggle select-dropdown border-thick inner-placeholder inner-placeholder-dropdown-input"
+                                                             data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off" readonly value="{{cities_array}}">
+                            <div class="dropdown-menu dropdown-menu-box select-dropdown-box" (click)="Dropdown_close($event)"
+                                                            aria-labelledby="dropdownMenuButton12">
+                                                            <div class="dropdown-content-wrapper">
+                                                                <ul id="visiting_countries_ul"
+                                                                    class="dropdown-list-row select-dropdown-box-ul js-dropdown-field visiting_list">
+                                                                    <li class="dropdown-list-col select-dropdown-box-li" style ="transition:none;" id="{{visit_city.City_Code}}" *ngFor="let visit_city of visiting_cities">
+                                                                      <a href='javascript:void(0)' (click)="visiting_cities_dropdown($event.currentTarget)" class='dropdown-list-link select-dropdown-box-link hover'>{{visit_city.City_Name}}</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div> -->
+                                                        <!-- <input ngui-auto-complete #visiting_city [source]="visiting_cities" class="form-control"
+                                                        type="text" name="visiting_city" id="visiting_city" formControlName="visiting_city"
+                                                        list-formatter="City_Name" min-chars="3" max-num-list="10" [match-formatted]="true" required> 
+                                                                                -->
+                                                                                <input (keypress)="KeyPressEvent($event,'Text')" maxlength="20" (keyup)="trimValue($event)" type="text" name="visiting_cities" id="visiting_cities" (focus)="visiting_city_funct()" class="input-field border-thick font-18 js-input-group">
+                                                                                <input type=number hidden id="city_id">
+                                                                                <!-- <input type=number hidden id="pincode"> -->
+                                                                                <span style="color: red;" class="err" id="visiting_cities_err"></span>
+                                                                                <div id="autoComplete3"></div>
+                          </div>
+                          <span style="color: red;" class="err" id="travelCities-err"></span>
+                        </div>
+                      </div>
+                      <div class="form-controls">
+                        <button id="PaymentLink" class="main-btn btn-white payBtn" type="button" data-bs-toggle="modal"
+                          style="visibility: hidden;" (click)="showPaymentLinkPopup($event)">SEND PAYMENT LINK</button>
+                        <div class="tab-change-controls">
+                          <button type="button" class="main-btn btn-white btn-prev btn-hidden">Previous</button>
+                          <button class="main-btn next-btn" id="first" (click)="next1($event,proposalForm.value)">Next</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane " id="nav-model" role="tabpanel" aria-labelledby="nav-model-tab">
+                <div class="insure-detail-area">
+                  <h2 class="font-24 detail-title-text title-text">Communication Address</h2>
+                  <div class="proposal-detail-box bg-proposal-detail">
+                    <form [formGroup]="proposalForm" class="detail-form" id="insured_detil_form">
+                      <div class="contact-detail">
+                        <div class="proposal-detail-row">
+                          <div class="proposal-detail-col">
+                            <div class="proposal-detail-box">
+                              <label for="" class="label font-18">Address</label>
+                              <input id="address"oninput="this.value = this.value.toUpperCase()" type="text" formControlName="completeAddress"
+                                name="address" maxlength="75"
+                                class="input-field border-thick font-18 js-input-group" autocomplete="off">
+                                <input  id="completeAddress" type="hidden">
+                                <input id="RegisteredAddress1" type="hidden">
+                                <input id="RegisteredAddress2" type="hidden">
+                                <input id="RegisteredAddress3" type="hidden">
+                              <span style="color: red;" id="address-err"></span>
+                            </div>
+                          </div>
+                          <!-- <div class="proposal-detail-col" hidden>
+                            <div class="proposal-detail-box">
+                              <label for="" class="label font-18">Address 2</label>
+                              <input formControlName="permanent_address_2" id="permanent_address_2" type="text"
+                                name="permanent_address_2" maxlength="75"
+                                class="input-field border-thick font-18 js-input-group" value="" autocomplete="off">
+                              <span style="color: red;" id="address-2-err"></span>
+                            </div>
+                          </div> -->
+                          <!-- <div class="proposal-detail-col" *ngIf="![1].includes(Insurer_ID)">
+                            <div class="proposal-detail-box">
+                              <label for="" class="label font-18">Address 3</label>
+                              <input formControlName="permanent_address_3" id="permanent_address_3" type="text"
+                                name="permanent_address_3" maxlength="75"
+                                class="input-field border-thick font-18 js-input-group" value="" autocomplete="off">
+                              <span style="color: red;" id="address-3-err"></span>
+                            </div>
+                          </div> -->
+                          <div class="proposal-detail-col">
+                            <div class="proposal-detail-box owner-detail">
+                              <label for="pin_code" class="label font-18">Pincode</label>
+                              <input formControlName="permanent_pincode" onKeyPress="if(this.value.length==6) return false;" (keypress)="KeyPressEvent($event,'Pincode')"
+                                type="number" name="pincode_input" id="permanent_pincode" inputmode="numeric"
+                                class="input-field border-thick font-18 js-input-group permanent_pincode"
+                                (focusout)="callPincodeDetails()" autocomplete="off" maxlength="6">
+                              <span style="color: red;" id="pincode-err"></span>
+                            </div>
+                          </div>
+                          <div class="proposal-detail-col">
+                            <div class="proposal-detail-box owner-detail">
+                              <label for="" class="label font-18">City</label>
+                              <input formControlName="city" *ngIf="Insurer_ID !=6" id="city" readonly="" type="text" name="city"
+                                (keyup)="trimValue($event)" autocomplete="off" (keypress)="KeyPressEvent($event,'Text')"
+                                maxlength="50" class="input-field border-thick font-18 js-input-group"
+                                autocomplete="off" />
+                                <input formControlName="city" *ngIf="Insurer_ID ==6" id="city" type="text" name="city"
+                                (keyup)="trimValue($event)" autocomplete="off" (keypress)="KeyPressEvent($event,'Text')"
+                                maxlength="50" class="input-field border-thick font-18 js-input-group"
+                                autocomplete="off" (focus)="ICICIcity()" />
+                                <div id="autoComplete4"></div>
+                                <input type=number hidden id="city_id">
+                              <span style="color: red;" id="city-err"></span>
+                            </div>
+                          </div>
+                          <div class="proposal-detail-col">
+                            <div class="proposal-detail-box owner-detail">
+                              <label for="" class="label font-18">State</label>
+                              <input formControlName="state" id="state" readonly="" type="text" name="state"
+                                (keyup)="trimValue($event)" autocomplete="off" (keypress)="KeyPressEvent($event,'Text')"
+                                maxlength="50" class="input-field border-thick font-18 js-input-group"
+                                autocomplete="off" />
+                              <span style="color: red;" id="state-err"></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-controls">
+                        <button class="main-btn btn-white payBtn" type="button" data-bs-toggle="modal"
+                          style="visibility: hidden;" (click)="showPaymentLinkPopup($event)">SEND PAYMENT LINK</button>
+                        <div class="tab-change-controls">
+                          <button class="main-btn btn-white btn-prev">Previous</button>
+                          <button class="main-btn next-btn" id="second"
+                            (click)="next2($event,proposalForm.value)">Next</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane " id="nav-fuel" role="tabpanel" aria-labelledby="nav-fuel-tab">
+                <div class="member-detail-area">
+                  <h2 class="font-24 detail-title-text title-text">Insured Member Details</h2>
+                  <div class="proposal-detail-box bg-proposal-detail">
+                    <form [formGroup]="proposalForm" class="detail-form" id="address_form">
+                      <div class="insured-member-detail">
+                        <!-- Adult-detail -->
+                        <div class="adult-detail" *ngFor="let j of adult_members">
+                          <h3 class="font-20 detail-title-text title-text">Adult {{j+1}}</h3>
+                          <div class="proposal-detail-row">
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box city-detail">
+                                <label class="label font-18">Salutation</label>
+                                <div class="input-field-box">
+                                  <input type="text" value="Title"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                    id="member_{{j+1}}_salutation1" name="member_{{j+1}}_salutation" readonly=""
+                                    data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                  <span style="color: red;" id="salutation_{{j+1}}"></span>
+                                  <span style="color: red;" id="_salutation_{{j+1}}"></span>
+                                  <input type="hidden" id="member_{{j+1}}_salutation"
+                                    formControlName="member_{{j+1}}_salutation">
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <form class="dropdown-form">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                          <li class="dropdown-list-col select-dropdown-box-li"
+                                            (click)="activeDropdown($event.currentTarget, k.id,'salutation',(j+1))"
+                                            *ngFor="let k of _salutations">
+                                            <a href="javascript:void(0)"
+                                              class="dropdown-list-link select-dropdown-box-link"
+                                              (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                          </li>
+                                        </ul>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box owner-detail">
+                                <label for="" class="label font-18">Name</label>
+                                <input type="text" id="member_{{j+1}}_fullName" autocomplete="off"
+                                  (keypress)="KeyPressEvent($event,'Text')" formControlName="member_{{j+1}}_fullName"
+                                  id="member_{{j+1}}_fullName" name="member_{{j+1}}_fullName" maxlength="77"
+                                  class="input-field border-thick font-18 js-input-group" required>
+                                <span style="color: red;" id="fullname_{{j+1}}-err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col ">
+                              <div class="radio-items-box">
+                                <label class="radio-title label font-18">Gender</label>
+                                <div class="radio-item-wrap">
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" id="check-item-{{j+1}}-M"
+                                        class="radio-custom member_{{j+1}}_gender" value="M"
+                                        formControlName="member_{{j+1}}_gender" name="member_{{j+1}}_gender">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+1}}-M">Male</label>
+                                    </div>
+                                  </div>
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" id="check-item-{{j+1}}-F"
+                                        class="radio-custom member_{{j+1}}_gender" value="F"
+                                        formControlName="member_{{j+1}}_gender" name="member_{{j+1}}_gender">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+1}}-F">Female</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="gender_{{j+1}}"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box city-detail">
+                                <label for="" class="label font-18">Date of Birth</label>
+                                <div class="date-flex-box flex-box">
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" id="member_{{j+1}}_day" placeholder="DD"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="dropdownMenuButton11" name="date_of_birth" readonly=""
+                                        data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li" (click)="activeDropdown($event.currentTarget, k, 'member_day')"
+                                            *ngFor="let k of dob_dd">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link" (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" id="member_{{j+1}}_month"placeholder="MM"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="dropdownMenuButton11" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li" (click)="activeDropdown($event.currentTarget, k, 'member_day')"
+                                            *ngFor="let k of dob_mm">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link" (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" id="member_{{j+1}}_year"placeholder="YYYY"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="dropdownMenuButton11" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off" >
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li" (click)="activeDropdown($event.currentTarget, k, 'member_day')"
+                                            *ngFor="let k of dob_yy">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"(click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="dob_{{j+1}}_err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box mobile-detail">
+                                <label for="member_{{j+1}}_passport" class="label font-18">Passport Number</label>
+                                <input oninput="this.value = this.value.length<=8? this.value.toUpperCase():this.value.substring(0,8)" id="member_{{j+1}}_passport" onKeyPress="if(this.value.length==8) return false;"
+                                  (keypress)=" KeyPressEvent($event, 'AlphaNumeric')"
+                                  formControlName="member_{{j+1}}_passport" type="text" name="member_{{j+1}}_passport"
+                                   class="input-field border-thick font-18 js-input-group input-change"
+                                  autocomplete="off" maxlength="8">
+                                <span style="color: red;" id="passportNo_{{j+1}}"></span>
+                                <span style="color: red;" id="_passportNo_{{j+1}}"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box city-detail">
+                                <label for="" class="label font-18">Passport Expiry</label>
+                                <div class="date-flex-box flex-box">
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="DD"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+1}}_passport_expiry_day"
+                                        name="member_{{j+1}}_passport_expiry_day" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_passport_expiry_day')"
+                                              *ngFor="let k of passport_date">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k<=9?0:""}}{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="MM"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+1}}_passport_expiry_month"
+                                        name="member_{{j+1}}_passport_expiry_month" readonly=""
+                                        data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_passport_expiry_month',(j+1))"
+                                              *ngFor="let k of passport_month">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k<=9?0:""}}{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="YYYY"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+1}}_passport_expiry_year"
+                                        name="member_{{j+1}}_passport_expiry_year" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_passport_expiry_year',(j+1))"
+                                              *ngFor="let k of passport_exp_year"
+                                              value="member_{{j+1}}_passport_expiry_year">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="passportExp_{{j+1}}"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col" *ngIf="![1,5,44].includes(Insurer_ID)">
+                              <div class="proposal-detail-box city-detail">
+                                <label class="label font-18">Occupation</label>
+                                <div class="input-field-box">
+                                  <input type="text" name="member_{{j+1}}_occupation" value="Select Occupation"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                    id="member_{{j+1}}_occupation1" name="member_{{j+1}}_occupation" readonly=""
+                                    data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                  <span style="color: red;" id="occupation_{{j+1}}"></span>
+                                  <input type="hidden" formControlName="member_{{j+1}}_occupation"
+                                    id="member_{{j+1}}_occupation">
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                        <li class="dropdown-list-col select-dropdown-box-li"
+                                          (click)="activeDropdown($event.currentTarget, k.id, 'occupation',(j+1))"
+                                          *ngFor="let k of _occupation">
+                                          <a href="javascript:void(0)"
+                                            class="dropdown-list-link select-dropdown-box-link"
+                                            (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col" *ngIf="Insurer_ID==11">
+                              <div class="proposal-detail-box owner-detail">
+                                  <label for="" class="label font-18">Nominee Name</label>
+                                  <input type="text"(keypress)="KeyPressEvent($event,'Text')" autocomplete="off" maxlength="50" formControlName="member_{{j+1}}_nominee_name" id="member_{{j+1}}_nominee_name" name="member_{{j+1}}_nominee_name" class="input-field border-thick font-18 js-input-group"/>
+                                <span style="color: red;" id="member_{{j+1}}_nominee_name_err"></span>
+                              </div>
+                          </div>
+  <div class="proposal-detail-col" *ngIf="Insurer_ID==11">
+                              <div class="proposal-detail-box city-detail">
+                                <label class="label font-18">Nominee Relation</label>
+                                <div class="input-field-box">
+                                  <input type="text" value="Relation"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                    id="member_{{j+1}}_nominee_relation1" name="relation" readonly="" data-bs-toggle="dropdown"
+                                    aria-expanded="false" autocomplete="off">
+                                  <input type="hidden" formControlName="member_{{j+1}}_nominee_relation" id="member_{{j+1}}_nominee_relation">
+                                  <span style="color: red;" id="member_{{j+1}}_nominee_relation_err"></span>
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <form class="dropdown-form">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                          <li class="dropdown-list-col select-dropdown-box-li"
+                                            *ngFor="let k of _nomineeRelation"
+                                            (click)="activeDropdown($event.currentTarget, k.id, 'nominee_relation',(j+1))">
+                                            <a href="javascript:void(0)"
+                                              class="dropdown-list-link select-dropdown-box-link"
+                                              (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                          </li>
+                                        </ul>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col" *ngIf="![1,5,44].includes(Insurer_ID)">
+                              <!-- <div class="inner-field-row">
+                                <div class="inner-field-col"> -->
+                                  <label for="member_{{j+1}}_ped" class="label font-18">Pre-existing Disease</label>
+                                    <div class="input-field-box">
+
+                                <input type="text" id="member_{{j+1}}_ped" class="btn input-field value_drop dropdown-toggle select-dropdown border-thick inner-placeholder inner-placeholder-dropdown-input"
+                                                                data-bs-toggle="dropdown"
+                                                                aria-expanded="false" autocomplete="off" readonly>
+                                                            <!-- <span
+                                                                class="font-16  floating-placeholder">Nothing Selected</span> -->
+                                <div class="dropdown-menu dropdown-menu-box select-dropdown-box" (click)="Dropdown_close($event)"
+                                                                aria-labelledby="dropdownMenuButton12">
+                                                                <div class="dropdown-content-wrapper">
+                                                                    <ul id="member_{{j+1}}_ped_ul"
+                                                                        class="dropdown-list-row select-dropdown-box-ul js-dropdown-field Disease_list">
+                                                                        <li class="dropdown-list-col select-dropdown-box-li" style ="transition:none;" id="{{Disease.id}}{{j+1}}" *ngFor="let Disease of _existingDiseases">
+                                                                          <a href='javascript:void(0)'  id="member_{{j+1}}_ped_anchor" (click)="dropdown_value($event.currentTarget)" class='dropdown-list-link select-dropdown-box-link hover'>{{Disease.name}}</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col Pre_existing_{{j+1}}" style="display: none;">
+                              <div class="proposal-detail-box owner-detail">
+                                <label for="member_{{j+1}}_other_diseases" class="label font-18">Mention Disease
+                                  Name</label>
+                                <input (keypress)="KeyPressEvent($event,'Text')"
+                                  placeholder="Enter Pre-existing Disease"
+                                  formControlName="member_{{j+1}}_other_diseases" type="text"
+                                  name="member_{{j+1}}_other_diseases" id="member_{{j+1}}_other_diseases"
+                                  class="input-field border-thick font-18 js-input-group" autocomplete="off">
+                                <span style="color: red;" id="Mention_Disease_Name_{{j+1}}-err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col Pre_existing_{{j+1}}" style="display: none;">
+                              <div class="radio-items-box">
+                                <label class="radio-title label font-18">Under Medication</label>
+                                <div class="radio-item-wrap">
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" formControlName="member_{{j+1}}_takes_meds"
+                                        id="check-item-{{j+1}}-true" class="radio-custom member_{{j+1}}_takes_meds"
+                                        value="true" name="member_{{j+1}}_takes_meds">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+1}}-true">YES</label>
+                                    </div>
+                                  </div>
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" formControlName="member_{{j+1}}_takes_meds"
+                                        id="check-item-{{j+1}}-false" class="radio-custom member_{{j+1}}_takes_meds"
+                                        value="false" name="member_{{j+1}}_takes_meds">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+1}}-false">NO</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="member_{{j+1}}_takes_meds-err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col Pre_existing_{{j+1}}" style="display: none;">
+                              <div class="proposal-detail-box city-detail">
+                                <label for="" class="label font-18">PED Suffering Since(MM/YYYY)</label>
+                                <div class="date-flex-box flex-box">
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="MM"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+1}}_suffering_since_month"
+                                        name="member_{{j+1}}_suffering_since_month" readonly=""
+                                        data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_suffering_since_month',(j+1))"
+                                              *ngFor="let k of months">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k<=9?0:""}}{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="YYYY"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+1}}_suffering_since_year"
+                                        name="member_{{j+1}}_suffering_since_year" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_suffering_since_year',(j+1))"
+                                              *ngFor="let k of suffering_since_year">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="Suffering_Since_{{j+1}}"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Child-detail -->
+                        <div class="child-detail" *ngFor="let j of child_members">
+                          <h3 class="font-20 detail-title-text title-text">Child {{j+1}}</h3>
+                          <div class="proposal-detail-row">
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box city-detail">
+                                <label class="label font-18">Salutation</label>
+                                <div class="input-field-box">
+                                  <input type="text" value="Title"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                    id="member_{{j+3}}_salutation1" name="member_{{j+3}}_salutation" readonly=""
+                                    data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                  <span style="color: red;" id="salutation_{{j+3}}"></span>
+                                  <span style="color: red;" id="_salutation_{{j+3}}"></span>
+                                  <input type="hidden" id="member_{{j+3}}_salutation"
+                                    formControlName="member_{{j+3}}_salutation">
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <form class="dropdown-form">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                          <li class="dropdown-list-col select-dropdown-box-li"
+                                            (click)="activeDropdown($event.currentTarget, k.id,'salutation',(j+3))"
+                                            *ngFor="let k of _salutations">
+                                            <a href="javascript:void(0)" *ngIf="k.name !='Mrs' && k.name !='MRS'"
+                                              class="dropdown-list-link select-dropdown-box-link"
+                                              (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                          </li>
+                                        </ul>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box owner-detail">
+                                <label for="" class="label font-18">Name</label>
+                                <input type="text" formControlName="member_{{j+3}}_fullName"
+                                  name="member_{{j+3}}_fullName" id="member_{{j+3}}_fullName"
+                                  (keypress)="KeyPressEvent($event,'Text')" maxlength="77"
+                                  class="input-field border-thick font-18 js-input-group" autocomplete="off">
+                                <span style="color: red;" id="fullname_{{j+3}}-err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col ">
+                              <div class="radio-items-box">
+                                <label class="radio-title label font-18">Gender</label>
+                                <div class="radio-item-wrap">
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" value="M" formControlName="member_{{j+3}}_gender"
+                                        class="radio-custom member_{{j+3}}_gender" id="check-item-{{j+3}}-M"
+                                        name="member_{{j+3}}_gender">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+3}}-M">Male</label>
+                                    </div>
+                                  </div>
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" value="F" formControlName="member_{{j+3}}_gender"
+                                        class="radio-custom member_{{j+3}}_gender" id="check-item-{{j+3}}-F"
+                                        name="member_{{j+3}}_gender">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+3}}-F">Female</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="gender_{{j+3}}"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box city-detail">
+                                <label for="" class="label font-18">Date of Birth</label>
+                                <div class="date-flex-box flex-box">
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" id="member_{{j+3}}_day" placeholder="DD"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        name="member_{{j+3}}_day" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li" (click)="activeDropdown($event.currentTarget, k, 'member_day')"
+                                            *ngFor="let k of dob_dd">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link" (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="MM"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+3}}_month" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"(click)="activeDropdown($event.currentTarget, k, 'member_day')"
+                                            *ngFor="let k of dob_mm">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link" (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="YYYY"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+3}}_year" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"(click)="activeDropdown($event.currentTarget, k, 'member_day')"
+                                            *ngFor="let k of dob_yy_child">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link" (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="dob_child_{{j+3}}_err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box mobile-detail">
+                                <label for="" class="label font-18">Passport Number</label>
+                                <input formControlName="member_{{j+3}}_passport" onKeyPress="if(this.value.length==8) return false;" type="text"
+                                  (keypress)=" KeyPressEvent($event, 'AlphaNumeric')" id="member_{{j+3}}_passport"
+                                  name="member_{{j+3}}_passport" maxlength="8"
+                                  oninput="this.value = this.value.length<=8? this.value.toUpperCase():this.value.substring(0,8)"
+                                  class="input-field border-thick font-18 js-input-group input-change"
+                                  autocomplete="off">
+                                <span style="color: red;" id="passportNo_{{j+3}}"></span>
+                                <span style="color: red;" id="_passportNo_{{j+3}}"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col">
+                              <div class="proposal-detail-box city-detail">
+                                <label for="" class="label font-18">Passport Expiry</label>
+                                <div class="date-flex-box flex-box">
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="DD"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+3}}_passport_expiry_day"
+                                        name="member_{{j+3}}_passport_expiry_day" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_passport_expiry_day')"
+                                              *ngFor="let k of passport_date"
+                                              value="member_{{j+3}}_passport_expiry_day">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k<=9?0:""}}{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="MM"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+3}}_passport_expiry_month"
+                                        name="member_{{j+3}}_passport_expiry_month" readonly=""
+                                        data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_passport_expiry_month',(j+3))"
+                                              *ngFor="let k of passport_month"
+                                              value="member_{{j+3}}_passport_expiry_month">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k<=9?0:""}}{{k}}</a>
+                                            </li>
+
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="YYYY"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+3}}_passport_expiry_year"
+                                        name="member_{{j+3}}_passport_expiry_year" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_passport_expiry_year',(j+3))"
+                                              *ngFor="let k of passport_exp_year">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="passportExp_{{j+3}}"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col" *ngIf="![1,5,44].includes(Insurer_ID)">
+                              <div class="proposal-detail-box city-detail">
+                                <label class="label font-18">Occupation</label>
+                                <div class="input-field-box">
+                                  <input type="text" value="Select Occupation"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                    id="member_{{j+3}}_occupation1" name="member_{{j+3}}_occupation" readonly=""
+                                    data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                  <span style="color: red;" id="occupation_{{j+3}}"></span>
+                                  <input type="text" formControlName="member_{{j+3}}_occupation" hidden
+                                    id="member_{{j+3}}_occupation">
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                        <li class="dropdown-list-col select-dropdown-box-li"
+                                          (click)="activeDropdown($event.currentTarget, k.id, 'occupation',(j+3))"
+                                          *ngFor="let k of _occupation">
+                                          <a href="javascript:void(0)"
+                                            class="dropdown-list-link select-dropdown-box-link"
+                                            (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                        </li>
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col" *ngIf="Insurer_ID==11">
+                              <div class="proposal-detail-box owner-detail">
+                                  <label for="" class="label font-18">Nominee Name</label>
+                                  <input type="text"(keypress)="KeyPressEvent($event,'Text')" formControlName="member_{{j+3}}_nominee_name" autocomplete="off" maxlength="50" id="member_{{j+3}}_nominee_name" name="member_{{j+3}}_nominee_name" class="input-field border-thick font-18 js-input-group"/>
+                                <span style="color: red;" id="member_{{j+3}}_nominee_name_err"></span>
+                              </div>
+                          </div>
+  <div class="proposal-detail-col" *ngIf="Insurer_ID==11">
+                              <div class="proposal-detail-box city-detail">
+                                <label class="label font-18">Nominee Relation</label>
+                                <div class="input-field-box">
+                                  <input type="text" value="Relation"
+                                    class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                    id="member_{{j+3}}_nominee_relation1" name="relation" readonly="" data-bs-toggle="dropdown"
+                                    aria-expanded="false" autocomplete="off">
+                                  <input type="hidden" formControlName="member_{{j+3}}_nominee_relation" id="member_{{j+3}}_nominee_relation">
+                                  <span style="color: red;" id="member_{{j+3}}_nominee_relation_err"></span>
+                                  <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                    aria-labelledby="dropdownMenuButton11">
+                                    <div class="dropdown-content-wrapper">
+                                      <form class="dropdown-form">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                          <li class="dropdown-list-col select-dropdown-box-li"
+                                            *ngFor="let k of _nomineeRelation"
+                                            (click)="activeDropdown($event.currentTarget, k.id, 'nominee_relation',(j+3))">
+                                            <a href="javascript:void(0)"
+                                              class="dropdown-list-link select-dropdown-box-link"
+                                              (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                          </li>
+                                        </ul>
+                                      </form>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col" *ngIf="![1,5,44].includes(Insurer_ID)">
+                              <!-- <div class="inner-field-row">
+                                <div class="inner-field-col"> -->
+                                  <label for="member_{{j+3}}_ped" class="label font-18">Pre-existing Disease</label>
+                                    <div class="input-field-box">
+
+                                <input type="text" id="member_{{j+3}}_ped" class="btn input-field value_drop dropdown-toggle select-dropdown border-thick inner-placeholder inner-placeholder-dropdown-input"
+                                                                id="Pre_existing_Disease" data-bs-toggle="dropdown"
+                                                                aria-expanded="false" autocomplete="off" readonly>
+                                                            <!-- <span
+                                                                class="font-16  floating-placeholder">Nothing Selected</span> -->
+                                <div class="dropdown-menu dropdown-menu-box select-dropdown-box" (click)="Dropdown_close($event)"
+                                                                aria-labelledby="dropdownMenuButton12">
+                                                                <div class="dropdown-content-wrapper">
+                                                                    <ul id="member_{{j+3}}_ped_ul"
+                                                                        class="dropdown-list-row select-dropdown-box-ul js-dropdown-field Disease_list">
+                                                                        <li class="dropdown-list-col select-dropdown-box-li" style ="transition:none;" id="{{Disease.id}}{{j+3}}" *ngFor="let Disease of _existingDiseases">
+                                                                          <a href='javascript:void(0)'  id="member_{{j+3}}_ped_anchor" (click)="dropdown_value($event.currentTarget)" class='dropdown-list-link select-dropdown-box-link hover'>{{Disease.name}}</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                              </div>
+                            </div>
+                            <!-- <div class="proposal-detail-col" *ngIf="![1,5,44].includes(Insurer_ID)">
+                              <div class="proposal-detail-box owner-detail">
+                                <label for="member_{{j+3}}_ped" class="label font-18">Pre-existing Disease</label>
+                                <ng-multiselect-dropdown id="member_{{j+3}}_ped" formControlName="member_{{j+3}}_ped"
+                                  [placeholder]="'Select Disease'" [data]="medicalDetails"
+                                  [settings]="diseaseDropdownSettings" readonly
+                                  (onSelect)="Pre_existing_select($event,j+3)"
+                                  (onDeSelect)="Pre_existing_Unselect($event,j+3)">
+                                </ng-multiselect-dropdown>
+                              </div>
+                            </div> -->
+                            <div class="proposal-detail-col Pre_existing_{{j+3}}" style="display: none;">
+                              <div class="proposal-detail-box owner-detail">
+                                <label for="member_{{j+3}}_other_diseases" class="label font-18">Mention Disease
+                                  Name</label>
+                                <input placeholder="Enter Pre-existing Disease"
+                                  (keypress)=" KeyPressEvent($event, 'Text')"
+                                  formControlName="member_{{j+3}}_other_diseases" type="text"
+                                  name="member_{{j+3}}_other_diseases" id="member_{{j+3}}_other_diseases"
+                                  class="input-field border-thick font-18 js-input-group" autocomplete="off">
+                                <span style="color: red;" id="Mention_Disease_Name_{{j+3}}-err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col Pre_existing_{{j+3}}" style="display: none;">
+                              <div class="radio-items-box">
+                                <label class="radio-title label font-18">Is Under Medication</label>
+                                <div class="radio-item-wrap">
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" formControlName="member_{{j+3}}_takes_meds"
+                                        id="check-item-{{j+3}}-true" class="radio-custom member_{{j+3}}_takes_meds"
+                                        value="true" name="member_{{j+3}}_takes_meds">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+3}}-true">YES</label>
+                                    </div>
+                                  </div>
+                                  <div class="radio-item-row">
+                                    <div class="radio-box">
+                                      <input type="radio" formControlName="member_{{j+3}}_takes_meds"
+                                        id="check-item-{{j+3}}-false" class="radio-custom member_{{j+3}}_takes_meds"
+                                        value="false" name="member_{{j+3}}_takes_meds">
+                                      <label class="radio-custom-label font-18 text-extralight"
+                                        for="check-item-{{j+3}}-false">NO</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="member_{{j+3}}_takes_meds-err"></span>
+                              </div>
+                            </div>
+                            <div class="proposal-detail-col  Pre_existing_{{j+3}}" style="display: none;">
+                              <div class="proposal-detail-box city-detail">
+                                <label for="" class="label font-18">PED Suffering Since(MM/YYYY)</label>
+                                <div class="date-flex-box flex-box">
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="MM"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+3}}_suffering_since_month"
+                                        name="member_{{j+3}}_suffering_since_month" readonly=""
+                                        data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_suffering_since_month',(j+3))"
+                                              *ngFor="let k of months">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k<=9?0:""}}{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="date-flex-col">
+                                    <div class="input-field-box">
+                                      <input type="text" placeholder="YYYY"
+                                        class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                        id="member_{{j+3}}_suffering_since_year"
+                                        name="member_{{j+3}}_suffering_since_year" readonly="" data-bs-toggle="dropdown"
+                                        aria-expanded="false" autocomplete="off">
+                                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                        aria-labelledby="dropdownMenuButton11">
+                                        <div class="dropdown-content-wrapper">
+                                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                            <li class="dropdown-list-col select-dropdown-box-li"
+                                              (click)="activeDropdown($event.currentTarget, k, 'member_suffering_since_year',(j+3))"
+                                              *ngFor="let k of suffering_since_year">
+                                              <a href="javascript:void(0)"
+                                                class="dropdown-list-link select-dropdown-box-link"
+                                                (click)="getdropdown($event.currentTarget)">{{k}}</a>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <span style="color: red;" id="Suffering_Since_{{j+3}}"></span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-controls">
+                        <button class="main-btn btn-white payBtn" type="button" data-bs-toggle="modal"
+                          style="visibility: hidden;" (click)="showPaymentLinkPopup($event)">SEND PAYMENT LINK</button>
+                        <div class="tab-change-controls">
+                          <button class="main-btn btn-white btn-prev">Previous</button>
+                          <button class="main-btn next-btn" id="third" (click)="next3($event,proposalForm.value)">Next</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Nominee Details -->
+              <div *ngIf="Insurer_ID!=11" class="tab-pane" id="nav-variant" role="tabpanel" aria-labelledby="nav-variant-tab">
+                <div class="nominee-detail-area">
+                  <h2 class="font-24 detail-title-text title-text">Nominee Details</h2>
+                  <div class="proposal-detail-box bg-proposal-detail">
+                    <form [formGroup]="proposalForm" class="detail-form" id="address_form">
+                      <div class="nominee-detail">
+                        <div class="proposal-detail-row">
+                          <!-- <div class="proposal-detail-col">
+                            <div class="proposal-detail-box owner-detail">
+                              <label for="" class="label font-18">Nominee Full Name</label>
+                              <input id="nominee_name" type="text" name="nominee_name" maxlength="50"
+                                formControlName="nominee_name" autocomplete="off"
+                                (keypress)="KeyPressEvent($event,'Text')"
+                                class="input-field border-thick font-18 js-input-group" />
+                              <span style="color: red;" id="nominee_name_err"></span>
+                            </div>
+                          </div> -->
+                          <div class="proposal-detail-col">
+                            <div class="proposal-detail-box owner-detail">
+                                <label for="" class="label font-18">Nominee Name</label>
+                                <input type="text"(keypress)="KeyPressEvent($event,'Text')" autocomplete="off" maxlength="50" id="nominee_name" name="nominee_name" class="input-field border-thick font-18 js-input-group"/>
+                              <span style="color: red;" id="nominee_name_err"></span>
+                            </div>
+                        </div>
+                        <!-- <div class="proposal-detail-col">
+                            <div class="proposal-detail-box owner-detail">
+                                <label for="" class="label font-18">Nominee Last Name</label>
+                                <input type="text"(keypress)="KeyPressEvent($event,'Text')" autocomplete="off" id="nominee_last_name"maxlength="50" name="nominee_last_name" class="input-field border-thick font-18 js-input-group"/>
+                              <span style="color: red;" id="nominee_last_name_err"></span>
+                            </div>
+                        </div> -->
+                          <div class="proposal-detail-col">
+                            <div class="proposal-detail-box city-detail">
+                              <label for="" class="label font-18">Nominee Birth date</label>
+                              <div class="date-flex-box flex-box">
+                                <div class="date-flex-col">
+                                  <div class="input-field-box">
+                                    <input type="text" placeholder="DD"
+                                      class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                      id="nominee_dob_day" name="date_of_birth" readonly="" data-bs-toggle="dropdown"
+                                      aria-expanded="false" autocomplete="off">
+                                    <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                      aria-labelledby="dropdownMenuButton11">
+                                      <div class="dropdown-content-wrapper">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                          <li class="dropdown-list-col select-dropdown-box-li"
+                                            (click)="activeDropdown($event.currentTarget, j, 'nominee_dob_day')"
+                                            *ngFor="let j of nominee_day">
+                                            <a href="javascript:void(0)"
+                                              class="dropdown-list-link select-dropdown-box-link"
+                                              (click)="getdropdown($event.currentTarget)">{{j<=9?0:""}}{{j}}</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="date-flex-col">
+                                  <div class="input-field-box">
+                                    <input type="text" placeholder="MM"
+                                      class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                      id="nominee_dob_month" readonly="" data-bs-toggle="dropdown" aria-expanded="false"
+                                      autocomplete="off">
+                                    <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                      aria-labelledby="dropdownMenuButton11">
+                                      <div class="dropdown-content-wrapper">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                          <li class="dropdown-list-col select-dropdown-box-li"
+                                            (click)="activeDropdown($event.currentTarget, j, 'nominee_dob_month')"
+                                            *ngFor="let j of nominee_months">
+                                            <a href="javascript:void(0)"
+                                              class="dropdown-list-link select-dropdown-box-link"
+                                              (click)="getdropdown($event.currentTarget)">{{j<=9?0:""}}{{j}}</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="date-flex-col">
+                                  <div class="input-field-box">
+                                    <input type="text" placeholder="YYYY"
+                                      class="btn input-field dropdown-toggle select-dropdown border-thick font-18"
+                                      id="nominee_dob_year" readonly="" data-bs-toggle="dropdown" aria-expanded="false"
+                                      autocomplete="off">
+                                    <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                      aria-labelledby="dropdownMenuButton11">
+                                      <div class="dropdown-content-wrapper">
+                                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                          <li class="dropdown-list-col select-dropdown-box-li"
+                                            (click)="activeDropdown($event.currentTarget, j, 'nominee_dob_year')"
+                                            *ngFor="let j of adult_year">
+                                            <a href="javascript:void(0)"
+                                              class="dropdown-list-link select-dropdown-box-link"
+                                              (click)="getdropdown($event.currentTarget)">{{j}}</a>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <span style="color: red;" id="nominee_birthdate_err"></span>
+                            </div>
+                          </div>
+                          <div class="proposal-detail-col" *ngIf="![1,6,44].includes(Insurer_ID)">
+                            <div class="proposal-detail-box city-detail">
+                              <label class="label font-18">Nominee Relation</label>
+                              <div class="input-field-box">
+                                <input type="text" value="Relation"
+                                  class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                  id="nominee_relation1" name="relation" readonly="" data-bs-toggle="dropdown"
+                                  aria-expanded="false" autocomplete="off">
+                                <input type="hidden" formControlName="nominee_relation" id="nominee_relation">
+                                <span style="color: red;" id="nominee-relation-err"></span>
+                                <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                  aria-labelledby="dropdownMenuButton11">
+                                  <div class="dropdown-content-wrapper">
+                                    <form class="dropdown-form">
+                                      <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                        <li class="dropdown-list-col select-dropdown-box-li"
+                                          *ngFor="let k of _nomineeRelation"
+                                          (click)="activeDropdown($event.currentTarget, k.id, 'nominee_relation')">
+                                          <a href="javascript:void(0)"
+                                            class="dropdown-list-link select-dropdown-box-link"
+                                            (click)="getdropdown($event.currentTarget)">{{k.name}}</a>
+                                        </li>
+                                      </ul>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="proposal-detail-col" *ngIf="![1,5,6,44].includes(Insurer_ID)">
+                            <div class="proposal-detail-box owner-detail">
+                              <label for="pin_code" class="label font-18">Nominee Pincode</label>
+                              <input formControlName="nominee_pincode" onKeyPress="if(this.value.length==6) return false;" (keypress)="KeyPressEvent($event,'Pincode')"
+                                type="text" name="pincode_input" id="pin_code" inputmode="numeric"
+                                class="input-field border-thick font-18 js-input-group nominee_pincode"
+                                autocomplete="off" maxlength="6">
+                              <span style="color: red;" id="nominee-pincode-err"></span>
+                            </div>
+                          </div>
+                          <div class="proposal-detail-col" *ngIf="![1,5,6,44].includes(Insurer_ID)">
+                            <div class="proposal-detail-box owner-detail">
+                              <label for="pin_code" class="label font-18">Nominee City</label>
+                              <input formControlName="nominee_city_name" oninput="this.value = this.value.toUpperCase()" type="text" name="nominee_city_name"
+                              (keypress)="KeyPressEvent($event,'Text')" id="nominee_city_name" class="input-field border-thick font-18 js-input-group"
+                                autocomplete="off">
+                              <span style="color: red;" id="nominee-city-err"></span>
+                            </div>
+                          </div>
+                          <div class="proposal-detail-col" *ngIf="![1,5,6,44].includes(Insurer_ID)">
+                            <div class="proposal-detail-box owner-detail">
+                              <label for="pin_code" class="label font-18">Nominee Address</label>
+                              <input formControlName="nominee_address"oninput="this.value = this.value.toUpperCase()" type="text" name="nominee_address"
+                                id="nominee_address" maxlength="75"
+                                class="input-field border-thick font-18 js-input-group" autocomplete="off">
+                              <span style="color: red;" id="nominee-address-err"></span>
+                            </div>
+                          </div>
+                          <div class="proposal-detail-col" *ngIf="![1,5,6,44].includes(Insurer_ID)">
+                            <div class="radio-items-box">
+                              <label class="radio-title label font-18">Proposer & Nominee address is same?</label>
+                              <div class="radio-item-wrap">
+                                <div class="radio-item-row">
+                                  <div class="radio-box">
+                                    <input type="radio" formControlName="same_as_for_nominee" value="yes"
+                                      (click)="SameAsPermanentAdd($event)" class="radio-custom" id="check-item-119"
+                                      name="same_as_for_nominee" [checked]="SameAsNomineeAddress">
+                                    <label class="radio-custom-label font-18 text-extralight"
+                                      for="check-item-119">Yes</label>
+                                  </div>
+                                </div>
+                                <div class="radio-item-row">
+                                  <div class="radio-box">
+                                    <input type="radio" formControlName="same_as_for_nominee" value="no"
+                                      (click)="SameAsPermanentAdd($event)" class="radio-custom" id="check-item-120"
+                                      name="same_as_for_nominee" [checked]="!SameAsNomineeAddress">
+                                    <label class="radio-custom-label font-18 text-extralight"
+                                      for="check-item-120">No</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <div class="check-box-item" *ngIf="![1,5,6,44].includes(Insurer_ID)">
+                            <input type="checkbox" class="check-input" name="same_as_for_nominee" id="same_as_for_nominee"
+                            formControlName="same_as_for_nominee" (change)="SameAsPermanentAdd($event)"
+                            [checked]="SameAsNomineeAddress">
+                        <label class="check-input-label weight-500 flex-box no-shadow font-18 text-extralight"
+                          for="same_as_for_nominee">
+                          Same As Communication Address
+                        </label>
+                          </div> -->
+                        </div>
+                      </div>
+                      <div class="form-controls">
+                        <button class="main-btn btn-white payBtn" type="button" data-bs-toggle="modal"
+                          style="visibility: hidden;" (click)="showPaymentLinkPopup($event)">SEND PAYMENT LINK</button>
+                        <div class="tab-change-controls">
+                          <button class="main-btn btn-white btn-prev">Previous</button>
+                          <button class="main-btn next-btn" id="fourth"
+                            (click)="next4($event,proposalForm.value)">Next</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="nav-custom" role="tabpanel" aria-labelledby="nav-custom-tab">
+                <div class="other-detail-area">
+                  <h2 class="font-24 detail-title-text title-text">Other detail & Declaration</h2>
+                  <div class="proposal-detail-box bg-proposal-detail">
+                    <form [formGroup]="proposalForm" class="detail-form" id="address_form" novalidate="novalidate">
+                      <div class="area">
+                        <div class="box" *ngIf="Insurer_ID===44">
+                          <label class="flex-box"> Please go through
+                            <a style="display:contents;" (click)="BrochureWordings('wording')"
+                              class="primary-text link-text">Policy wordings </a>for your reference.
+                          </label>
+                          <hr>
+                        </div>
+                        <div class="box"
+                          *ngIf="[1,34,5,6,9].includes(Insurer_ID) && ![125,119].includes(ProductPlan_Id)">
+                          <label class="flex-box">Please go through
+                            <a *ngIf="![103, 109, 112, 115, 126, 128].includes(ProductPlan_Id)"
+                              style="display: contents;" (click)="BrochureWordings('wording')"
+                              class="primary-text link-text">&nbsp;Policy wordings</a> {{show_and===false?"":"&"}}
+                            <a style="display: contents;" (click)="BrochureWordings('brochure')"
+                              class="primary-text link-text">&nbsp;Policy brochure </a>&nbsp;for your reference.
+                          </label>
+                          <hr>
+                        </div>
+                      </div>
+                      <div *ngFor="let Questn of otherDetails">
+                        <div class="proposal-detail-col" *ngIf="Questn.type === 'text'">
+                          <div class="proposal-detail-box owner-detail">
+                            <label for="" class="label font-18">{{Questn.QuestionText}}</label>
+                            <input placeholder="Enter here .." id="other_detail_{{Questn.QuestionId}}" type="text"
+                              maxlength="50" autocomplete="off" (keypress)="KeyPressEvent($event,'AlphaNumeric')"
+                              autocomplete="off" class="input-field border-thick font-18 js-input-group" />
+                            <span style="color: red;" id="other_detail_{{Questn.QuestionId}}_err"></span>
+                          </div>
+                          <hr>
+                        </div>
+
+                        <div class="proposal-detail-col" *ngIf="Questn.type === 'numeric'">
+                          <div class="proposal-detail-box mobile-detail">
+                            <label for="" class="label font-18">{{Questn.QuestionText}}</label>
+                            <input placeholder="Enter here .." type="number" onKeyPress="if(this.value.length==10) return false;" (keypress)="KeyPressEvent($event,'Number')"
+                              id="other_detail_{{Questn.QuestionId}}" name="phone" maxlength="10" autocomplete="off"
+                              pattern="[1-9]{1}[0-9]{9}"
+                              class="input-field border-thick font-18 js-input-group number-field">
+                            <span style="color: red;" id="other_detail_{{Questn.QuestionId}}_err"></span>
+                          </div>
+                          <hr>
+                        </div>
+                        <div class="proposal-detail-col" *ngIf="Questn.type === 'select'">
+                          <div class="proposal-detail-box city-detail">
+                            <label class="label font-18">{{Questn.QuestionText}}</label>
+                            <div class="input-field-box">
+                              <input type="text"
+                                class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                                id="other_detail_{{Questn.QuestionId}}_1" name="select" readonly=""
+                                data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off">
+                              <input type="hidden" id="other_detail_{{Questn.QuestionId}}">
+                              <span style="color: red;" id="other_detail_{{Questn.QuestionId}}_err"></span>
+                              <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                                aria-labelledby="dropdownMenuButton11">
+                                <div class="dropdown-content-wrapper">
+                                  <form class="dropdown-form">
+                                    <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                                      <li class="dropdown-list-col select-dropdown-box-li "
+                                        *ngFor="let k of Questn.selectOptions"
+                                        (click)="activeDropdown($event.currentTarget, k.id, 'select_Q',Questn.QuestionId)"> 
+                                        <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link"
+                                          (click)="getdropdown($event.currentTarget)"> {{k.optionText}}</a>
+                                      </li>
+                                    </ul>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <hr>
+                        </div>
+                      </div>
+                      <div class="check-box-item" *ngIf="Insurer_ID!==11 && Insurer_ID!==1">
+                        <input type="checkbox" class="check-input" name="noForAll" id="noForAll"
+                          (click)="UncheckAll($event.target.checked)">
+                        <label class="check-input-label weight-500 flex-box no-shadow font-18 text-extralight"
+                          for="noForAll">
+                          No for all
+                        </label>
+                      </div>
+                      <div class="box" *ngIf="Insurer_ID===11" style="border:0px solid transparent;height:100%;">
+                        <label  class="flex-box"> Please go through
+                          <a style="display: contents;" (click)="TATAAgreement('wording')" class="primary-text link-text"> Policy wordings</a>&nbsp; &&nbsp; <a
+                            (click)="TATAAgreement('brochure')" class="primary-text link-text" style="display: contents;">Policy brochure&nbsp;</a> for your reference.
+                        </label>
+                        <hr>
+                        <label class="flex-box"> Please find
+                          <a style="display: contents;" (click)="TATAAgreement('claimForm')" class="primary-text link-text"> Claim form </a>for your reference.
+                        </label>
+                        <hr>
+                      </div>
+                      <div class="row" *ngIf="MedicalQsError">
+                        <div class="col-md-12">
+                          <div class="selectForAll col-md-6"></div>
+                          <div class="col-md-6">
+                            <span *ngIf="Insurer_ID!=1 && Insurer_ID!=11" style="color: red;">Select Your Option For
+                              All</span>
+                            <span *ngIf="Insurer_ID===1 || Insurer_ID===11" style="color: red;">Select Your
+                              Option</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="medical-history-detail-area">
+                        <span style="color: red;" id="for-all-err"></span>
+                        <div class="medical-history-detail-row" *ngFor="let Question of _insurerQue,let i = index">
+                          <span class="font-20 label medical-history-detail-title">{{Question.QuestionText}}</span>
+                          <div class="radio-item-wrap flex-box">
+                            <div class="radio-item-row">
+                              <div class="radio-box">
+                                <input type="radio" class="radio-custom yes-check" value="yes"
+                                  id="{{'question_'+Question.QuestionId}}" name="{{'question_'+Question.QuestionId}}"
+                                  (change)="checkIfSelected(Question.QuestionId)">
+                                <label class="radio-custom-label font-18 text-extralight"
+                                  for="{{'question_'+Question.QuestionId}}">Yes</label>
+                              </div>
+                            </div>
+                            <div class="radio-item-row">
+                              <div class="radio-box">
+                                <input type="radio" class="radio-custom no-check no_for_indivdual" value="no"
+                                  id="selectAll_{{Question.QuestionId}}" name="selectAll_{{Question.QuestionId}}"
+                                  (change)="SelectAll(Question.QuestionId);">
+                                <label class="radio-custom-label font-18 text-extralight"
+                                  for="selectAll_{{Question.QuestionId}}">No</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="form-controls">
+                        <button class="main-btn btn-white payBtn" type="button" data-bs-toggle="modal"
+                          style="visibility: hidden;" (click)="showPaymentLinkPopup($event)">SEND PAYMENT LINK</button>
+                        <div class="tab-change-controls">
+                          <button class="main-btn btn-white btn-prev">Previous</button>
+                          <a href="javascript:void(0)" class="main-btn" id="final"
+                            (click)="GotoSummary($event,proposalForm.value)">Submit</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-col flex-30">
+      <div class="proposal-insurance-detail-section">
+        <div class="policy-info-area">
+          <div class="policy-info-box">
+            <div class="insurance-logo-box">
+              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{insurer_logo_name?insurer_logo_name:''}}"
+                alt="Insurance Image" />
+            </div>
+            <div class="policy-info-detail-box" id="car-proosal-detail-box">
+              <div class="title-box flex-box">
+                <h2 style="padding-right: 2px;" class="poilcy-info-title title-text text-extralight font-18">
+                  {{Plan_Name}}</h2>
+                <a class="primary-text view-info-btn mob-view">View Info</a>
+                <div class="insurance-price-box mob-hidden">
+                  <div class="flex-box">
+                    <span class="insurance-price-text font-24 title-text dark-text">₹{{final_premium}}</span>
+                    <div class="price-tag bgprimary">Inc. GST</div>
+                  </div>
+                  <span class="show-detail primary-text">
+                    Show Price Breakup
+                  </span>
+                </div>
+              </div>
+              <div class="insurance-price-breakup-area mob-hidden hidden-section">
+                <ul class="insurance-price-list">
+                  <li class="insurance-price-row">
+                    <p class="price-breakup-title font-15">Insurance Premium</p>
+                    <span class="font-15 text-extralight price-breakup-value">₹{{net_premium}}</span>
+                  </li>
+                  <li class="insurance-price-row">
+                    <p class="font-15 price-breakup-title">GST</p>
+                    <span class="font-15 text-extralight price-breakup-value">₹{{service_tax}}</span>
+                  </li>
+                  <li class="insurance-price-row">
+                    <p class="font-15 price-breakup-title">Total Amount</p>
+                    <span class="font-15 text-extralight price-breakup-value">₹{{final_premium}}</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="mob-policy-info-area policy-info-listing car-proposal-policy-info mob-detail-info-box">
+                <div class="policy-info-listing-col">
+                  <div class="policy-info-listing-box">
+                    <h3 class="policy-info-listing-title font-15">CRN </h3>
+                    <p class="policy-info-listing-text font-15 text-extralight">{{crn}}</p>
+                  </div>
+                </div>
+                <div class="policy-info-listing-col">
+                  <div class="policy-info-listing-box">
+                    <h3 class="policy-info-listing-title font-15">Insurance Cover</h3>
+                    <p class="policy-info-listing-text font-16 text-extralight">{{Currency_symbol}}
+                      {{sum_insured}}</p>
+                  </div>
+                </div>
+                <div class="policy-info-listing-col">
+                  <div class="policy-info-listing-box">
+                    <h3 class="policy-info-listing-title font-15">Trip Type </h3>
+                    <p class="policy-info-listing-text font-15 text-extralight">{{trip_type}}</p>
+                  </div>
+                </div>
+                <div class="policy-info-listing-col">
+                  <div class="policy-info-listing-box">
+                    <h3 class="policy-info-listing-title font-15">Geographical Area </h3>
+                    <p class="policy-info-listing-text font-15 text-extralight">{{travelling_to}}</p>
+                  </div>
+                </div>
+                <div class="policy-info-listing-col">
+                  <div class="policy-info-listing-box">
+                    <h3 class="policy-info-listing-title font-15">Travel Start Date </h3>
+                    <p class="policy-info-listing-text font-15 text-extralight">{{TravelStartDate}}</p>
+                  </div>
+                </div>
+                <div class="policy-info-listing-col" *ngIf="trip_type =='SINGLE'">
+                  <div class="policy-info-listing-box">
+                    <h3 class="policy-info-listing-title font-15">Travel End Date </h3>
+                    <p class="policy-info-listing-text font-15 text-extralight">{{TravelEndDate}}</p>
+                  </div>
+                </div>
+                <div class="policy-info-listing-col" *ngIf="trip_type =='MULTI'">
+                  <div class="policy-info-listing-box">
+                    <h3 class="policy-info-listing-title font-15">Maximum Duration </h3>
+                    <p class="policy-info-listing-text font-15 text-extralight">{{max_days}} Days</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Save Proposal Modal -->
+<div class="modal save-proposal-modal modal-common mob-modal-view fade" id="saveProposalModal" data-bs-keyboard="false"
+  data-bs-backdrop="static" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-popup-shadow">
+      <div class="modal-body">
+        <form id="send_email_form">
+          <div class="email-area">
+            <div class="input-field-box">
+              <label for="" class="label font-20">Please enter your email address</label>
+              <input id="paymentLinkPopEmail" type="email" name="send_email" placeholder="Enter your email" required
+                class="input-field js-input-group font-18 border-thick" autocomplete="off" />
+            </div>
+            <div class="save-buttons-area flex-box">
+              <button class="main-btn light-btn btn-reverse" data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+              <button type="submit" class="main-btn" (click)="send_payment_link(Proposal_Request)">Send Email</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<app-header *ngIf="policyBossPro == false" [inputFromParent]="sessionData"></app-header>
+<!-- <div class="mainHeader divHeaderSection" id="home" [innerHTML]="headerData"></div> -->
+<app-quote *ngIf="is_quotes" [inputFromParent]="sessionData" [appVisitorData]="visitorObj"></app-quote>
+<!-- <router-outlet  *ngIf="is_quotes == false"></router-outlet> -->
+<app-proposal-summary *ngIf="is_quotes == false && is_proposal_summary == true" [inputFromParent]="sessionData" [appVisitorData]="visitorObj"></app-proposal-summary>
+<app-proposal-details *ngIf="is_quotes == false && is_proposal_details == true" [inputFromParent]="sessionData" [appVisitorData]="visitorObj"></app-proposal-details>
+<app-footer *ngIf="policyBossPro == false && is_proposal == false" [inputFromParent]="sessionData"></app-footer> 

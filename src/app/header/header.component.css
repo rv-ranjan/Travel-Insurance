@@ -1,0 +1,186 @@
+.profile-popup {
+    position: absolute;
+    right: 107px;
+    background-color: white;
+    padding: 10px 5px;
+    box-shadow: 0 0 5px grey;
+    border-radius: 3px;
+    width: 200px;
+    text-align: center;
+    display: none;
+    z-index: 999;
+    color: black;
+}
+
+.logOut-btn {
+    background-color: #1A81FF;
+    width: 90px;
+    margin: auto;
+    color: white;
+    border: 1px solid #1A81FF;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.profile-popup a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #6a6a6a;
+}
+
+#agentName:hover+.profile-popup {
+    display: block;
+}
+
+.profile-popup:hover {
+    display: block;
+}
+
+.profile-popup a {
+    text-decoration: none;
+    color: #6a6a6a;
+}
+
+.langdropdown {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    top: 27px !important;
+    width: 104px !important;
+}
+
+.langdropdowneng {
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    padding: 5px 0px 5px 0px !important;
+}
+
+.langdropdownhind {
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 5px 0px 5px 0px !important;
+}
+
+.language-dropdown-icon-box {
+    left: -5px;
+}
+
+.mainHeader header .nav-right-box li .language-dropdown {
+    display: block !important;
+}
+
+.padd_dropdown {
+    padding: 0px !important;
+}
+
+#login_dropdown {
+    max-width: 194px;
+}
+
+#login_input {
+    right: 20px;
+}
+
+#drop_down_li {
+    width: 162px;
+}
+
+.auth-token-dialog-model {
+    width: 340px;
+}
+
+@media (max-width: 991px) {
+    .language-dropdown-li2 {
+        margin-right: 24px;
+    }
+
+    .langdropdownselect {
+        display: none !important;
+    }
+
+    .language-dropdown-icon-box {
+        position: relative !important;
+        top: 0px !important;
+        left: -22px !important;
+    }
+
+    .language-dropdown-li1 {
+        margin-right: 30px !important;
+    }
+
+    .mainHeader header .nav-right-box li .language-dropdown.language-dropdown-custom::after {
+        top: 5px !important;
+        right: 7px !important;
+    }
+
+    .langdropdownmb {
+        padding: 0px;
+        inset: 0px auto auto 0px;
+        margin: 0px;
+        transform: translate3d(0px, 44px, 0px);
+        top: -7px !important;
+        bottom: -17px !important;
+        left: -93px !important;
+        height: 82px !important;
+        width: 108px !important;
+    }
+
+    .langdropdowneng {
+        padding: 5px 0px 5px 0px;
+    }
+
+    .langdropdownhind {
+        padding: 5px 0px 5px 0px;
+    }
+}
+
+@media (max-width: 575px) {
+    #login_dropdown {
+        max-width: 94px;
+    }
+
+    .modal-dialog-centered {
+        min-height: calc(100% - 3.5rem);
+    }
+
+    .modal-dialog {
+        max-width: 96%;
+        margin: 1.75rem auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .login-btn {
+        margin-right: 27px;
+    }
+
+    .profile-popup {
+        right: -4px;
+    }
+
+    .auth-token-popup {
+        right: 3% !important;
+    }
+
+    .mainHeader header .nav-right-box li {
+        margin-right: 2px;
+    }
+
+    .loginButton {
+        margin-right: 15px !important;
+    }
+
+    #login_input {
+        right: 25px;
+    }
+
+    #drop_down_li {
+        left: -60px;
+    }
+
+    .mainHeader header .nav-right-box li .login-btn {
+        padding: 8px 10px !important;
+    }
+    
+}

@@ -1,0 +1,1471 @@
+<!--Otp Popup-->
+<div class="modal menu-popup modal-common SubFOSPopup" id="ModelOTP">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content wrapper-540 modal-popup-shadow otpPopupWidth">
+      <div class="" style="padding: 0px;">
+        <div class="btn-close-wrapper" style="float: right;
+        padding: 10px 10px 0px 0px;">
+          <button type="button" class="btn-close js_modal_close align-self-start mt-0" (click)="closeOTP()"></button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="SubFOSScreen">
+          <div class="FOSHeader centerAlign">
+            <div class="details-head">
+              <h4 style="text-align: center;">Hi <span id="namemodal">{{first_name}}</span>,</h4>
+            </div>
+          </div>
+          <div class="MainContentBlog centerAlign" style="text-align: center;">
+            <h6 id="otpFlexBox"> OTP sent on your Mobile No. <b>{{mobile}}&nbsp;</b><a title="Edit" id="flex_otp_edit"
+                class="edit-box flex-box text-primary" (click)="edit()"><img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/pen-icon.svg"
+                  alt="Edit Information" />
+              </a>
+            </h6>
+            <!-- <p>Enter your OTP</p> -->
+            <div>
+              <div class="otp_txtbx" style="margin-bottom: 10px;">
+                <div><input type="number" id="txtotp" name="txtotp"
+                    class="input-field border-thick font-18 js-input-group"
+                    onkeypress="if(this.value.length >= 4) return false;" placeholder="OTP" autocomplete="off"
+                    aria-invalid="false"></div>
+              </div>
+            </div>
+            <div style="display: flex;gap: 12px;">
+              <div class="verifybx2">
+                <button class="verifyotp main-btn cursor_pointer" type="button" (click)="VerifyOTPN();">Verify</button>
+                <span class="Heading1" id="verifyOtpspan"></span>
+              </div>
+              <div class="verifybx1" style="width: 100%;">
+                <button class="resend main-btn cursor_pointer" (click)="ResendOTPN();" type="button"
+                  style="float:right;">Re-send</button>
+              </div>
+            </div>
+            <label id="VerifyOTP_udid" name="VerifyOTP_udid" type="hidden"></label>
+            <div><label id="lblerrormsg" class="Err" style="color:red"></label></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- T&C pop-up-->
+<div class="modal save-proposal-modal modal-common mob-modal-view fade" id="TnCModal" data-bs-keyboard="false"
+  data-bs-backdrop="static" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 950px;">
+    <div class="modal-content modal-popup-shadow" id="tnc2" style="height: unset;">
+      <div class="modal-body">
+        <form id="TnC_form">
+          <div class="TnC-area">
+            <div class="scroll" style="scrollbar-3dlight-color:aqua;overflow-y:scroll; height:350px; margin: 10px;">
+              <b> Terms & Condition :</b>
+              <div id="TermsForAll" *ngIf=!TermsForDigit>
+                <p>I understand that the information provided by me will form the basis of the insurance
+                  policy, is subject to the Board approved underwriting policy of the insurance
+                  company and that the policy will come into force only after full receipt of the
+                  premium chargeable. </p>
+                <p>I/We further declare that I / We will notify in writing any change occurring in the
+                  occupation or general health of the life to be insured / proposer after the proposal
+                  has been submitted but before communication of the risk acceptance by the company.
+                </p>
+                <p>I/We declare and consent to the company seeking medical information from any doctor
+                  or from a hospital who at any time has attended on the life to be insured / proposer
+                  or from any past or present employer concerning anything which affects the physical
+                  or mental health of the life to be assured / proposer and seeking information from
+                  any insurance company to which an application for insurance on the life to be
+                  assured / proposer has been made for the purpose of underwriting the proposal and /
+                  or claim settlement.</p>
+                <p>I/We authorize the company to share information pertaining to my proposal including
+                  the medical records for the sole purpose of proposal underwriting and / or claims
+                  settlement and with any Governmental and / or Regulatory authority.</p>
+                <p>I/We have read and understood the brochure, prospectus, sales literature, terms and
+                  conditions of the Policy, Optional Extensions and confirm to abide by the same.</p>
+                <p>Receipt of proposal form by the Company shall not be construed as acceptance of
+                  proposal. Commencement of risk under the Policy shall be subject to realization of
+                  full premium and acceptance by the Company. The Company at its sole discretion
+                  reserves the right to accept or reject or load any proposal. Policy would start from
+                  the date as specified in the Policy Certificate. </p>
+                <p>I understand that the Policy Period Start Date as specified in the Policy Certificate
+                  shall be from the 00:00 hrs of the next day of the Proposal receipt at branch,
+                  proposed policy period start date as opted by me or cheque date, whichever is later.
+                </p>
+                <p>I/We hereby declare that the lives proposed to be insured would submit to medical
+                  examinations before the nominated doctors of the Company, or undergo diagnostic or
+                  other medical tests, as suggested by the company for its underwriting wherever
+                  applicable.</p>
+                <p>I/We authorize the Company to use and disclose any personal information collected or
+                  available with the Company in relation to the persons to be insured (whether
+                  obtained with this Proposal or otherwise) to other underwriting companies, claim
+                  investigation companies / agencies, service provider, assistance company / any
+                  statutory body and insurance / re-insurance companies for the purpose of processing
+                  of this proposal and providing subsequent services.</p>
+                <p>I consent to provide a valid age proof and identity proof at the time of claims or
+                  any other time when required by the Company.</p>
+                <p>I/We understand that the Policy shall become void at the option of the Company, in
+                  the event of any untrue or incorrect statement, misrepresentation, non-description
+                  or non-disclosure of any material fact in the Proposal form/personal statement,
+                  declaration and connected documents, or any material information having been
+                  withheld by me / us or anyone acting on my / our behalf. </p>
+                <p>I/We consent to receive information from the Company through physical documents or
+                  electronic or telecommunication means from time to time.</p>
+                <p>Bonafide Source of funds for payment:</p>
+                <p>1. I/We hereby confirm that all premiums have been / will be paid from bonafide
+                  sources and no premiums have been/will be paid out of proceeds of crime related to
+                  any of the offence listed in Prevention of Money Laundering Act, 2002 and applicable
+                  laws.</p>
+                <p>2. I understand that the Company has the right to call for documents to establish
+                  sources of funds.</p>
+                <p>3. The insurance company has right to cancel the insurance contract in case I am /
+                  have been found guilty by any competent court of law under any of the statutes,
+                  directly or indirectly governing the prevention of money laundering in India.</p>
+                <p>I/We further declare, on my behalf and on behalf of each of the persons proposed to
+                  be insured that there is all information which is relevant to this proposal that has
+                  been disclosed and not withheld from the Company. I further declare and agree that
+                  this declaration and the answers given above shall be held to be promissory and
+                  shall be the basis of the contract between me / us and the Company. </p>
+                <p>I/We hereby declare, on my behalf and on behalf of all persons proposed to be
+                  insured, that the above statements, answers and / or particulars given by me are
+                  true and complete in all respects to the best of my knowledge and that I / We am /
+                  are authorized to propose on behalf of these other persons. </p>
+              </div>
+              <div *ngIf=TermsForDigit id="TermsForDigit">
+                <p>I hereby declare, on my behalf and on behalf of all persons proposed to be insured,
+                  that the above statements, answers and/or particulars given by me are complete, true
+                  and accurate in all respects to the best of my knowledge and that I am authorized to
+                  propose on behalf of these other persons.</p>
+                <p>I understand that the information provided by me will form the basis of the insurance
+                  policy, is subject to the Board approved underwriting policy of the Company and that
+                  the policy will come into force only after full payment of the premium chargeable.
+                </p>
+                <p>I further declare that l will notify in writing any change occurring in the
+                  occupation or general health of the life to be insured/proposer after the proposal
+                  has been submitted but before communication of the risk acceptance by the Company
+                </p>
+                <p>I declare that I consent to the company seeking medical information from any doctor
+                  or hospital who/which at any time has attended on the person to be insured/proposer
+                  or from any past or present employer concerning anything which affects the physical
+                  or mental health of the person to be insured/proposer and seeking information from
+                  any insurer to whom an application for insurance on the person to be insured
+                  /proposer has been made for the purpose of underwriting the proposal and/or claim
+                  settlement. I/We authorize the company to share information pertaining to my
+                  proposal including the medical records for the sole purpose of proposal underwriting
+                  and/or claims settlement and with any Governmental and/or Regulatory authority.
+                <p>
+                <p>I authorize the company to share information pertaining to my proposal including the
+                  medical records of the insured/proposer for the sole purpose of underwriting the
+                  proposal and/or claims settlement and with any Governmental and/or Regulatory
+                  authority.
+                <p>
+                <p>I agree that the Insurance company will not be liable under the insurance contract if
+                  it is found that any of my/our statements or particulars or declarations in this
+                  proposal form or other documents are incorrect /misleading /Fraudulent in any
+                  respect on any matter to the grant of a cover.</p>
+                <p>I accept that this policy does not cover treatment or pre-existing medical
+                  conditions/diseases/ailments that are declared or undeclared unless specifically
+                  opted and premium paid.</p>
+                <p>I accept that this policy will not be valid if the origin of my trip is not India.
+                </p>
+                <p>By submitting your contact number and email ID, you authorize Go Digit General
+                  Insurance (Digit Insurance) to call, send SMS, messages over internet-based
+                  messaging application like WhatsApp and email and offer you information and services
+                  for the product(s) you have opted for as well as other products/services offered by
+                  Digit Insurance. Please note that such authorization will be over and above any
+                  registration of the contact number on TRAI’s NDNC registry.</p>
+              </div>
+            </div>
+            <div class="save-buttons-area flex-box">
+              <button aria-label="Close" class="main-btn light-btn btn-reverse cursor_pointer" data-bs-dismiss="modal"
+                (click)="hide_popup()">OK</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--pop-up-end-->
+<!--Send_Payment_Link-->
+<div class="modal menu-popup modal-common" id="submit_loader_popup">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content wrapper-540 modal-popup-shadow">
+      <div class="modal-body">
+        <div id="AgentDiv" style="font-family: Helvetica-medium-500;">
+          <div id="AgentSuccess" style="text-align: center;">
+            <svg style="padding:20px;height:160px;margin-top: 20px;" version="1.1" viewBox="0 0 130.2 130.2"
+              xmlns="http://www.w3.org/2000/svg">
+              <circle class="path circle" cx="65.1" cy="65.1" fill="none" r="62.1" stroke="#73AF55"
+                stroke-miterlimit="10" stroke-width="6"></circle>
+              <polyline class="path check" fill="none" points="100.2,40.2 51.5,88.8 29.8,67.5 " stroke="#73AF55"
+                stroke-linecap="round" stroke-miterlimit="10" stroke-width="6">
+              </polyline>
+            </svg>
+            <br>
+            <div style="font-size: 16px;">{{msg}}</div>
+            <br>
+            <div style="font-size: 16px;color :#4cae4c">Payment Link</div>
+            <br>
+            <div id="short_url" style="font-size: 19px;color:cornflowerblue">{{short_url}}</div>
+          </div>
+          <div id="AgentFail" style="text-align:center; display:none;">
+            <img class="img-responsive" id="Alerticon" src="https://www.policyboss.com/website/Images/Alert.ico"
+              style="text-align: center;width:130px; padding-top: 15px;">
+            <br><br>
+            <div style="font-size: 16px;">Msg: <span id="FailMsg"></span></div>
+          </div><br>
+          <div style="text-align: center;">
+          <button class="main-btn btn   BackButton cursor_pointer" (click)="backtohome()" id="BackToHome">Back
+            To Home</button>
+          <button class="main-btn btn   BackButton cursor_pointer" (click)="AgentOk()">OK</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="Loading" *ngIf="loader"
+  style="position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 9999;background-color: black;opacity: 0.8;">
+  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/loading.gif"
+    style="height: 120px; position: absolute;left: 45%;top: 50%;transform: translate(-50%,-50%);">
+    <div id="loaderStatusMsg" style="text-align: center;left: 39%;top: 64%;position:absolute;color: #fff;">{{msg}}</div>
+
+</div>
+<!-- Kyc popup -->
+<button class="primary-text link-text" data-bs-toggle="modal" data-bs-target="#eKycModel" id="triggerEkyc"></button>
+<div class="modal menu-popup fade e-Kyc" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="eKycModel" aria-hidden="true" id="eKycModel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-heading">
+          <div class="modal-title" style="text-align: center;">
+            <h3 class="font-24 title-text">KYC CRN - {{CRN}}</h3>
+          </div>
+          <div class="modal-button-area">
+            <button type="button" class="btn-close js_modal_close align-self-start mt-0 eKycCloseButton" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="modal-bottom-section" style="overflow-wrap: anywhere;">
+          <div id="ekycForm">
+            <div style="display: grid;grid-template-columns: 0.3fr 1fr;margin: 10px 0px;" class="searchTypeDiv">
+              <div class="labelStyle">Document Type :&nbsp;</div>
+              <div class="input-field-box">
+                <input type="text"
+                  class="btn input-field dropdown-toggle select-dropdown border-thick font-18 js-input-group"
+                  type="button" id="ekycSearchType" name="ekycSearchType" readonly data-bs-toggle="dropdown"
+                  aria-expanded="false" autocomplete="off" style="text-transform: uppercase;"
+                  placeholder="Select Document Type" />
+                  <!-- <div class="car-registration-info-box">
+                    <div class="radio-input-field-box">
+                        <div class="radio-select-box">
+                            <div class="radio-box">
+                                <input type="radio" class="radio-custom" id="check-item-58" name="car-registration" (click)="ekycType($event.currentTarget,'Pan','eKyc')" />
+                                <label class="radio-custom-label font-18 text-extralight" for="check-item-58">PAN </label>
+                            </div>
+                            <div class="radio-box">
+                                <input type="radio" class="radio-custom" name="car-registration" id="check-item-59" (click)="ekycType($event.currentTarget,'Aadhar','eKyc')">
+                                <label class="radio-custom-label font-18 text-extralight" for="check-item-59">Aadhar</label>
+                            </div>
+                            <div class="radio-box" >
+                                <input type="radio" class="radio-custom" name="car-registration" id="check-item-60" (click)="ekycType($event.currentTarget,'Both','eKyc')">
+                                <label class="radio-custom-label font-18 text-extralight" for="check-item-60">Both</label>
+                        </div>
+                    </div>
+                </div>
+                </div> -->
+                <span class="ekycSearchTypeErr ekycErrMsg" id="ekycSearchTypeErr"></span>
+                <div class="dropdown-menu dropdown-menu-box select-dropdown-box" aria-labelledby="dropdownMenuButton11">
+                  <div class="dropdown-content-wrapper">
+                    <form class="dropdown-form" style="text-transform: uppercase;">
+                      <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                        <li class="dropdown-list-col select-dropdown-box-li" *ngFor="let document of kyc_document_types">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget, document.id,'eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">{{document.name}}</a>
+                        </li>
+                        <!-- <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'Pan','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">PAN</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'Aadhar','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">Aadhar</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'Both','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">PAN & Aadhar</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'Passport','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">Passport</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'VoterID','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">Voter ID</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'DrivingLicense','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">Driving License</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'NREGAJobCard','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">NREGA Job card</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'GSTIN','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">GSTIN</a>
+                        </li>
+                        <li class="dropdown-list-col select-dropdown-box-li">
+                          <a href="javascript:void(0)" (click)="ekycType($event.currentTarget,'CKYCNumber','eKyc')"
+                            class="dropdown-list-link select-dropdown-box-link">CKYC Number</a>
+                        </li>  -->
+                      </ul>
+                    </form>
+                  </div>
+              </div>
+            </div>
+            </div>
+            <div style="display: none;" id="ekycMobileDiv">
+              <div class="labelStyle">Mobile :&nbsp;</div>
+              <div>
+                <input type="text" name="ekycMobile" maxlength="10" pattern="[1-9]{1}[0-9]{9}"
+                  (keypress)="KeyPressEvent($event,'Mobile')" (keyup)="ValidateNumber($event)"
+                  class="input-field border-thick font-18 js-input-group number-field" id="ekycMobile" inputmode="numeric"
+                  onKeyPress="if(this.value.length==10) return false;" placeholder="Mobile Number"/>
+                <span class="ekycMobileErr ekycErrMsg" id="ekycMobileErr"></span>
+              </div>
+            </div>
+            <div style="display: none;" id="ekycAadharDiv">
+              <div class="labelStyle">Aadhar :&nbsp;</div>
+              <div style="display: grid;grid-template-columns: 1fr;">
+                <input type="text" name="ekycAadhar" maxlength="12" (keypress)="KeyPressEvent($event,'Number')"
+                  (keyup)="ValidateNumber($event)" class="input-field border-thick font-18 js-input-group"
+                  id="ekycAadhar" inputmode="numeric" placeholder="Aadhar Number"/>
+                <span class="ekycAadharErr ekycErrMsg" id="ekycAadharErr"></span>
+                <!-- <div class="input-field-box">
+                  <div class="field-icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/datepicker-icon.svg" alt="datepicker">
+                  </div>
+                  <input type="text" class="datepicker-field input-field border-thick js-input-group ekycAadharDate" name="ekycAadharDate"
+                    placeholder="Date" id="ekycAadharDate" (click)="selectAadharDob();"
+                    autocomplete="off" />
+                </div> -->
+              </div>
+            </div>
+            <div style="display: none;" id="ekycPanDiv">
+              <div class="labelStyle">PAN No. :&nbsp;</div>
+              <div style="display: grid;grid-template-columns: 1fr;">
+                <input type="text" name="ekycPan" maxlength="10" pattern="[1-9]{1}[0-9]{9}"
+                  (keypress)="KeyPressEvent($event,'AlphaNumeric')"
+                  class="input-field border-thick font-18 js-input-group" id="ekycPan" placeholder="PAN Number" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" />
+                <span class="ekycPanErr ekycErrMsg" id="ekycPanErr"></span>
+                <!-- <div class="input-field-box">
+                  <div class="field-icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/ui22/images/icons/datepicker-icon.svg" alt="datepicker">
+                  </div>
+                  <input type="text" class="datepicker-field input-field border-thick js-input-group ekycPanDate" name="ekycPanDate"
+                    placeholder="Date" id="ekycPanDate" (click)="selectPanDob();"
+                    autocomplete="off" />
+                </div> -->
+              </div>
+            </div>
+            <div style="display: none;" id="ekycBajajDiv">
+              <div class="labelStyle ekycDocNoLabelBajaj"> :&nbsp;</div>
+              <div style="display: grid;grid-template-columns: 1fr;">
+                <input type="text" name="ekycBajaj{{ekycSearchType}}" (keypress)="KeyPressEvent($event,'AlphaNumeric')"
+                  class="input-field border-thick font-18 js-input-group bajaj_input_val" id="bajaj_DocNumber" placeholder="" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" />
+                <span class="ekycPanErr ekycErrMsg" id="ekycBajaj{{ekycSearchType}}Err"></span>
+                <!-- <div class="input-field-box">
+                  <div class="field-icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/ui22/images/icons/datepicker-icon.svg" alt="datepicker">
+                  </div>
+                  <input type="text" class="datepicker-field input-field border-thick js-input-group ekycPanDate" name="ekycPanDate"
+                    placeholder="Date" id="ekycPanDate" (click)="selectPanDob();"
+                    autocomplete="off" />
+                </div> -->
+              </div>
+            </div>
+            <div style="display: none;" id="ekycStarDiv">
+              <div class="labelStyle ekycDocNoLabelStar"> :&nbsp;</div>
+              <div style="display: grid;grid-template-columns: 1fr;">
+                <input type="text" name="ekycStar{{ekycSearchType}}" (keypress)="KeyPressEvent($event,'AlphaNumeric')"
+                  class="input-field border-thick font-18 js-input-group star_input_val" id="star_DocNumber" placeholder="" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" />
+                <span class="ekycPanErr ekycErrMsg" id="ekycStar{{ekycSearchType}}Err"></span>
+                <!-- <div class="input-field-box">
+                  <div class="field-icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/ui22/images/icons/datepicker-icon.svg" alt="datepicker">
+                  </div>
+                  <input type="text" class="datepicker-field input-field border-thick js-input-group ekycPanDate" name="ekycPanDate"
+                    placeholder="Date" id="ekycPanDate" (click)="selectPanDob();"
+                    autocomplete="off" />
+                </div> -->
+              </div>
+            </div>
+            <div style="display: none;" id="ekycDobDiv">
+              <div class="labelStyle ekycDobLabel">DOB :&nbsp;</div>
+              <div class="input-field-box">
+                <div class="field-icon-box">
+                  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/datepicker-icon.svg" alt="datepicker">
+                </div>
+                <input type="text" class="datepicker-field input-field border-thick js-input-group ekycDob"
+                  name="ekycDob" placeholder="Date of birth" id="ekycDob" (click)="selectekycDob();" autocomplete="off" />
+                <span class="ekycDobErr ekycErrMsg" id="ekycDobErr"></span>
+              </div>
+            </div>
+            <div id="ekycUploadAadharDiv" style="display: none;">
+              <div class="labelStyle eKycDocLabelAadhar  eKycDocLabel">Upload Aadhar :</div>
+              <div class="input-field-box">
+                <div class="input-field-box file-upload-wrap">
+                <input class="input-field border-thick font-18 js-input-group form-control kycDocumentInput" type="file" id="eKycAadharDoc" name="eKycDoc" accept=".pdf, .jpg, .jpeg" (change)="geteKycFiles($event)">
+                  <span class="browse-file-name input-field border-thick font-18 text-extralight eKycDocspan eKycAadharDocSpan" id="eKycDocspan">Browse a file </span>
+                  <button type="button" class="browse-btn main-btn">Browse</button>
+                </div>
+                  <span class="ekycUploadDocErr ekycErrMsg" id="ekycUploadAadharErr"></span>
+              </div>
+            </div>
+            <div  id="ekycUploadPanDiv"  style="display: none;">
+                <div class="labelStyle eKycDocLabel eKycDocLabelPan">Upload Pan :</div>
+                <div class="input-field-box">
+                    <div class="input-field-box file-upload-wrap">
+                        <input class="input-field border-thick font-18 js-input-group form-control kycDocumentInput" type="file" id="eKycPanDoc" name="eKycDoc" accept=".pdf, .jpg, .jpeg" (change)="geteKycFiles($event)">
+                        <span class="browse-file-name input-field border-thick font-18 text-extralight eKycDocspan eKycPanDocSpan" id="eKycDocspan">Browse a file </span>
+                        <button type="button" class="browse-btn main-btn">Browse</button>
+                    </div>
+                    <span class="ekycUploadDocErr ekycErrMsg" id="ekycUploadPanErr"></span>
+                </div>
+            </div>
+            <!--Bajaj Changes-->
+            <div  id="ekycUploadBajajDocs"  style="display: none;">
+                <div class="labelStyle eKycDocLabel_Bajaj">Upload Pan :</div>
+                <div class="input-field-box">
+                    <div class="input-field-box file-upload-wrap">
+                        <input class="input-field border-thick font-18 js-input-group form-control kycDocumentInput" type="file" id="BajajeKycDoc" name="eKycDoc" accept=".pdf, .jpg, .jpeg" (change)="geteKycFiles($event)">
+                        <span class="browse-file-name input-field border-thick font-18 text-extralight eKycDocspan BajajeKycDocSpan" id="eKycDocspan">Browse a file </span>
+                        <button type="button" class="browse-btn main-btn">Browse</button>
+                    </div>
+                    <span class="ekycUploadDocErr ekycErrMsg" id="ekycUploadBajaj{{ekycSearchType}}Err"></span>
+                </div>
+            </div>
+
+            <!--Star Changes-->
+            <div  id="ekycUploadStarDocsFront"  style="display: none;">
+              <div class="labelStyle eKycDocLabel_StarFront">Upload Pan :</div>
+              <div class="input-field-box">
+                  <div class="input-field-box file-upload-wrap">
+                      <input class="input-field border-thick font-18 js-input-group form-control kycDocumentInput" type="file" id="StareKycDocFront" name="eKycDoc" accept=".pdf, .jpg, .jpeg" (change)="geteKycFiles($event)">
+                      <span class="browse-file-name input-field border-thick font-18 text-extralight eKycDocspan StareKycDocSpan" id="eKycDocspan">Browse a file </span>
+                      <button type="button" class="browse-btn main-btn">Browse</button>
+                  </div>
+                  <span class="ekycUploadDocErr ekycErrMsg" id="ekycUploadStarFront{{ekycSearchType}}Err"></span>
+              </div>
+          </div>
+
+          <div  id="ekycUploadStarDocsBack"  style="display: none;">
+            <div class="labelStyle eKycDocLabel_StarBack">Upload Pan :</div>
+            <div class="input-field-box">
+                <div class="input-field-box file-upload-wrap">
+                    <input class="input-field border-thick font-18 js-input-group form-control kycDocumentInput" type="file" id="StareKycDocBack" name="eKycDoc" accept=".pdf, .jpg, .jpeg" (change)="geteKycFiles($event)">
+                    <span class="browse-file-name input-field border-thick font-18 text-extralight eKycDocspan StareKycDocSpan" id="eKycDocspan">Browse a file </span>
+                    <button type="button" class="browse-btn main-btn">Browse</button>
+                </div>
+                <span class="ekycUploadDocErr ekycErrMsg" id="ekycUploadStarBack{{ekycSearchType}}Err"></span>
+            </div>
+        </div>
+
+          <div  id="ekycUploadStarProfilePictureDocs" style="display: none;">
+            <div class="labelStyle">Upload Profile Picture :</div>
+            <div class="input-field-box">
+                <div class="input-field-box file-upload-wrap">
+                    <input class="input-field border-thick font-18 js-input-group form-control kycDocumentInput" type="file" id="StareKycDocProfilePicture" name="eKycDoc" accept=".pdf, .jpg, .jpeg" (change)="geteKycFiles($event)">
+                    <span class="browse-file-name input-field border-thick font-18 text-extralight eKycDocspan StareKycDocSpan" id="eKycDocspan">Browse a file </span>
+                    <button type="button" class="browse-btn main-btn">Browse</button>
+                </div>
+                <span class="ekycUploadDocErr ekycErrMsg" id="ekycUploadStarProfilePictureDocs{{ekycSearchType}}Err"></span>
+            </div>
+        </div>
+            <span style="text-align: center;color: red;" class="ekycPopupMsg"></span>
+            <div style="text-align: center;" class="submitEkycBtnDiv">
+              <a class="main-btn cursor_pointer" (click)="submitEkyc('popup')">OK</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Kyc popup -->
+<button class="primary-text link-text" data-bs-toggle="modal" data-bs-target="#eKycModelResponse"
+  id="triggerEkycRes"></button>
+<div class="modal menu-popup e-Kyc" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="eKycModelResponse" aria-hidden="true" id="eKycModelResponse">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-heading">
+          <div class="modal-title" style="text-align: center;">
+            <h3 class="font-24 title-text">KYC CRN - {{CRN}}</h3>
+          </div>
+          <div class="modal-button-area">
+            <button type="button" class="btn-close js_modal_close align-self-start mt-0 eKycCloseButton"
+              data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="modal-bottom-section" style="overflow-wrap: anywhere;">
+          <div id="ekycResponseDiv" class="font-16" style="text-align: center;margin: 10px 0px;color: red;">
+            <span style="color: red;display: none;font-family: Helvetica-medium-500;" id="ekycResponseDivErr"></span>
+            <span style="display: none;font-family: Helvetica-medium-500;color: black;" id="ekycResponseDivSuccess">
+              <div class="image-box">
+                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/exam-sucsees-icon.svg"
+                  alt="KYC Success" style="margin-bottom: 20px;">
+              </div>
+              <h1 class="title-text font-24" style="margin-bottom: 20px;text-align: center;" *ngIf="Insurer_ID !== 44">
+                KYC Created Successfully</h1>
+              <h1 class="title-text font-24" style="margin-bottom: 20px;text-align: center;" *ngIf="Insurer_ID == 44">
+                Data Uploaded Successfully.</h1>
+              <p *ngIf="Insurer_ID !== 44" class="font-18 text-extralight transaction-title"
+                style="margin-bottom: 20px;text-align: center;">KYC Number -
+                <span class="transaction-id weight-700">{{kyc_no}}</span>
+              </p>
+            </span>
+            <span style="color: red;display: none;font-family: Helvetica-medium-500;" id="ekycResponseDivFailed">
+              <div class="image-box">
+                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/exam-failed-icon.svg"
+                  alt="KYC Fail" style="margin-bottom: 20px;">
+              </div>
+              <h1 class="title-text font-24" style="margin-bottom: 20px;text-align: center;">Oops!
+                <br>
+                <span class="ckycVCRemarks" style="color:red;font-family: Helvetica-medium-500;display: none;"></span>
+              </h1>
+            </span>
+          </div>
+          <div style="text-align: center;display: none;" class="ekycContinueBtn">
+            <a class="main-btn cursor_pointer" (click)="closeEkyc()" style="width: 100%;">Close</a>
+          </div>
+          <div style="text-align: center;display: none;" class="redirectEkycBtnDiv">
+            <a class="main-btn cursor_pointer" (click)="redirectToInsurer(true)" style="width: 100%;">Create
+              KYC</a>
+          </div>
+          <div style="text-align: center;display: none;" class="CreateKYCBtnDiv">
+            <a class="main-btn cursor_pointer" (click)="CreateKYC()" style="width: 100%;">Create KYC</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Error Popup start -->
+<!-- <div class="modal menu-popup modal-common AlertMsg" style="display:none;"> -->
+<div class="modal menu-popup alertDiv e-Kyc" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="AlertMsg" aria-hidden="true" id="AlertMsg">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 570px;">
+    <div class="modal-content wrapper-540 modal-popup-shadow" style="max-width: 570px;">
+      <div class="modal-body" style="padding: 30px !important;">
+        <div class="SpinnerClass">
+          <div class="center-block" style="opacity:1;align-self: center;" id="CustomerDiv">
+
+            <div class="AlertMsg" style="text-align: center;">
+              <div style="text-align:center;font-weight:bolder; font-size:22px;" class="CRN">CRN : {{CRN}}
+              </div>
+              <img src="https://www.policyboss.com/website/Images/Alert.ico" id="Alerticon" class="img-responsive"
+                style="text-align: center;width:40px; padding-top:5px;" />
+              <div class="Insu_errAlert">
+                <div class="errAlert_wrap">
+                  <div>
+                    <div style="text-align:left;font-weight:bolder;" class="ErrInsurerName"></div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr">
+                      <div style="text-align:left;font-weight:bolder;" class="ErrQuoteOn"></div>
+                      <div style="text-align:left;font-weight:bolder;" class="ErrDateTime"></div>
+                    </div>
+
+                  </div>
+
+                  <div class="ErrTxt_txt" id="err_msgtxt" style = "overflow:auto">
+                    <p class="ErrTxt_txt"
+                      style=" text-align: center; color: red;  padding: 5px; border-bottom: 1px solid #c9c9c9; font-family: Helvetica-medium-500;">
+                      {{ErrMsg}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div id="ProgressStatus" style="word-wrap: break-word;"></div> -->
+            <div id="Hidepopup" style="display:none; padding-top: 20px;text-align: center;">
+              <button class="btn btn-primary waves-effect spinner_close cursor_pointer"
+                style="color: #fff; background: #1A81FF;border-color:#1A81FF;padding:5px 22px;"
+                (click)="hideProgress();" id="CloseBtn"> Close </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Proposal-Summary-Section-->
+<div
+  class="car-proposal-detail-section proposal-summary-section term-proposal-summary-section travel-proposal-summary-section">
+  <div class="main-row">
+    <div class="main-col flex-70">
+      <div class="detail-summary-area">
+        <div class="detail-summary-listing">
+          <div class="summary-col">
+            <div class="summary-box">
+              <div class="title-box flex-box">
+                <h2 class="font-24 text-extralight title-text">Proposal Details</h2>
+                <a (click)="edit()" title="Edit" class="edit-box flex-box text-primary">
+                  <div class="icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/pen-icon.svg" alt="Edit Information" />
+                  </div>
+                  Edit
+                </a>
+              </div>
+              <div class="basic-detail-info">
+                <div class="policy-info-listing">
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Full Name</h3>
+                      <p id="contact_name" class="policy-info-listing-text font-16 text-extralight camelcase">
+                      </p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Gender</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{gender}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Mobile</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{mobile}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Relation with Insured Person
+                      </h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase" id="relation"></p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Date of Birth</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">
+                        {{date_of_birth}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Email</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{email}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col" id="pan_div">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Pan Card</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{pan_card}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col" *ngIf="Insurer_ID==44 || Insurer_ID==5 || Insurer_ID==26 ||Insurer_ID==11">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Visting Country</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight"
+                        *ngFor="let visit of Visiting_Countries">{{visit.item_text}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col" *ngIf="Insurer_ID==6">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Visting City</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{visiting_city.City_Name}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="summary-col">
+            <div class="summary-box">
+              <div class="title-box flex-box">
+                <h2 class="font-24 text-extralight title-text">Communication Address </h2>
+                <a (click)="edit()" title="Edit" class="edit-box flex-box text-primary">
+                  <div class="icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/pen-icon.svg" alt="Edit Information" />
+                  </div>
+                  Edit
+                </a>
+              </div>
+              <div class="personal-detail-info">
+                <div class="policy-info-listing">
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Address</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase">
+                        {{completeAddress}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Pincode</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">
+                        {{permanent_pincode}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">City</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase">
+                        {{city}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">State</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase">
+                        {{state}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class='hidden' id="member_1_salutation"></p>
+          <p class='hidden' id="member_2_salutation"></p>
+          <p class='hidden' id="member_3_salutation"></p>
+          <p class='hidden' id="member_4_salutation"></p>
+          <p class='hidden' id="member_5_salutation"></p>
+          <p class='hidden' id="member_6_salutation"></p>
+
+          <div class="summary-col">
+            <div class="summary-box">
+              <div class="title-box flex-box append_adult">
+                <h2 class="font-24 text-extralight title-text">Insured Member Details</h2>
+                <a (click)="edit()" title="Edit" class="edit-box flex-box text-primary">
+                  <div class="icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/pen-icon.svg" alt="Edit Information">
+                  </div>
+                  Edit
+                </a>
+              </div>
+              <div class="insured-member-detail-info">
+                <div class="adult-detail-area row-area " *ngFor="let i of adult_members">
+                  <h3 class="font-20 detail-title-text title-text">Adult {{i+1}}</h3>
+                  <div class="policy-info-listing">
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Name</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase"
+                          id="member_{{i+1}}_fullName"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Gender</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{i+1}}_gender"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Date of Birth</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{i+1}}_birth_date"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Passport Number</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{i+1}}_passport"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Passport Expiry</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{i+1}}_passport_expiry">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="adult{{i+1}}diseases"
+                      *ngIf="Insurer_ID==34 || Insurer_ID==9 ||Insurer_ID == 11||Insurer_ID == 26">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Pre-existing Disease</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase" id="member_{{i+1}}_ped">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="adult{{i+1}}_diseases"
+                      *ngIf="Insurer_ID==9||Insurer_ID == 11">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Other Disease</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase"
+                          id="member_{{i+1}}_other_diseases"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="adult{{i+1}}_meds"
+                      *ngIf="Insurer_ID==9||Insurer_ID == 11">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Under Medication</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase"
+                          id="member_{{i+1}}_takes_meds"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="adult{{i+1}}_suffering"
+                      *ngIf="Insurer_ID==9||Insurer_ID == 11">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">PED Suffering
+                          Since(MM/YYYY)</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{i+1}}_suffering_since">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col"
+                      *ngIf="Insurer_ID==34 || Insurer_ID==9||Insurer_ID == 11 ||Insurer_ID == 26 ||Insurer_ID == 6">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Occupation</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{i+1}}_occupation"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="child-detail-area row-area" *ngFor="let j of child_members">
+                  <h3 class="font-20 detail-title-text title-text">Child {{j+1}}</h3>
+                  <div class="policy-info-listing">
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Name</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase"
+                          id="member_{{j+3}}_fullName"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Gender</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{j+3}}_gender"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Date of Birth</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{j+3}}_birth_date"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Passport Number</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{j+3}}_passport"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Passport Expiry</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{j+3}}_passport_expiry">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="child{{j+3}}diseases"
+                      *ngIf="Insurer_ID==34 || Insurer_ID==9 ||Insurer_ID == 11 ||Insurer_ID == 26">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Pre-existing Disease</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase" id="member_{{j+3}}_ped">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="child{{j+3}}_diseases"
+                      *ngIf="Insurer_ID==9 ||Insurer_ID == 11 ">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Other Disease</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase"
+                          id="member_{{j+3}}_other_diseases"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="child{{j+3}}_meds"
+                      *ngIf="Insurer_ID==9 ||Insurer_ID == 11 ">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Under Medication</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{j+3}}_takes_meds"></p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col " id="child{{j+3}}_suffering"
+                      *ngIf="Insurer_ID==9 ||Insurer_ID == 11 ">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">PED Suffering
+                          Since(MM/YYYY)</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{j+3}}_suffering_since">
+                        </p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col"
+                      *ngIf="Insurer_ID==34 || Insurer_ID==9||Insurer_ID == 11 ||Insurer_ID == 26">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Occupation</h3>
+                        <p class="policy-info-listing-text font-18 text-extralight" id="member_{{j+3}}_occupation"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="summary-col">
+            <div class="summary-box">
+              <div class="title-box flex-box">
+                <h2 class="font-24 text-extralight title-text">Other Details</h2>
+                <a (click)="edit()" title="Edit" class="edit-box flex-box text-primary">
+                  <div class="icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/pen-icon.svg" alt="Edit Information" />
+                  </div>
+                  Edit
+                </a>
+              </div>
+              <div class="kyc-detail-info">
+                <div class="policy-info-listing">
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==34">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Has anyone been diagnosed /
+                        hospitalized / or under any treatment for any illness / injury during
+                        the last 48 months?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="hospitalize"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==34">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Have you ever claimed under
+                        any travel policy?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="under_any_policy"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==44||Insurer_ID==26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Purpose of travel?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight camelcase">
+                          {{Travel_purpose_value||Travel_purpose}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100"
+                    *ngIf="Insurer_ID==44 ||Insurer_ID==5 ||Insurer_ID==1|| Insurer_ID == 11||Insurer_ID == 6">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Traveller(s) are residents of
+                        India and the trip is starting from India?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="trip_from_india"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==9">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Is traveller(s) an Indian
+                        Citizen?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="indian_citizen"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Name of the Family Physician ?
+                      </h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="Physician_name"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Contact Number of the Family
+                        Physician ?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="Physician_number"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Is Traveller an Indian
+                        Citizen?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="indian_citizen"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Is Traveller residing in
+                        India?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="immigration_visa"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Is Insured On Immigrant Visa?
+                      </h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="immigration"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==9">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">Is the traveler(s) travelling
+                        on immigration visa?</h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="immigration_visa"></p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="policy-info-listing-col flex-100" *ngIf="Insurer_ID==6">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-18">What is your visa type?
+                      </h3>
+                      <div class="detail-box">
+                        <p class="policy-info-listing-text font-18 text-extralight" id="visaType">{{visaType}}</p>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="summary-col flex-full" *ngIf="Insurer_ID!=11">
+            <div class="summary-box">
+              <div class="title-box flex-box">
+                <h2 class="font-24 text-extralight title-text">Nominee Details</h2>
+                <a (click)="edit()" title="Edit" class="edit-box flex-box text-primary">
+                  <div class="icon-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/pen-icon.svg" alt="Edit Information" />
+                  </div>
+                  Edit
+                </a>
+              </div>
+              <div class="nominee-detail-info">
+                <div class="policy-info-listing">
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Nominee Fullname</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase">
+                        {{nominee_name}}</p>
+                    </div>
+                  </div>
+                  <!-- <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Nominee Last Name</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase">
+                        {{nominee_last_name}}</p>
+                    </div>
+                  </div> -->
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Date of Birth</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">
+                        {{nominee_birth_date}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col"
+                    *ngIf="Insurer_ID==34 ||Insurer_ID == 5|| Insurer_ID == 9 || Insurer_ID == 11||Insurer_ID == 26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Nominee Relationship</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase" id="nominee_relation"></p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col"
+                    *ngIf="Insurer_ID==34 || Insurer_ID == 9|| Insurer_ID == 11||Insurer_ID == 26">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Proposer & Nominee address is
+                        same?</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight camelcase">
+                        {{Same_As_nominee}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="check-area" id="agreement">
+          <div class="check-box" (click)="OnlineAgreementCheck($event)">
+            <input type="checkbox" class="check-input" id="terms_of_condition_check" />
+            <label for="terms_of_condition_check" class="check-input-label flex-box" id="terms_of_condition_check">I
+              hereby agree to the Landmark Insurance Brokers Pvt. Ltd.
+              <a style="display: initial;" class="primary-text link-text" id="anchor" (click)="showagreement()"
+                data-bs-toggle="modal" data-bs-target="#TnCModal"> Terms &
+                Condition
+              </a>&nbsp;of the purchase of this policy.
+            </label>
+            <span id="error_checked" class="error hidden" style="color: red;">Please agree to
+              T&C.</span>
+          </div>
+          <div class="check-box " *ngIf="Insurer_ID == 34">
+            <input type="checkbox" class="check-input" id="get_trip_check" />
+            <label for="get_trip_check" class="check-input-label flex-box">Trip start from India
+              only.</label>
+            <span id="error_trip" class="error hidden" style="color: red;">Please agree with trip start from
+              india.</span>
+          </div>
+          <div class="check-box" *ngIf="Insurer_ID == 1">
+            <input type="checkbox" class="check-input" id="get_bajaj_check">
+            <label for="get_bajaj_check" class="check-input-label flex-box">Any Ailments related to
+              Pre-Existing Diseases will not be covered under this policy.</label>
+            <span id="error_bajaj" class="hidden error" style="color: red;">Please agree with Bajaj
+              agreement.</span>
+          </div>
+
+          <div class="check-box" *ngIf="Insurer_ID == 11">
+            <input type="checkbox" class="check-input" id="get_tata_check">
+            <label for="get_tata_check" class="check-input-label flex-box">I hereby agree to Tata AIG
+              General Insurance Company Limited
+              <a style="display: initial;" (click)="Show_TATA_Agreement()" id="tata" class="primary-text link-text">
+                Terms &
+                Condition </a>&nbsp;for purchase of this policy.
+            </label>
+            <span id="error_tata" class="error hidden" style="color: red;">Please agree with Tata
+              agreement.</span>
+          </div>
+
+          <div class="check-box" *ngIf="Insurer_ID == 26">
+            <input type="checkbox" class="check-input" id="get_star_check">
+            <label for="get_star_check" class="check-input-label flex-box">I hereby Confirm that I/the
+              person/s proposed Hold a valid Indian Passport which is non emigrant category and my travel
+              doesn't include visit to any United Nation’s sanctioned Countries.</label>
+            <span id="error_star" class="hidden error" style="color: red;">Please agree with star
+              agreement.</span>
+          </div>
+          <div class="check-box" *ngIf="Insurer_ID == 44">
+            <input type="checkbox" class="check-input" id="get_digit_check">
+            <label for="get_digit_check" class="check-input-label flex-box">I hereby agree to Go Digit
+              General Insurance Limited
+              <a style="display: initial;" id="digit" class="primary-text link-text" (click)="showdigitagreement()"
+                data-bs-toggle="modal" data-bs-target="#TnCModal"> Terms
+                &
+                Condition </a>&nbsp;for purchase of this policy.
+            </label>
+            <span id="error_digit" class="error hidden" style="color: red;">Please agree with GoDigit
+              agreement.</span>
+          </div>
+          <div class="check-box ekycCheckBox" style="margin-bottom: 15px;">
+            <input class="input-field border-thick font-18 js-input-group" id="ekycNo" placeholder="Enter eKYC Number"
+              style="width: unset;" type="text" (change)="changeKycVerfiedStatus()">
+            <div><span id="erreKycNo" style="color: red;"></span></div>
+          </div>
+        </div>
+
+
+        <div class="check-box">
+          <input type="checkbox" class="check-input" id="get_update_check" (click)="whatsappUpdate()" />
+          <label for="get_update_check" class="check-input-label flex-box">Get Updates on
+            WhatsApp.</label>
+          <div class="display_block" style="display:none;">
+            <div class="mblPanel_grid">
+              <div class="EnterNo">
+                Enter whatsapp mobile number :
+              </div>
+              <div>
+                <input type="text" class="input-field border-thick font-18 js-input-group MblNoInput" id="whatsappMblNo"
+                  (keypress)="$event.charCode >= 48 && $event.charCode < 58" maxlength="10" minlength="10"
+                  style="width:unset;"><br>
+                <span id="errwhatsappMblNo" class="hidden" style="color: red;">Please enter valid
+                  number</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="summary-btn-area">
+          <div class="btn-box">
+            <a style="cursor: pointer;" class="main-btn btn-primary" id="Online_Payment"
+              (click)="Otpverification()">Online Payment</a>
+            <a id="Send_Payment_Link" style="cursor: pointer;" class="main-btn btn-primary hidden send_payment_link_btn"
+              (click)="send_payment_link(Proposal_Request)">Send Payment Link</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-col flex-30">
+      <div class="proposal-insurance-detail-section">
+        <a (click)="edit()" class="back-btn-box" title="Go Back">
+          <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/back-arrow.svg" alt="Back" />
+        </a>
+        <div class="policy-info-area">
+          <div class="policy-info-box">
+            <div class="insurance-logo-box">
+              <img id="insurance_image" src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{Insurer_logo}}.webp"
+                alt="Insurance Image" />
+            </div>
+            <div class="policy-info-detail-box" id="car-proosal-detail-box">
+              <div class="title-box flex-box">
+                <h2 style="width:46%;" class="poilcy-info-title title-text text-extralight font-18">
+                  {{Plan_Name}}</h2>
+                <a class="primary-text view-info-btn mob-view">View Info</a>
+                <div class="insurance-price-box mob-Insurance Cover mob-hidden">
+                  <div class="flex-box inline-flex-box">
+                    <span class="insurance-price-text font-24 title-text dark-text">₹
+                      {{final_premium | number:'1.0-0'}}</span>
+                    <div class="price-tag bgprimary">Inc. GST</div>
+                  </div>
+                  <span class="show-detail primary-text" id="premium_breakup">
+                    Show Price Breakup
+                  </span>
+                </div>
+              </div>
+              <div class="insurance-price-breakup-area hidden-section" id="remove">
+                <ul class="insurance-price-list">
+                  <li class="insurance-price-row">
+                    <p class="price-breakup-title font-16">Insurance Premium</p>
+                    <span class="font-16 text-extralight price-breakup-value">₹ {{net_premium|
+                      number:'1.0-0'}}</span>
+                  </li>
+                  <li class="insurance-price-row">
+                    <p class="font-16 price-breakup-title">GST</p>
+                    <span class="font-16 text-extralight price-breakup-value">₹ {{service_tax|
+                      number:'1.0-0'}}</span>
+                  </li>
+                  <li class="insurance-price-row">
+                    <p class="font-16 price-breakup-title">Total Amount</p>
+                    <span class="font-16 text-extralight price-breakup-value">₹ {{final_premium|
+                      number:'1.0-0'}}</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="summary-info-wrapper mob-detail-info-box btn-hidden">
+                <div class="mob-policy-info-area policy-info-listing">
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">CRN</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{CRN}} </p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Insurance Cover</h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">
+                        {{Currency_symbol}} {{Final_Insurance_cover |number:'1.0-0'}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Trip Type </h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{trip_type}}
+                      </p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Geographical Area </h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">
+                        {{travelling_to}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Travel Start Date </h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">
+                        {{TravelStartDate}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col" *ngIf="trip_type =='SINGLE'">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Travel End Date </h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">
+                        {{TravelEndDate}}</p>
+                    </div>
+                  </div>
+                  <div class="policy-info-listing-col" *ngIf="trip_type =='MULTI'">
+                    <div class="policy-info-listing-box">
+                      <h3 class="policy-info-listing-title font-16">Maximum Duration </h3>
+                      <p class="policy-info-listing-text font-16 text-extralight">{{max_days}}
+                        Days</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal menu-popup modal-common create-verify-aler" style="display:none;">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 570px;">
+    <div class="modal-content wrapper-540 modal-popup-shadow" style="max-width: 570px;">
+      <div class="modal-body" style="padding: 30px !important;">
+        <div class="SpinnerClass">
+          <div class="center-block" style="opacity:1;align-self: center;" id="KycCustomerDiv">
+            <div id="create-verify-alert" style="text-align: center;">
+              <div style="text-align:center;font-weight:bolder; font-size:22px;" class="CRN">KYC CRN :
+                {{CRN}}
+              </div>
+              <img src="https://www.policyboss.com/website/Images/Alert.ico" id="Alerticon" class="img-responsive"
+                style="text-align: center;width:40px; padding-top:5px;" />
+              <div class="Insu_errAlert">
+                <div class="errAlert_wrap">
+                  <div>
+                    <div style="text-align:left;font-weight:bolder;" class="ErrInsurerName"></div>
+                    <div style="display:grid;grid-template-columns:1fr 1fr">
+                      <div style="text-align:left;font-weight:bolder;" class="ErrQuoteOn"></div>
+                      <div style="text-align:left;font-weight:bolder;" class="ErrDateTime"></div>
+                    </div>
+                  </div>
+                  <div class="">
+                    <div id="KYCProgressStatus">
+                      <div>
+                        <div style="text-align: left;">We will need to complete your KYC before
+                          the policy can be purchased.<br>
+                          You will now be redirected to the Insurer portal for Completing
+                          KYC.<br>
+                          Please keep your Pan and Aadhar ready to complete KYC.<br>
+                          Once you have completed KYC on Insurer Portal, click on Verify KYC.
+                        </div> <br>
+                        <div style="text-align: center;" class="redirectEkycBtnDiv2  main-btn cursor_pointer">Create KYC
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div style="text-align: center;pointer-events: none;background: #afb1b1;"
+                          class="verifyKycBtn main-btn cursor_pointer">Verify KYC</div>
+                      </div>
+                      <br>
+                      <div class="verifyErrMsg" style="width: 100%;max-height: 2cm;overflow: auto;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal menu-popup fade e-Kyc" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="CreateVerifyAlert" aria-hidden="true" id="CreateVerifyAlert">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 534px !important;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="inner-modal-box">
+          <div>
+            <div style="text-align:center !important;">
+              <h3 class="font-24 title-text">CRN : {{CRN}}</h3>
+            </div>
+            <div style="text-align: center;">
+              <span><img src="https://origin-cdnh.policyboss.com/website/UI22/images/Alert.ico"
+                  style="text-align: center;width:40px; padding-top:5px;" /></span>
+            </div>
+            <b>
+              <div>
+                <div style="text-align:left;font-weight:bolder;" class="ErrInsurerName"></div>
+                <div style="display:grid;grid-template-columns:1fr 1fr">
+                  <div style="text-align:left;font-weight:bolder;" class="ErrQuoteOn"></div>
+                  <div style="text-align:left;font-weight:bolder;" class="ErrDateTime"></div>
+                </div>
+              </div>
+            </b>
+          </div>
+          <div style="text-align: left;">We will need to complete your KYC before the policy can be purchased.<br>
+            You will now be redirected to the Insurer portal for Completing KYC.<br>
+            Please keep your Pan and Aadhar ready to complete KYC.<br>
+            Once you have completed KYC on Insurer Portal, click on Verify KYC.
+          </div> <br>
+          <div class="modal-bottom-section" style="overflow-wrap: anywhere;">
+            <div class="inner-modal-box">
+              <div id="KYCProgressStatus" style="text-align: center;">
+                <div style="text-align: center;">
+
+                  <div style="text-align: center;" class="redirectEkycBtnDiv2  main-btn cursor_pointer">Create KYC</div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <div style="text-align: center;pointer-events: none;background: #afb1b1;"
+                    class="verifyKycBtn main-btn cursor_pointer">Verify KYC</div>
+                </div>
+                <br>
+                <div class="verifyErrMsg" style="width: 100%;max-height: 2cm;overflow: auto;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="primary-text link-text" data-bs-toggle="modal" data-bs-target="#alertModel" id="triggerAlert"></button>
+<div class="modal menu-popup fade alertDiv e-Kyc" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+  aria-labelledby="alertModel" aria-hidden="true" id="alertModel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="inner-modal-box">
+          <div class="modal-heading">
+            <div class="modal-title" style="text-align: center;">
+              <h3 class="font-24 title-text">KYC CRN - {{CRN}}</h3>
+            </div>
+            <div class="modal-button-area">
+              <button type="button" class="btn-close js_modal_close align-self-start mt-0 alertCloseBtn"
+                data-bs-dismiss="modal" style="display:none;" aria-label="Close"></button>
+            </div>
+          </div>
+          <div class="modal-bottom-section" style="overflow-wrap: anywhere;">
+            <div class="inner-modal-box">
+              <div class="kycSuccessAlert" style="display: none;">
+                <div class="image-box">
+                  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/exam-sucsees-icon.svg"
+                    alt="KYC Success" style="margin-bottom: 20px;">
+                </div>
+                <h1 class="title-text font-24" style="margin-bottom: 20px;text-align: center;">Hurray!
+                  <br>KYC Fetched Successfully
+                </h1>
+                <p class="font-18 text-extralight transaction-title" style="margin-bottom: 20px;text-align: center;">KYC
+                  Number -
+                  <span class="transaction-id weight-700">{{kyc_no}}</span>
+                </p>
+              </div>
+              <div class="kycNameMismatch font-18 text-extralight transaction-title"
+                style="display: none;margin-bottom: 20px;text-align: center;">
+              </div>
+              <div class="ckycRemarksDiv font-18 text-extralight transaction-title"
+                style="display: none;margin-bottom: 20px;color:red;">
+                <div class="image-box">
+                  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/exam-failed-icon.svg"
+                    alt="KYC Fail" style="margin-bottom: 20px;">
+                </div>
+                <h1 class="title-text font-24" style="margin-bottom: 20px;text-align: center;">Oops!
+                  <br>
+                  <span class="ckycRemarks" style="font-family: Helvetica-medium-500;"></span>
+                </h1>
+              </div>
+              <div style="display:flex">
+                <button class="main-btn btn-icon font-18 alertOkBtn" style="width: 100%;"
+                  (click)="closeAlert()">
+                  OK
+                </button>
+                <button class="main-btn btn-icon font-18 alertCreateKycBtn"
+                  style="width: 100%;display: none;" (click)="CreateKYC()">
+                  Create KYC
+                </button>
+                &nbsp;
+                <button class="main-btn btn-icon font-18 alertredirectToInsurerBtn"
+                  style="width: 100%;display: none;" (click)="redirectToInsurer('')">
+                  Create KYC
+                </button>
+                &nbsp;
+                <button *ngIf="Insurer_ID !== 44" class="main-btn btn-icon font-18 i_have_kyc_btn"
+                  style="width: 100%;" (click)="closeAlert()">
+                  I have KYC
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span class="AndroidReposnse" style="display: none;"></span>
+<button class="alertAndroidReposnse" style="display: none;" (click)="getImageData()"></button>

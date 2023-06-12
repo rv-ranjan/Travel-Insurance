@@ -1,0 +1,56 @@
+[ {"_salutations" :  [
+    {"id" :"0","name":"Title"},
+    {"id" :"Mr","name": "Mr"},
+    {"id" :"Ms","name": "Ms"},
+    {"id" :"Miss","name": "Miss"}
+],
+"_existingDiseases" : [
+	{"id":1,"name":"Hypertension"},
+    {"id":2,"name":"Thyroid"},
+    {"id":3,"name":"Angioplasty"},
+    {"id":4,"name":"Joint Replacement Surgery"},
+    {"id":5,"name":"Asthma/Bronchitis"},
+    {"id":6,"name":"Diabetes"},
+    {"id":7,"name":"Arthritis"},
+    {"id":8,"name":"Kidney and Renal Disease"},
+    {"id":9,"name":"Disc Prolapse"},
+    {"id":10,"name":"Obstetrics/Pregnancy"},
+    {"id":11,"name":"Hyperlipidemia"},
+    {"id":12,"name":"Bypass"},
+    {"id":13,"name":"Liver Disease"},
+    {"id":14,"name":"Gastro esophageal Reflux Disease"},
+    {"id":15, "name": "Any Other"}
+],
+"_occupation" : [
+	{ "id": "0", "name": "Select Occupation" },
+    {"id":"unemployed","name":"Unemployed"},
+    {"id":"employed","name":"Employed"},
+    {"id" :"0007","name": "Others"}
+],
+"_relation" : [
+    {"id" :"Self","name": "Self"},
+    {"id" :"Spouse","name": "Spouse"},
+    {"id" :"Son","name": "Son"},
+    {"id" :"Daughter","name": "Daughter"}
+],
+"nominee_relation" : [
+    {"id" :"0","name": "Relation"},
+    {"id" :"Husband","name": "Husband"},
+    {"id" :"Wife","name": "Wife"},
+    {"id" :"Mother","name": "Mother"},
+    {"id" :"Father","name": "Father"},
+    {"id" :"Son","name": "Son"},
+    {"id" :"Daughter","name": "Daughter"},
+    {"id" :"OTHERS","name": "OTHERS"}
+],
+
+"_nomineeDetails" : "personal",
+"hasSubQuestion": false,
+"QueSubqueArray":[    
+	{
+		"QuestionId": "101",
+        "QuestionText": "Traveller(s) are residents of India and the trip is starting from India?"  
+	}
+]
+}
+]

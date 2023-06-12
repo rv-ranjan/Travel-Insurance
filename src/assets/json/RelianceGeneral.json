@@ -1,0 +1,96 @@
+[ {"_salutations" :  [
+    {"id" :"0","name":"Title"},
+    {"id" :"1","name": "Mr"},
+    {"id" :"2","name": "Mrs"},
+    {"id" :"5","name": "Miss"}
+],
+"_existingDiseases" : [
+	{"id": "299", "name": "Cancer"},
+	{"id": "300", "name": "Cardiac ailments"},
+	{"id": "301", "name": "COPD"},
+	{"id": "302", "name": "HIV/AIDS"},
+	{"id": "303", "name": "Insulin Dependent Diabetes"},
+	{"id": "304", "name": "Kidney Ailment"},
+	{"id": "305", "name": "Liver Disease"},
+	{"id": "306", "name": "Neurological Disorder/Stroke/Paralysis"},
+	{"id": "307", "name": "Any Other"},
+	{"id": "448", "name": "Leukemia"},
+	{"id": "449", "name": "Malignant Tumor"},
+	{"id": "450", "name": "Thalassemia"}
+],
+"_occupation" : [
+	{ "id": "0", "name": "Select Occupation" },
+    {"id" :"7","name": "Advocate / Lawyer"},
+    {"id" :"8","name": "Businessman/Industrialist Large Scale"},
+    {"id" :"9","name": "Businessman/Industrialist Medium Scale"},
+    {"id" :"10","name": "Businessman/Industrialist Small Scale"},
+    {"id" :"11","name": "Carpenter"},
+    {"id" :"12","name": "Chartered Accountants"},
+    {"id" :"13","name": "Clerical"},
+    {"id" :"14","name": "Cook"},
+    {"id" :"15","name": "ELECTRIC ARC WELDER"},
+    {"id" :"16","name": "Executive - Middle Level"},
+    {"id" :"17","name": "Executive - Senior Level"},
+    {"id" :"18","name": "Executive Junior Level"},
+    {"id" :"19","name": "Farming"},
+    {"id" :"20","name": "Housemaid"},
+    {"id" :"21","name": "HouseWife"},
+    {"id" :"22","name": "INDUSTRIAL WIRING ELECTRICIAN"},
+    {"id" :"23","name": "Labourer"},
+    {"id" :"24","name": "Mason"},
+    {"id" :"25","name": "Not Working"},
+    {"id" :"26","name": "Others"},
+    {"id" :"27","name": "OXYGEN WELDER"},
+    {"id" :"28","name": "Reinforcing Fitter"},
+    {"id" :"29","name": "Retired"},
+    {"id" :"30","name": "Salesperson"},
+    {"id" :"31","name": "Self employed Professional"},
+    {"id" :"32","name": "Service"},
+    {"id" :"33","name": "Shop owner"},
+    {"id" :"34","name": "Software Professional"},
+    {"id" :"35","name": "Steel Fixer"},
+    {"id" :"36","name": "Student"},
+    {"id" :"37","name": "Supervisor"},
+    {"id" :"2047","name": "Business Man Medium Scale"},
+    {"id" :"2048","name": "BUSINESS"},
+    {"id" :"2049","name": "Agriculturist"},
+    {"id" :"2050","name": "Business Owner"},
+    {"id" :"2051","name": "Doctor"},
+    {"id" :"2052","name": "Lawyer"},
+    {"id" :"2053","name": "Professional"},
+    {"id" :"2054","name": "Retired/Pensioner"},
+    {"id" :"2055","name": "Salaried"},
+    {"id" :"2056","name": "Self Employed"}
+],
+"_relation" : [
+    {"id" :"345","name": "Self"},
+    {"id" :"320","name": "Spouse"},
+    {"id" :"1255","name": "Mother"},
+    {"id" :"321","name": "Son"},
+    {"id" :"322","name": "Daughter"},
+    {"id" :"319","name": "Father"}
+],
+"nominee_relation" : [
+    {"id" :"0","name": "Relation"},
+    {"id" :"320","name": "Spouse"},
+    {"id" :"1255","name": "Mother"},
+    {"id" :"319","name": "Father"},
+    {"id" :"321","name": "Son"},
+    {"id" :"322","name": "Daughter"},
+    {"id" :"325","name": "Others"}
+],
+
+"_nomineeDetails" : "personal",
+"hasSubQuestion": false,
+"QueSubqueArray":[    
+	{
+		"QuestionId": "901",
+		"QuestionText": "Is traveller(s) an Indian Citizen?"
+	},
+	{
+		"QuestionId": "902",
+		"QuestionText": "Is the traveler(s) travelling on immigration visa?"
+	}
+]
+}
+]

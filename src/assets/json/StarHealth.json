@@ -1,0 +1,127 @@
+[
+    {
+        "_salutations" :  [
+            {"id" :"0","name":"Title"},
+            {"id" :"MR","name": "MR"},
+            {"id" :"MRS","name": "MRS"},
+            {"id" :"MISS","name": "MISS"}
+        ],
+        "_MaritalStatus" : [
+            {"id" :"Marital Status","name":"Marital Status"},
+            {"id" :"1","name": "Married"},
+            {"id" :"2","name": "Single"},
+            {"id" :"3","name": "Widowed"},
+            {"id" :"4","name": "Divorced"},
+            {"id" :"5","name": "Separated"}
+        ],
+        "_occupation" : [
+            {"id" :"","name": "Select Occupation"},
+            {"id" :"1","name":"BUSINESS/TRADERS"},
+            {"id" :"2","name":"PROFESSIONAL-DOCTOR"},
+            {"id" :"3","name":"PROFESSIONAL-ENGINEER"},
+            {"id" :"4","name":"PROFESSIONAL-LAWYER"},
+            {"id" :"5","name":"CLERICAL/SUPERVISORY AND RELATED WORKER"},
+            {"id" :"6","name":"HOSPITALITY AND SUPPORT WORKERS"},
+            {"id" :"7","name":"PRODUCTION WORKERS, SKILLED AND NON-AGRICULTURAL"},
+            {"id" :"8","name":"FARMERS AND AGRICULTURAL WORKERS"},
+            {"id" :"9","name":"POLICE/PARA MILITARY/DEFENSE"},
+            {"id" :"10","name":"HOUSEWIFE"},
+            {"id" :"11","name":"RETIRED"},
+            {"id" :"12","name":"STUDENTS-SCHOOL AND COLLEGE"},
+            {"id" :"13","name":"OTHER"}
+        ],
+        "_travelPurpose" : [
+            {"id" :"2","name": "HOLIDAY"},
+            {"id" :"3","name": "BUSINESS"},
+            {"id" :"4","name": "OTHER"}
+        ],
+        "_relation" : [
+            {"id" :"11","name": "SELF"},
+            {"id" :"12","name": "SPOUSE"},
+            {"id" :"13","name": "SON"},
+            {"id" :"14","name": "DAUGHTER"},
+            {"id" :"17","name": "FATHER"},
+            {"id" :"18","name": "MOTHER"}
+        ],
+        "nominee_relation" : [
+            {"id" :"0","name": "Relation"},
+            {"id" :"1","name": "SPOUSE"},
+            {"id" :"2","name": "SON"},
+            {"id" :"3","name": "DAUGHTER"},
+            {"id" :"6","name": "FATHER"},
+            {"id" :"7","name": "MOTHER"}
+        ],
+        "_qualification":
+        [
+            {"id" :"0","name": "Select Qualification"},
+            {"id" :"1","name": "Graduate"},
+            {"id" :"2","name": "Matric"},
+            {"id" :"3","name": "Non-matric"},
+            {"id" :"4","name": "Professional Course"},
+            {"id" :"5","name": "Other"}
+        ],
+        "_existingDiseases" : [
+            {"id": "1", "name": "Hypertension"},
+            {"id": "2", "name": "Diabetes"},
+            {"id": "3", "name": "Hernia"},
+            {"id": "4", "name": "Hypothyroidism on Thyroxin tablet"},
+            {"id": "5", "name": "Hydrocele"},
+            {"id": "6", "name": "Cataract"},
+            {"id": "7", "name": "Piles"},
+            {"id": "8", "name": "Renal stone"},
+            {"id": "9", "name": "Sinusitis"},
+            {"id": "10", "name": "Gall bladder stone"},
+            {"id": "11", "name": "Tonsilitis"},
+            {"id": "12", "name": "Delivery (LSCS/Normal)"},
+            {"id": "13", "name": "Family planning surgery"},
+            {"id": "14", "name": "Anal fistula"},
+            {"id": "15", "name": "Anal fissures"},
+            {"id": "16", "name": "Other PED"}
+        ],
+        "_nomineeDetails" : "personal",
+        "hasSubQuestion": false,
+        "QueSubqueArray" : [
+            {
+                "QuestionId": "901",
+                "QuestionText": "Is Traveller an Indian Citizen?"
+            },
+            {
+                "QuestionId": "902",
+                "QuestionText": "Is Traveller residing in India?"
+            },
+            {
+                "QuestionId": "903",
+                "QuestionText": "Is Insured On Immigrant Visa?"
+            }
+        ],
+        "otherDetails":[
+            {
+                "QuestionId":"1",
+                "QuestionText" : "Name of the Family Physician",
+                "Ins_QuestnId":"",
+                "Ins_fieldName":"physicianName",
+                "type":"text",
+                "regex":"^[^-. ][a-zA-Z .]{2,40}$"
+			},
+			{
+                "QuestionId":"2",
+                "QuestionText" : "Contact Number of the Family Physician",
+                "Ins_QuestnId":"",
+                "Ins_fieldName":"physicianContactNumber",
+                "type":"numeric",
+                "regex":"^[7-9][0-9]{9}$"
+            },
+			{
+				"QuestionId": "3",
+				"QuestionText": "Purpose of travel?",
+				"Ins_fieldName": "Select Type",
+				"type": "select",
+				"selectOptions": [
+					{"id" :"2","optionText": "HOLIDAY"},
+                    {"id" :"3","optionText": "BUSINESS"},
+                    {"id" :"4","optionText": "OTHER"}
+				]
+			}
+        ]
+    }
+]

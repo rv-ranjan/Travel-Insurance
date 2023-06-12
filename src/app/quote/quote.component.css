@@ -1,0 +1,287 @@
+.atleast {
+    margin: auto;
+}
+
+.atleast-one {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.container-add {
+    padding: left 0px !important;
+}
+
+.variantClose {
+    margin-top: 10px !important;
+    margin-left: 432px;
+    align-self: flex-start;
+}
+
+.ErrorMsg {
+    border: 1px solid red !important;
+}
+
+.selected {
+    display: block !important;
+}
+
+.profile-popup {
+    position: absolute;
+    right: 107px;
+    background-color: #fff;
+    padding: 10px 5px;
+    -webkit-box-shadow: 0 0 5px grey;
+    box-shadow: 0 0 5px grey;
+    border-radius: 3px;
+    width: 200px;
+    text-align: center;
+    display: none;
+    z-index: 999 !important;
+    color: #000;
+}
+
+.profile-popup a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #6a6a6a;
+    display: block;
+
+}
+
+.logOut-btn {
+    background-color: #1a81ff;
+    width: 90px;
+    margin: auto;
+    color: #fff;
+    border: 1px solid #1a81ff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 5px;
+}
+
+.secdv_comparequotes {
+    border-bottom: 1px solid #ddd;
+
+}
+
+.text-centre {
+    display: inline-block;
+    /* text-align: center !important; */
+    width: 74%;
+    padding-left: 42%;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.loading {
+    text-align: center !important;
+}
+
+.moreInsOK {
+    margin-inline: auto !important;
+    min-width: 83px !important;
+    min-height: 38px !important;
+}
+
+.shareAlertModelCenter {
+    width: 25%;
+}
+
+.health-insurance-listing-section .member-detail-row .member-detail-col .detail-box {
+    flex-wrap: wrap !important;
+}
+
+.alert {
+    padding: 30px;
+    margin-bottom: 0px;
+}
+
+.travel-insurance-listing-section .insurance-detail-wrapper .insurance-detail-area .insurance-detail-box .profile-detail-area .profile-detail-listing-box .inner-row .inner-col {
+    max-width: 100% !important;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 1 1 auto !important;
+}
+
+.planName {
+    max-width: fit-content !important;
+}
+
+.button-col {
+    max-width: 15%;
+}
+
+.options {
+    font-size: 16px !important;
+}
+
+.mclass {
+    visibility: visible !important;
+}
+
+.DestinationDropdown {
+    padding: 0px !important;
+}
+
+.dropdownSvg {
+    display: block !important;
+    text-align: left !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAHCAYAAAA8sqwkAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAACRSURBVChTY+ybPCufkYFRoDA3tZEBDwCp+///PyMTiPjH8L+hf/LseqgcBgDJ/WdgmPCPkUGAedf2LSdcvXwYgeINnl5+DDu3bz4IUQYBIMUgA4G4sTQ3vYEZJLh7+5YD2DShKwaJgRTBQffkmQ1MDIz1QAyWRFcMAigaQACmCcRGV4wTgDR1T5lZAOUiAQYGAK+dTTlJV/9bAAAAAElFTkSuQmCC) !important;
+    background-repeat: no-repeat !important;
+    background-position: calc(100% - 20px) center !important;
+}
+
+.QuotesLoading {
+    text-align: center;
+    margin-top: -57px;
+}
+
+.font-for-pdf {
+    font-size: 11px !important;
+}
+.dropdown-list-row .dropdown-list-col1.active {
+    background: #1A81FF;
+}
+.dropdown-list-row .dropdown-list-col1.active .dropdown-list-link {
+    color: #fff;
+}
+/* .plan-comparison-main-pdf {
+    margin-bottom: 15px !important;
+} */
+
+@media (max-width: 768px) {
+    .profile-detail-box {
+        display: block !important;
+    }
+
+    .shareAlertModelCenter {
+        width: 76% !important;
+        bottom: 14%;
+    }
+
+    .compareAlertPopup,
+    .shareWhatsAppPopupContent,
+    .shareAlertValidate {
+        height: fit-content !important;
+    }
+
+    .profile-popup {
+        right: 0px !important;
+    }
+
+    .moreInsOK {
+        margin-inline: auto !important;
+        min-height: 28px;
+        min-width: 14px;
+    }
+
+    .product-detail-box1 {
+        display: none;
+    }
+
+    .QuotesLoading {
+        text-align: center;
+        margin-top: -16px;
+    }
+
+    .hidden {
+        font-size: 0 !important;
+    }
+
+    .mobWhtsAppBorder {
+        max-width: 55px !important;
+    }
+
+    .shareImgMobView {
+        margin-left: 5px;
+    }
+
+    .modal-bottom-fixed .modal-dialog .modal-content .modal-body {
+        padding: 17px !important;
+        padding-top: 0px !important;
+    }
+
+    .plan-comparison-main-pdf {
+        margin-bottom: 15px !important;
+    }
+}
+
+@media(max-width: 722px) {
+    .text-right {
+        text-align: left !important;
+    }
+
+    .text-centre {
+        display: block;
+        /* text-align: center !important; */
+        width: 74%;
+        padding-left: 0px;
+    }
+
+}
+
+@media (max-width: 575px) {
+    .alert {
+        padding: 30px !important;
+    }
+
+    .hidden {
+        font-size: 0 !important;
+    }
+
+    .modal-common .modal-body {
+        padding: 0px 10px 20px 10px !important;
+    }
+
+    #maindv_comparequotes {
+        font-size: x-small !important;
+    }
+
+
+}
+
+@media(max-width: 475px) {
+    .variantClose {
+        margin-left: 305px !important;
+    }
+
+    .travel-insurance-listing-section .extra-detail-list .extra-detail-row {
+        flex-wrap: inherit !important;
+    }
+
+
+}
+
+@media (max-width:375px) {
+    .variantClose {
+        margin-left: 275px !important;
+    }
+
+    .button-col {
+        max-width: -1% !important;
+    }
+
+    .forMob {
+        max-width: fit-content !important;
+
+    }
+
+    .hidden {
+        font-size: 0 !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .variantClose {
+        margin-left: 229px !important;
+    }
+
+    .hidden {
+        font-size: 0 !important;
+    }
+
+}

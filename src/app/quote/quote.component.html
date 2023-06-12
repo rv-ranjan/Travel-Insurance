@@ -1,0 +1,2284 @@
+<!-- <div class="loader"></div> -->
+<div class="loading"
+  style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; z-index: 9999; background-color: rgba(0, 0, 0, 0.48); display: none;">
+  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/loading.gif"
+    style="height: 120px; position: absolute;left: 50%;top: 50%;transform: translate(-50%,-50%);">
+</div>
+<!----------------------------------- Insurance Detail Section ------------------------------------>
+<div
+  class="insurance-detail-section health-insurance-listing-section term-insurance-listing-section travel-insurance-listing-section">
+  <div class="container">
+    <div class="insurance-detail-wrapper">
+      <div class="insurance-detail-area">
+        <div class="insurance-detail-box">
+          <div class="profile-detail-area">
+            <div class="profile-detail-listing-box">
+              <div class="inner-row">
+                <div class="inner-col">
+                  <div class="product-detail-box">
+                    <div class="member-detail-row">
+                      <div class="member-detail-col">
+                        <div class="detail-box">
+                          <div class="member-title-box">
+                            <span class="member-titlt-text">Destination: </span>
+                          </div>
+                          <div class="member-count-box">
+                            <span class="member-count-text">
+                              <span>{{travelling_to_area||'Asia'}}</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="profile-detail-box">
+                    <div class="member-detail-row">
+                      <div class="member-detail-col">
+                        <div class="detail-box">
+                          <div class="member-title-box">
+                            <span class="member-titlt-text">CRN: </span>
+                          </div>
+                          <div class="member-count-box">
+                            <span class="member-count-text">
+                              <span>{{pb_crn||0}}</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="inner-col">
+                  <div class="member-detail-row">
+                    <div class="member-detail-col">
+                      <div class="detail-box">
+                        <div class="member-title-box">
+                          <span class="member-titlt-text">Travelers: </span>
+                        </div>
+                        <div class="member-count-box">
+                          <span class="member-count-text">
+                            <span>{{member_count||0}} ({{all_member_age||'0 Yrs'}})</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="member-detail-col">
+                      <div class="detail-box">
+                        <div class="member-title-box">
+                          <span class="member-titlt-text">{{trip_type=='SINGLE'?"Trip Dates: " : "Trip Start Date:
+                            "}}</span>
+                        </div>
+                        <div class="member-count-box">
+                          <span class="member-count-text">
+                            <span>{{travel_start_date||0}}</span>
+                            <span> {{trip_type=='SINGLE'?" - "+travel_end_date:""}}</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="inner-col" style="display: block;">
+                  <div class="product-detail-box" style="display: block;">
+                    <div class="member-detail-row">
+                      <div class="member-detail-col">
+                        <div class="detail-box">
+                          <div class="member-title-box">
+                            <span class="member-titlt-text">Trip Type:</span>
+                          </div>
+                          <div class="member-count-box">
+                            <span class="member-count-text">
+                              <span>{{trip_type||'SINGLE'}}</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="product-detail-box product-detail-box1" [ngClass]="trip_type == 'MULTI' ? '' : ''"
+                    style="visibility: hidden;">
+                    <div class="member-detail-row">
+                      <div class="member-detail-col">
+                        <div class="detail-box">
+                          <div class="member-title-box">
+                            <span class="member-titlt-text1 member-titlt-text">Max Trip Days:</span>
+                          </div>
+                          <div class="member-count-box">
+                            <span class="member-count-text">
+                              <span>{{maximum_duration}}</span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="policy-detail-area">
+            <div class="policy-detail-listing-box">
+              <div class="policy-detail-listing-row" style="max-width: 100%;padding-right: 28px;">
+                <div class="policy-detail-listing-col">
+                  <div class="health-detail-listing-dropdown-box insurer-dropdown-wrapper">
+                    <button class="btn dropdown-toggle dropdown-toggle-custom" type="button" (click)="in_dropDown()"
+                      id="dropdownMenuButton6" data-bs-toggle="dropdown" aria-expanded="true">
+                      <div class="filter-box">
+                        <div class="filter-title-box">
+                          <span class="filter-title-text">Insurer:</span>
+                        </div>
+                        <div class="filter-dropdown-box">
+                          <p class="filter-dropdown-text primary-text selected_in">Select</p>
+                        </div>
+                      </div>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-box" aria-labelledby="dropdownMenuButton6"
+                      data-popper-placement="bottom-start"
+                      style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(1056px, 48px);">
+                      <div class="dropdown-content-wrapper">
+                        <form class="dropdown-form">
+                          <div class="dropdown-content-box">
+                            <div class="check-items-box">
+                              <div class="check-item-area">
+
+                                <div class="check-item-row">
+                                  <div class="check-item-box">
+                                    <input type="checkbox" class="check-input select-all-input"
+                                      (click)="setcheckbox('all')" id="check-item-in-all">
+                                    <label class="check-input-label font-16 text-extralight"
+                                      for="check-item-in-all">Select
+                                      All</label>
+                                  </div>
+                                </div>
+                                <div class="check-item-row" *ngFor="let in of ins_data,let i = index">
+                                  <div class="check-item-box">
+                                    <input type="checkbox" value="{{in[1]}}" (click)="setcheckbox($event.target.value)"
+                                      class="check-input in_check" id="check-item-in-{{in[1]}}">
+                                    <label class="check-input-label font-16 text-extralight"
+                                      for="check-item-in-{{in[1]}}">{{in[0]}}</label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="dropdown-footer-btn-box">
+                            <div class="btn-box">
+                              <button type="reset" (click)="reset()" class="btn-text">Reset</button>
+                            </div>
+                            <div class="btn-box apply-btn">
+                              <button type="button" (click)="Ins_Filter_()"
+                                class="btn-text apply-btn addons-apply-btn">Apply</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="policy-detail-listing-col">
+                  <div class="life-cover-dropdown insurance-cover-dropdown">
+                    <button class="btn dropdown-toggle dropdown-toggle-custom" type="button" (click)="si_dropDown()"
+                      id="dropdownMenuButton5" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="filter-box">
+                        <div class="filter-title-box">
+                          <span class="filter-title-text">Insurance Cover:</span>
+                        </div>
+                        <div class="filter-dropdown-box">
+                          <p class="filter-dropdown-text primary-text selected_si" data-match="">Select</p>
+                        </div>
+                      </div>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-box" aria-labelledby="dropdownMenuButton5">
+                      <div class="dropdown-content-wrapper">
+                        <form class="dropdown-form">
+                          <div class="dropdown-content-box">
+                            <div class="radio-select-box-wrapper">
+                              <ul class="radio-select-box">
+                                <li class="radio-select-col">
+                                  <div class="radio-box" *ngFor="let si of slider_SI,let i = index">
+                                    <input type="radio" class="radio-custom value-change-radio si_check" value="{{si}}"
+                                      id="check-item-si-{{i}}" name="policy-Name" data-limit="first-limit">
+                                    <label class="radio-custom-label font-16 text-extralight" for="check-item-si-{{i}}">
+                                      {{si.includes("$")===true?'$':'€'}}
+                                      {{currency_format(si)}}</label>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="dropdown-footer-btn-box">
+                            <div class="btn-box">
+                              <button type="reset" class="btn-text">Reset</button>
+                            </div>
+                            <div class="btn-box apply-btn">
+                              <button type="button" (click)="Ins_Filter_()" class="btn-text apply-btn addons-apply-btn"
+                                id="limit_apply_btn">Apply</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a class="edit-box blue-border-box" data-bs-target="#policyInfromationModal" data-bs-toggle="modal"
+                href="javascript:void(0)" style="margin-bottom: 12px;">
+                Edit
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="insurance-result-listing-area">
+        <div class="insurance-result-listing-box">
+          <div class="result-title-box">
+            <div class="title-box">
+              <h2 class="font-30 title-text">
+                {{filter_on === true? filter_count:Plan_Cnt}} Plans found
+              </h2>
+            </div>
+
+            <div class="result-filter-box-area">
+              <a *ngIf="showShareBtn" href="javascript:void(0)" target="_blank"
+                data-bs-target="#WhatsappOnClickProposalModal" data-bs-toggle="modal"
+                class="blue-border-box share-box flex-box mobWhtsAppBorder noneSelected noneMobileSelected">
+                <div class="icon-box">
+                  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/whatsapp-blue.png" class="shareImgMobView" alt="Whatsapp share" />
+                </div>
+                <span class="inner-text hidden">Share</span>
+              </a>
+              <button class="btn dropdown-toggle dropdown-toggle-custom sort-dropdown-toggle" type="button"
+                id="dropdownMenuButton4" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="filter-box">
+                  <div class="filter-title-box">
+                    <span class="filter-title-text">Sort By:</span>
+                  </div>
+                  <div class="filter-dropdown-box">
+                    <p class="filter-dropdown-text js-dropdown-value">Low to High</p>
+                  </div>
+                </div>
+              </button>
+              <div class="dropdown-menu dropdown-menu-box custom-dropdown-box sort-dropdown-box"
+                aria-labelledby="dropdownMenuButton4">
+                <div class="dropdown-content-wrapper">
+                  <form class="dropdown-form">
+                    <ul class="dropdown-list-row js-dropdown-field" id="js-dropdown-links-2">
+                      <li class="dropdown-list-col active">
+                        <a href="javascript:void(0)" (click)="lowToHight()" class="dropdown-list-link js_click_link">Low
+                          to
+                          High</a>
+                      </li>
+                      <li class="dropdown-list-col">
+                        <a href="javascript:void(0)" value="lth" (click)="highToLow()"
+                          class="dropdown-list-link js_click_link">High to Low</a>
+                      </li>
+                    </ul>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="QuotesLoading" style="text-align: center;" *ngIf="reloadDivshow===true">
+            <img src="https://origin-cdnh.policyboss.com/website/Images/quotepage-loading.gif" style="height: 50px;">
+          </div>
+          <div class="result-listing-select-area">
+            <div class="result-listing-select-row">
+              <div
+                class="result-listing-select-col ins_filter_{{(insurer.Insurer_Id)}} si_filter_{{insurer.Sum_Insured.substring(1)}} filter_{{(insurer.Insurer_Id)}}_{{insurer.Sum_Insured.substring(1)}}"
+                *ngFor="let insurer of final_response,let i = index">
+                <div class="result-listing-select-box " attr.data-ins="{{insurer.Insurer_Id}}"
+                  attr.data-pln="{{insurer.Plan_Id}}" attr.data-si="{{insurer.Sum_Insured.substring(1)}}"
+                  attr.data-premium="{{insurer.Premium_Breakup.final_premium}}">
+                  <div class="insurer-area">
+                    <div class="insurer-box">
+                      <div class="image-box">
+                        <img
+                          src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{insurer['Insurer_Logo_Name'].split('.')[0] + '.webp'}}"
+                          alt="{{insurer.Insurer_Name}}" />
+                      </div>
+                      <span class="title font-15">{{insurer.Plan_Name}}</span>
+                      <div class="check-box-select">
+                        <input type="checkbox" value="{{i+1}}" name="{{insurer.Plan_Id}}"
+                          (click)="CompareCheckModel($event.target.value,insurer.Plan_Id,insurer.Insurer_Id,insurer.Sum_Insured,insurer.Premium_Breakup.final_premium,insurer.Insurer_Logo_Name.split('.')[0] + '.webp',insurer.Insurer_Name,insurer.Plan_Name,insurer.Service_Log_Unique_Id)"
+                          class="check-input plan-list-chechkbox" id="check-item-{{insurer.Plan_Id}}" />
+                        <label class="check-input-label" for="check-item-{{insurer.Plan_Id}}"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="javascript:void(0)" (click)="proposal_redirect(insurer.Service_Log_Unique_Id)"
+                    class="price-block">
+                    <div class="price-detail-box">
+                      <span class="price-text font-20">₹
+                        {{currency_format(insurer.Premium_Breakup.final_premium)}}</span>
+                      <div class="price-tag">Inc. GST</div> 
+                    </div>
+                  </a>
+                  <div class="value-block">
+                    <div class="value-detail-box">
+                      <span class="value-title-text">
+                        Insurance Cover<span class="mob-none">:</span>
+                      </span>
+                      <span class="price-value">{{insurer.Sum_Insured.includes("$")===true?'$':'€'}}
+                        {{currency_format(insurer.Sum_Insured)}}
+                      </span>
+                    </div>
+                  </div>
+                  <ul class="extra-detail-list">
+                    <li class="extra-detail-row">
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-title">
+                          <img id="expense_{{insurer.Plan_Id}}" src='https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon-green.svg' alt="" />
+                        </span>
+                      </div>
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-value expense_{{insurer.Plan_Id}}">Hospitalization Expenses
+                        </span>
+                      </div>
+                    </li>
+                    <li class="extra-detail-row">
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-title">
+                          <img id="passport_{{insurer.Plan_Id}}" [ngClass]="[noBenefits===true?'noBenfitSvg':'']"
+                            src='https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon-green.svg' alt="" />
+                        </span>
+                      </div>
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-value passport_{{insurer.Plan_Id}}">Passport loss covered
+                        </span>
+                      </div>
+                    </li>
+                    <li class="extra-detail-row">
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-title">
+                          <img id="accident_{{insurer.Plan_Id}}" [ngClass]="[noBenefits===true?'noBenfitSvg':'']"
+                            src='https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon-green.svg' alt="" />
+                        </span>
+                      </div>
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-value accident_{{insurer.Plan_Id}}">Personal Accident covered
+                        </span>
+                      </div>
+                    </li>
+                    <li class="extra-detail-row">
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-title">
+                          <img id="delay_{{insurer.Plan_Id}}" [ngClass]="[noBenefits===true?'noBenfitSvg':'']"
+                            src='https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon-green.svg' alt="" />
+                        </span>
+                      </div>
+                      <div class="extra-detail-col">
+                        <span class="font-12 extra-detail-value delay_{{insurer.Plan_Id}}">Flight Delay Covered
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                  <a href="javascript:void(0)" class="policy-detail-link-box primary-text" data-bs-toggle="modal" data-bs-target="#policyDetailModal"
+                                        (click)="AllBenefits(insurer);">Policy Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mob-profile-detail-section mob-health-profile-detail-section profile-box-li">
+    <div class="profile-box-area">
+      <div class="profile-box">
+        <div class="profile-detail-area">
+          <div class="profile-detail">
+            <p class="pfile-title">Parth Shah</p>
+            <div class="profile-description-box">
+              <span class="profile-description-title">CRN:</span>
+              <span class="profile-description-detail">5566896</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="profile-button">
+        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/profile-img.png" alt="Profile Image" id="profile-icon" />
+      </button>
+    </div>
+  </div>
+  <!-- Filter Modal Mobile -->
+  <div class="modal menu-popup modal-bottom-fixed term-modal-bottom-fixed fade" id="filterModalFromBottom"
+    data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="filterModalFromBottomLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="title-text">Filter</h3>
+          <button type="button" class="btn-close js_modal_close align-self-start mt-0" data-bs-dismiss="modal"
+            aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-bottom-section">
+            <form class="modal-bottom-form">
+              <div class="mob-modal-filter-area">
+                <div class="filter-row">
+                  <div class="filter-col">
+                    <button class="btn dropdown-toggle dropdown-toggle-custom discount-dropdown" type="button"
+                      id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="filter-box">
+                        <div class="filter-title-box">
+                          <span class="filter-title-text">Paytype Option: </span>
+                        </div>
+                        <div class="filter-dropdown-box">
+                          <p class="filter-dropdown-text primary-text">Regular</p>
+                        </div>
+                      </div>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-box " aria-labelledby="dropdownMenuButton7">
+                      <div class="dropdown-content-wrapper">
+                        <form class="dropdown-form">
+                          <div class="dropdown-content-box">
+                            <div class="radio-select-box-wrapper">
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-259" checked=""
+                                    name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight"
+                                    for="check-item-259">Regular</label>
+                                </div>
+                              </div>
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-260" name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight"
+                                    for="check-item-260">Single</label>
+                                </div>
+                              </div>
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-261" name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight" for="check-item-261">Limited
+                                    Pay</label>
+                                </div>
+                              </div>
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-262" name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight" for="check-item-262">Pay
+                                    till
+                                    60</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="dropdown-footer-btn-box">
+                            <div class="btn-box">
+                              <button type="reset" class="btn-text">Reset</button>
+                            </div>
+                            <div class="btn-box apply-btn">
+                              <button type="button" class="btn-text apply-btn addons-apply-btn">Apply</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="filter-col">
+                    <button class="btn dropdown-toggle dropdown-toggle-custom discount-dropdown" type="button"
+                      id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div class="filter-box">
+                        <div class="filter-title-box">
+                          <span class="filter-title-text">Payment Frequency: </span>
+                        </div>
+                        <div class="filter-dropdown-box">
+                          <p class="filter-dropdown-text primary-text">Annually</p>
+                        </div>
+                      </div>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-box " aria-labelledby="dropdownMenuButton7">
+                      <div class="dropdown-content-wrapper">
+                        <form class="dropdown-form">
+                          <div class="dropdown-content-box">
+                            <div class="radio-select-box-wrapper">
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-263" checked=""
+                                    name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight"
+                                    for="check-item-263">Annually</label>
+                                </div>
+                              </div>
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-264" name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight" for="check-item-264">Half -
+                                    Yearly</label>
+                                </div>
+                              </div>
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-265" name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight"
+                                    for="check-item-265">Quarterly</label>
+                                </div>
+                              </div>
+                              <div class="radio-select-box">
+                                <div class="radio-box">
+                                  <input type="radio" class="radio-custom" id="check-item-266" name="policy-type">
+                                  <label class="radio-custom-label font-16 text-extralight"
+                                    for="check-item-266">Monthly</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="dropdown-footer-btn-box">
+                            <div class="btn-box">
+                              <button type="reset" class="btn-text">Reset</button>
+                            </div>
+                            <div class="btn-box apply-btn">
+                              <button type="button" class="btn-text apply-btn addons-apply-btn">Apply</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="apply-btn main-btn width-full">Apply</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Other Detail Modal Mobile -->
+  <div class="modal menu-popup modal-bottom-fixed fade travel-fixed-modal" id="otherDetailModalFromBottom"
+    data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="otherDetailModalFromBottomLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="title-text">Travel Details</h3>
+          <div class="modal-button-area">
+            <button type="button" class="btn-close js_modal_close align-self-start mt-0" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="modal-bottom-section">
+            <form class="modal-bottom-form">
+              <div class="mob-modal-detail-area">
+                <div class="policy-detail-listing-row" style="flex-direction: column;align-items: flex-start;">
+                  <div class="policy-detail-listing-col" style="max-width: fit-content;">
+                    <div class="detail-box">
+                      <div class="policy-title-box">
+                        <span class="policy-titlt-text ">Travelers : </span>
+                      </div>
+                      <div class="policy-value-box">
+                        <span class="policy-value-text detail-text">{{member_count}} ({{all_member_age}})</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="policy-detail-listing-col" style="max-width: fit-content;">
+                    <div class="detail-box">
+                      <div class="policy-title-box">
+                        <span class="policy-titlt-text ">{{trip_type=='SINGLE'?"Trip Dates :":"Trip Start Date
+                          :"}}</span>
+                      </div>
+                      <div class="policy-value-box">
+                        <span class="policy-value-text detail-text">
+                          <span class="detail-text">{{travel_start_date}}</span>
+                          <span class="detail-text">{{trip_type=='SINGLE'?" - "+travel_end_date:""}}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Save Email_ Proposal Modal -->
+  <div class="modal save-proposal-modal modal-common mob-modal-view fade" id="saveProposalModal"
+    data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="alertModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-popup-shadow">
+        <div class="modal-body">
+          <form id="send_email_form">
+            <div class="email-area">
+              <div class="input-field-box">
+                <label for="" class="label font-20">Please enter your email address</label>
+                <input type="email" name="send_email" id="send_email" placeholder="Enter your email"
+                  class="input-field js-input-group font-18 border-thick" autocomplete="off" />
+                <span class="shareEmailError" style="display: none; color:red;">Please Enter Email Address</span>
+              </div>
+              <div class="save-buttons-area flex-box">
+                <button type="button" class="main-btn light-btn btn-reverse
+                                    " data-bs-dismiss="modal" aria-label="Close">Cancel</button>
+                <button type="button" class="main-btn" (click)="ShareOnEmail()">Send Email</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Alert POp-up -->
+  <div class="modal save-proposal-modal modal-common mob-modal-view fade" id="alertPopup" data-bs-keyboard="false"
+    data-bs-backdrop="static" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered shareAlertModelCenter">
+      <div class="modal-content modal-popup-shadow compareAlertPopup">
+        <div class="modal-body alert" style="padding-top: 0px !important;">
+          <div
+            style="text-align: center;color: #444;margin-bottom: 31px;margin-top: 25px;font-family: Helvetica-medium-500;">
+            <h4 style="padding-bottom:5px;margin-top:10px;font-weight: 700;">
+              <span class="shareAlertCountSet" style="font-size: 15px;">Not More than 3 insurers</span>
+            </h4>
+          </div>
+          <div class="save-buttons-area flex-box">
+            <button style="padding: 6px 29px;" type="button" class="main-btn atleast" data-bs-dismiss="modal"
+              aria-label="Close">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Whatsapp noClick Modal -->
+  <div class="modal save-proposal-modal modal-common mob-modal-view fade" id="WhatsappOnClickProposalModal"
+    data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="alertModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered shareAlertModelCenter">
+      <div class="modal-content modal-popup-shadow shareAlertValidate">
+        <div class="modal-body alert" style="padding-top: 0px !important;">
+          <div
+            style="text-align: center;color: #444;margin-bottom: 31px;margin-top: 25px;font-family: Helvetica-medium-500;">
+            <h4 style="padding-bottom:5px;margin-top:10px;font-weight: 700;">
+              <span class="shareAlertCountSet" style="font-size: 15px;">Please select atleast 1 insurer</span>
+            </h4>
+          </div>
+          <div class="save-buttons-area flex-box">
+            <button type="button" style="padding: 6px 29px;" class="main-btn moreInsOK" data-bs-dismiss="modal"
+              aria-label="Close">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Whatsapp Modal -->
+  <div class="modal save-proposal-modal modal-common mob-modal-view fade" id="WhatsappProposalModal"
+    data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="alertModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-popup-shadow modal-content-add shareWhatsAppPopupContent">
+        <div class="modal-body">
+          <form id="send_email_form">
+            <button type="button" class="btn-close js_modal_close align-self-start mt-0 variantClose"
+              data-bs-dismiss="modal" (click)="removeShareError()" aria-label="Close"></button>
+            <div class="email-area button-top">
+              <div class="input-field-box">
+                <label for="" class="label font-20">Please enter your mobile number</label>
+                <input inputmode="numeric" name="send_mobile" id="send_mobile" maxlength="10"
+                  placeholder="Enter your mobile no." class="input-field js-input-group font-18 border-thick"
+                  autocomplete="off" />
+                <span class="shareNumError" style="display: none; color:red;">Please Enter Mobile Number</span>
+              </div>
+              <span class="shareError" style="display: none; color:red; text-align: center;margin-left: 132px;">
+                Internal
+                Service
+                Error</span>
+              <div class="save-buttons-area flex-box">
+                <button type="button" class="main-btn light-btn btn-reverse tooltip-button" aria-label="Close"
+                  (click)="shareOnWhatsapp('copy');">Copy Msg</button>
+                <button type="button" class="main-btn" (click)="shareOnWhatsapp('send')">Send Whatsapp</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Policy Information Modal -->
+  <div class="modal menu-popup modal-common fade" id="policyInfromationModal" data-bs-keyboard="false"
+    data-bs-backdrop="static" tabindex="-1" aria-labelledby="policyInfromationModalLabel" aria-hidden="true">
+    <div class="modal-dialog wrapper-540 modal-dialog-centered">
+      <div class="modal-content modal-popup-shadow">
+        <div class="modal-header">
+          <div class="title-box">
+            <h2 class="font-30 title-text">Edit Your Details</h2>
+          </div>
+          <button type="button" class="btn-close js_modal_close align-self-start mt-0" data-bs-dismiss="modal"
+            aria-label="Close" (click)="editPopup()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="policy-information-area">
+            <form class="policy-information-form">
+              <div class="car-registration-info-box">
+                <div class="radio-input-field-box">
+                  <span class="radio-title label font-18">Travel Trip Type:</span>
+                  <div class="radio-select-box">
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom SINGLE triptype" id="check-item-58"
+                        (click)="TripType($event,'SINGLE')" [checked]="SingleTripType" name="car-registration"
+                        value="SINGLE" />
+                      <label class="radio-custom-label font-18 text-extralight options" for="check-item-58">Single
+                        Trip</label>
+                    </div>
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom MULTI triptype" name="car-registration"
+                        [checked]="MultiTripType" (click)="TripType($event,'MULTI')" id="check-item-59" value="MULTI">
+                      <label class="radio-custom-label font-18 text-extralight options" for="check-item-59">Multi
+                        Trip</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="previous-policy-select-area">
+                <div class="input-field-box">
+                  <label for="" class="label font-18">Region of Travel:</label>
+                  <input type="text" class="btn input-field dropdown-toggle select-dropdown dropdownSvg border-thick"
+                    type="button" id="GeographicalArea" placeholder="Select Region of travel" data-bs-toggle="dropdown"
+                    aria-expanded="false" autocomplete="off" />
+                  <div class="dropdown-menu dropdown-menu-box DestinationDropdown select-dropdown-box"
+                    aria-labelledby="dropdownMenuButton13">
+                    <div class="dropdown-content-wrapper">
+                      <form class="dropdown-form destination">
+                        <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                          <li class="dropdown-list-col select-dropdown-box-li ">
+                            <a href="javascript:void(0)"
+                              class="dropdown-list-link select-dropdown-box-link single">Asia</a>
+                          </li>
+                          <li class="dropdown-list-col select-dropdown-box-li ">
+                            <a href="javascript:void(0)"
+                              class="dropdown-list-link select-dropdown-box-link single">Africa</a>
+                          </li>
+                          <li class="dropdown-list-col select-dropdown-box-li">
+                            <a href="javascript:void(0)"
+                              class="dropdown-list-link select-dropdown-box-link single">Europe</a>
+                          </li>
+                          <li class="dropdown-list-col select-dropdown-box-li">
+                            <a href="javascript:void(0)"
+                              class="dropdown-list-link select-dropdown-box-link">WorldWide</a>
+                          </li>
+                          <li class="dropdown-list-col select-dropdown-box-li">
+                            <a href="javascript:void(0)"
+                              class="dropdown-list-link select-dropdown-box-link">WWExUSCanada</a>
+                          </li>
+                        </ul>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="date-picker-area">
+                <div class="flex-box policy-info-flex-box">
+                  <div class="car-registration-date-picker flex-50 start_date">
+                    <label for="" class="label font-18">Start Date:</label>
+                    <div class="input-field-box">
+                      <div class="field-icon-box">
+                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/datepicker-icon.svg" alt="datepicker">
+                      </div>
+                      <input type="text" class="datepicker-field input-field border-thick js-input-group dob-datepicker"
+                        readonly name="date" placeholder="" id="travel_start_date" autocomplete="off" />
+                    </div>
+                  </div>
+                  <!-- <div class="input-field-box start_date" >  
+                    <label for="" class="label font-18">Start Date:</label>
+                    <div class="field-icon-box">
+                      <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/datepicker-icon.svg" alt="datepicker">
+                    </div>
+                    <input type="text" style="max-width: 80% ;"
+                      class="datepicker-field input-field date_s border-thick js-input-group dob-datepicker" name="date"
+                      id="travel_start_date" readonly tabindex="0" autocomplete="off" />
+                  </div> -->
+
+                  <div class="policy-expiry-date-picker flex-50 end_date" style="display: none;">
+                    <label for="" class="label font-18">End Date:</label>
+                    <div class="input-field-box">
+                      <div class="field-icon-box">
+                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/datepicker-icon.svg" alt="datepicker">
+                      </div>
+                      <input type="text"
+                        class="datepicker-field input-field border-thick js-input-group dob-datepicker " readonly
+                        name="date" placeholder="" id="travel_return_date" autocomplete="off" />
+                    </div>
+                  </div>
+                  <div class="inner-field-col  maxtripdays_dropdown" style="display: none;">
+                    <div class="input-field-box ">
+                      <label for="" class="label font-18">Max Trip Days:</label>
+                      <input type="text"
+                        class="btn input-field dropdown-toggle dayRange select-dropdown border-thick inner-placeholder inner-placeholder-dropdown-input forMob"
+                        id="trip_date" data-bs-toggle="dropdown" aria-expanded="false" autocomplete="off" readonly>
+                      <div class="dropdown-menu DestinationDropdown dropdown-menu-box select-dropdown-box"
+                        aria-labelledby="dropdownMenuButton12">
+                        <div class="dropdown-content-wrapper max_days">
+                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                            <li class="dropdown-list-col1 select-dropdown-box-li">
+                              <a href="javascript:void(0)" class="dropdown-list-link  select-dropdown-box-link">0-30</a>
+                            </li>
+                            <li class="dropdown-list-col1  select-dropdown-box-li">
+                              <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link">30-45</a>
+                            </li>
+                            <li class="dropdown-list-col1  select-dropdown-box-li">
+                              <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link">45-60</a>
+
+                            </li>
+                            <li class="dropdown-list-col1   select-dropdown-box-li">
+                              <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link">60-90</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- <div class="select-area">
+                <label for="" class="label font-18">Manufacturing</label>
+                <div class="flex-box policy-info-flex-box">
+                  <div class="month-select-box flex-50">
+                    <div class="input-field-box">
+                      <input type="text" class="btn input-field dropdown-toggle select-dropdown border-thick"
+                        type="button" id="dropdownMenuButton11" placeholder="January" data-bs-toggle="dropdown"
+                        aria-expanded="false" autocomplete="off" />
+                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                        aria-labelledby="dropdownMenuButton11">
+                        <div class="dropdown-content-wrapper">
+                          <form class="dropdown-form">
+                            <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                              <li class="dropdown-list-col select-dropdown-box-li active">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">January</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">February</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">March</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">April</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link">May</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">June</a>
+                              </li>
+                            </ul>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="year-select-box flex-50">
+                    <div class="input-field-box">
+                      <input type="text" class="btn input-field dropdown-toggle select-dropdown border-thick"
+                        type="button" id="dropdownMenuButton12" placeholder="2015" data-bs-toggle="dropdown"
+                        aria-expanded="false" autocomplete="off" />
+                      <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                        aria-labelledby="dropdownMenuButton12">
+                        <div class="dropdown-content-wrapper">
+                          <form class="dropdown-form">
+                            <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2022</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2021</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2020</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2019</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2018</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2017</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2016</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2015</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li active">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2014</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2013</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2012</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li ">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2011</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2010</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2009</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2008</a>
+                              </li>
+                              <li class="dropdown-list-col select-dropdown-box-li">
+                                <a href="javascript:void(0)"
+                                  class="dropdown-list-link select-dropdown-box-link">2007</a>
+                              </li>
+                            </ul>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div class="previous-policy-info-box">
+                <div class="radio-input-field-box">
+                  <span class="radio-title label font-18">Did you made any claim in your previous policy?</span>
+                  <div class="radio-select-box">
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" id="check-item-63" name="previous-policy">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-63">Yes</label>
+                    </div>
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" name="previous-policy" checked id="check-item-64">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-64">No</label>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div class="no-claim-bonus-info-box">
+                <div class="radio-input-field-box">
+                  <span class="radio-title label font-18">What is the No Claim Bonus (NCB) on previous policy?</span>
+                  <div class="radio-select-box">
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" id="check-item-65" name="no-claim-bonus">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-65">0%</label>
+                    </div>
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" name="no-claim-bonus" id="check-item-66">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-66">20%</label>
+                    </div>
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" name="no-claim-bonus" checked id="check-item-67">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-67">25%</label>
+                    </div>
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" name="no-claim-bonus" id="check-item-68">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-68">35%</label>
+                    </div>
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" name="no-claim-bonus" id="check-item-69">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-69">45%</label>
+                    </div>
+                    <div class="radio-box">
+                      <input type="radio" class="radio-custom" name="no-claim-bonus" id="check-item-70">
+                      <label class="radio-custom-label font-18 text-extralight" for="check-item-70">50%</label>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div class="tp-insurance-select-area">
+                <div class="input-field-box">
+                  <label for="" class="label font-18">Previous Policy TP Insurer</label>
+                  <div class="dropright">
+                    <input type="text" class="btn input-field dropdown-toggle select-dropdown border-thick"
+                      type="button" id="dropdownMenuButton14" placeholder="HDFC ERGO" data-bs-toggle="dropdown"
+                      aria-expanded="false" autocomplete="off" />
+                    <div class="dropdown-menu dropdown-menu-box select-dropdown-box"
+                      aria-labelledby="dropdownMenuButton14">
+                      <div class="dropdown-content-wrapper">
+                        <form class="dropdown-form">
+                          <ul class="dropdown-list-row select-dropdown-box-ul js-dropdown-field">
+                            <li class="dropdown-list-col select-dropdown-box-li active">
+                              <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link">HDFC
+                                ERGO</a>
+                            </li>
+                            <li class="dropdown-list-col select-dropdown-box-li ">
+                              <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link">Digit</a>
+                            </li>
+                            <li class="dropdown-list-col select-dropdown-box-li">
+                              <a href="javascript:void(0)" class="dropdown-list-link select-dropdown-box-link">Kotak
+                                General</a>
+                            </li>
+                          </ul>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <button class="main-btn width-full confirm-btn" (click)="validateTravel($event)">Confirm</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Policy Plan Comparison -->
+  <div class="plan-comparison-section travel-plan-comparison-section">
+    <div class="container container-add" style="padding-left: 0px !important;">
+      <div class="plan-comparison-listing-row">
+        <div class="plan-comparison-col selected" *ngFor="let list of compareList,let i = index">
+          <div class="plan-comparison-box">
+            <div class="comparison-main">
+              <div class="plan-logo">
+                <img
+                  src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{list['Insurer_Logo_Name'].split('.')[0] + '.webp'}}"
+                  alt="{{list.Insurer_Name}}" />
+              </div>
+              <div class="plan-detail-box">
+                <span class="plan-value font-20">
+                  ₹ {{currency_format(list.final_premium)}}
+                </span>
+                <p class="font-14 idv-detail">Insurance Cover: <span
+                    class="idv-value dark-text">{{list.Sum_Insured.includes("$")===true?'$':'€'}}{{currency_format(list.Sum_Insured)}}</span>
+                </p>
+              </div>
+              <button class="close-btn remove-item-btn" (click)="ComparePlanClose(list.Plan_Id)">
+                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close.svg" alt="Close" />
+              </button>
+            </div>
+            <div class="title font-15 planName" style="text-align:center">{{list.Plan_Name}}</div>
+          </div>
+        </div>
+
+        <div class="plan-comparison-col button-col">
+          <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn main-btn" data-bs-toggle="modal" data-bs-target="#planComparisonModal"
+              id="compare_btn" title="Compare" (click)="compareinsurers()">
+              Compare
+              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/compare-icon.svg" alt="Compare">
+            </button>
+            <button type="button" class="btn count-btn main-btn" id="compare_count">{{compareCount}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Plan Comparison Modal -->
+  <div
+    class="modal plan-comparison-modal health-plan-comparison-modal term-plan-comparison-modal travel-plan-comparison-modal modal-common fade"
+    id="planComparisonModal" data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1"
+    aria-labelledby="planComparisonLabel" aria-hidden="true">
+    <div class="modal-dialog wrapper-750 modal-dialog-centered">
+      <div class="modal-content modal-popup-shadow">
+        <div class="modal-header">
+          <h2 class="font-30 title-text">Comparison</h2>
+          <button type="button" (click)="closeComparebtw()" class="btn-close js_modal_close" id="selectCarModalBackBtn"
+            data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="maindv_comparequotes">
+          <br>
+          <div class="secdv_comparequotes" style="display:none">
+            <div class="plan-comparison-listing-box">
+              <div class="text-centre" style="color: #666;font-weight: 600;">
+                CRN&nbsp;:&nbsp;<span style="color: #222; font-weight: 600;">{{this.pb_crn}}</span>
+              </div>
+              <div class="text-right" style="color: #666;font-weight: 600; display: inline;">
+                Quote date&nbsp;:&nbsp;<span
+                  style="color: #222;  font-weight: 600;margin-top: -25px;">{{this.createTime}}</span>
+              </div>
+              <div class="text-right" style="color: #666;font-weight: 600;">
+                PDF date&nbsp;:&nbsp;<span style="color: #222; font-weight: 600;">{{pdfDate}}</span>
+              </div>
+            </div>
+            <br>
+            <div class="text-center">
+              Trip Type&nbsp;:&nbsp;
+              <span style="color: #222; font-weight: 600;">{{trip_type}}</span>
+              &nbsp;&nbsp; | &nbsp;&nbsp;
+              Destination&nbsp;:&nbsp;
+              <span style="color: #222; font-weight: 600;">{{travelling_to_area}}</span>
+              &nbsp;&nbsp; | &nbsp;&nbsp;
+              Travelers&nbsp;:&nbsp;
+              <span style="color: #222; font-weight: 600;">{{member_count}} ({{all_member_age}})</span>
+              &nbsp;&nbsp; | &nbsp;&nbsp;
+              Adult&nbsp;:&nbsp;
+              <span style="color: #222; font-weight: 600;">{{adult_count}}</span>
+              &nbsp;&nbsp; | &nbsp;&nbsp;
+              Child&nbsp;:&nbsp;
+              <span style="color: #222; font-weight: 600;">{{child_count}}</span>
+              &nbsp;&nbsp; | &nbsp;&nbsp;
+              <!-- Eldest Member Age&nbsp;:&nbsp;
+              <span style="color: #222; font-weight: 600;">{{eldest_member_age}}&nbsp;Years</span>
+              &nbsp;&nbsp; | &nbsp;&nbsp; -->
+              {{trip_type=='SINGLE'?"Trip Dates":"Trip Start Date"}}&nbsp;:&nbsp;
+              <span style="color: #222; font-weight: 600;">{{travel_start_date}}</span>
+              <span style="color: #222; font-weight: 600;">{{trip_type=='SINGLE'?" - "+travel_end_date:""}}</span>
+            </div>
+          </div>
+
+          <div class="plan-comparison-main">
+            <div class="plan-comparison-listing-box">
+              <div class="comparison-row header-row">
+                <div class="comparison-col flex-50">
+                  <div class="comparison-box">
+                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/logo.png" alt="Policy Boss" />
+                  </div>
+                </div>
+                <div class="comparison-col flex-25 selected" *ngFor="let logo of compareList,let i =index">
+                  <div class="comparison-box">
+                    <img
+                      src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{logo['Insurer_Logo_Name'].split('.')[0] + '.webp'}}"
+                      alt="Bajaj Allianz Insurance" />
+                  </div>
+                  <div class="title font-16" style="text-align:center">{{logo.Plan_Name}}</div>
+                </div>
+              </div>
+            </div>
+            <div class="plan-comparison-listing-box">
+              <div class="comparison-row ">
+                <div class="comparison-col flex-50">
+                  <div class="comparison-box">
+                    <h6 class="comparison-title title-text font-15">Premium</h6>
+                  </div>
+                </div>
+                <div class="comparison-col flex-25 selected" *ngFor="let premium of compareList,let i =index">
+                  <div class="comparison-box">
+                    <a href="javascript:void(0)" (click)="proposal_redirect(premium['arn'])" class="price-block">
+                      <div class="price-detail-box">
+                        <span class="price-text font-16">₹{{currency_format(premium['final_premium'])}}</span>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="plan-comparison-listing-box">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                      type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="flush-collapseOne">
+                      <div class="comparison-col flex-50">
+                        <div class="comparison-box">
+                          <h6 class="comparison-title font-16">Insurance Cover</h6>
+                        </div>
+                      </div>
+                      <div class="comparison-col flex-25 selected" *ngFor="let ins_cover of compareList,let i =index">
+                        <div class="comparison-box">
+                          <p class="font-16">{{ins_cover.Sum_Insured.includes("$")===true?'$':'€'}}
+                            {{currency_format(ins_cover.Sum_Insured)}}
+                          </p>
+                        </div>
+                      </div>
+                    </button>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="plan-comparison-listing-box">
+              <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                      type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="flush-collapseOne">
+                      <div class="comparison-col flex-50">
+                        <div class="comparison-box">
+                          <h6 class="comparison-title font-16">Medical Expenses</h6>
+                        </div>
+                      </div>
+                      <div class="comparison-col flex-25 selected" *ngFor="let medical of compareList,let i =index">
+                        <div class="comparison-box">
+                          <p *ngIf="medical['benefit_list'].length>0" class="font-16">
+                            {{medical['benefit_list'][0]['Emergency Medical Evacuation']==='NA'||null?'No':'Yes'}}</p>
+                          <p *ngIf="medical['benefit_list'].length==0" class="font-16">No</p>
+                        </div>
+                      </div>
+                    </button>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="plan-comparison-listing-box">
+              <div class="accordion accordion-flush" id="accordionFlushExample2">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingTwo">
+                    <button
+                      class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                      type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      <div class="comparison-col flex-50">
+                        <div class="comparison-box">
+                          <h6 class="comparison-title font-16">Baggage Loss</h6>
+                        </div>
+                      </div>
+                      <div class="comparison-col flex-25 selected" *ngFor="let baggage of compareList,let i =index">
+                        <div class="comparison-box">
+                          <p *ngIf="baggage['benefit_list'].length>0" class="font-16">{{baggage['benefit_list'][0]['Loss
+                            of Checked in Baggage']==='NA'||null?'Not
+                            Covered':'Covered'}}</p>
+                          <p *ngIf="baggage['benefit_list'].length==0" class="font-16">Not Covered</p>
+                        </div>
+                      </div>
+
+                    </button>
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div class="plan-comparison-listing-box">
+              <div class="accordion accordion-flush" id="accordionFlushExample3">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingThree">
+                    <button
+                      class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                      type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="flush-collapseThree">
+                      <div class="comparison-col flex-50">
+                        <div class="comparison-box">
+                          <h6 class="comparison-title font-16">Loss of Passport</h6>
+                        </div>
+                      </div>
+                      <div class="comparison-col flex-25 selected" *ngFor="let passport of compareList,let i =index">
+                        <div class="comparison-box">
+                          <p *ngIf="passport['benefit_list'].length>0" class="font-16">
+                            {{passport['benefit_list'][0]['Loss of Passport']==='NA'||null?'Not
+                            Covered':'Covered'}}</p>
+                          <p *ngIf="passport['benefit_list'].length==0" class="font-16">Not Covered</p>
+                        </div>
+                      </div>
+                    </button>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="addCompareDetails" style="display:none; text-align:center">
+            <div _ngcontent-c2="" class="comp_details" style="text-align: left;padding-left: 4px">
+              <p><b>PS: </b>The above Quotations are subject to verification by respective insurance companies.</p>
+            </div>
+            <div class="comp_details">
+              <strong>LANDMARK INSURANCE BROKERS PRIVATE LIMITED</strong><br>
+              <span>Regd. Off: 1187/22, 4th Floor (above ICICI Bank ATM), Venkatesh Meher, Ghole Road, Shivaji Nagar,
+                Pune</span><br>
+              <span>(Maharashtra) – 411005.</span><br>
+              <span>IRDAI CoR No: 216 | Broker Code: DB 089/03</span><br>
+              <span>Website: www.policyboss.com | Toll Free: 1800-419-419-9</span>
+            </div>
+          </div>
+          <div class="btn-area">
+            <button class="main-btn btn-icon download-btn" (click)="downloadAsPDF()">
+              <span class="icon-box">
+                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/download-icon.svg" alt="Download">
+              </span>
+              Download
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Policy Detail Modal -->
+  <!-- <div class="modal menu-popup modal-common policy-detail-modal health-policy-detail-modal fade" id="policyDetailModa"
+    data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="policyDetailModaabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered wrapper-945">
+      <div class="modal-content modal-popup-shadow">
+        <div class="modal-header">
+          <div class="tab-control-panel-area">
+            <nav>
+              <div style="display: none;" class="nav nav-tabs tab-change-wrap tab-view-main" id="nav-tab" role="tablist">
+                <button class="nav-link tab-change-btn flex-col-4 font-18 active" id="nav-make-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-make" type="button" role="tab" aria-controls="nav-make" aria-selected="true"
+                  data-text-mob="1">
+                  Premium Breakup
+                </button>
+                <button class="nav-link tab-change-btn flex-col-4 font-18" id="nav-model-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-model" type="button" role="tab" aria-controls="nav-modal" aria-selected="false"
+                  data-text-mob="2">
+                  Policy Benefits
+                </button>
+                <button class="nav-link tab-change-btn flex-col-4 font-18" id="nav-fuel-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-fuel" type="button" role="tab" aria-controls="nav-fuel" aria-selected="false"
+                  data-text-mob="3">
+                  Policy Exclusions
+                </button>
+                <button class="nav-link tab-change-btn flex-col-4 font-18" id="nav-variant-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-variant" type="button" role="tab" aria-controls="nav-variant"
+                  aria-selected="false" data-text-mob="4">
+                  Cashless Hospitals
+                </button>
+              </div>
+            </nav>
+          </div>
+          <div class="btn-close-wrapper">
+            <button type="button" class="btn-close js_modal_close align-self-start mt-0" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="mob-policy-info-area">
+            <div class="policy-info-area">
+              <div class="policy-info-box">
+                <div class="insurance-logo-box">
+                  <img src="https://origin-cdnh.policyboss.com/website/UI22/images/term-insurance-listing/hdfc-life.png" alt="Insurance Image" />
+                </div>
+                <div class="policy-info-detail-box">
+                  <div class="flex-box justify-content-between">
+                    <h2 class="poilcy-info-title title-text text-extralight font-18">HDFC Life Insurance</h2>
+                    <a class="primary-text view-info-btn">View Info</a>
+                  </div>
+
+                  <div class="policy-info-listing mob-detail-info-box btn-hidden">
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">Insurance Cover </h3>
+                        <p class="policy-info-listing-text font-16 text-extralight">₹2,00,000</p>
+                      </div>
+                    </div>
+                    <div class="policy-info-listing-col">
+                      <div class="policy-info-listing-box">
+                        <h3 class="policy-info-listing-title font-18">CRN </h3>
+                        <p class="policy-info-listing-text font-16 text-extralight">5566896</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane show active" id="nav-make" role="tabpanel" aria-labelledby="nav-make-tab">
+              <div class="modal-content-area">
+                <div class="policy-detail-area">
+                  <div class="policy-detail-box">
+
+                    <h2 class="poilcy-detail-title title-text text-extralight font-18">Premium Breakup</h2>
+                    <div class="premium-breakup-area">
+
+                      <div class="premium-breakup-box">
+                        <h3 class="premium-sub-title font-16">Third Party Cover </h3>
+                        <div class="plan-comparison-listing-box premium-detail-box">
+                          <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingTwo">
+                                <button
+                                  class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                                  type="button" data-bs-toggle="collapse" aria-expanded="false"
+                                  aria-controls="flush-collapseTwo">
+                                  <div class="comparison-col flex-50">
+                                    <div class="comparison-box">
+                                      <h6 class="comparison-title text-extralight font-16 premium-title">Third Party
+                                        Premium</h6>
+                                    </div>
+                                  </div>
+                                  <div class="comparison-col flex-25">
+                                    <div class="comparison-box premium-value-box">
+                                      <p class="premium-value font-16">₹3,221</p>
+                                    </div>
+                                  </div>
+                                </button>
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="premium-breakup-box">
+                        <h3 class="premium-sub-title font-16">Taxes</h3>
+                        <div class="plan-comparison-listing-box premium-detail-box">
+                          <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="flush-headingThree">
+                                <button
+                                  class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                                  type="button" data-bs-toggle="collapse" aria-expanded="false"
+                                  aria-controls="flush-collapseThree">
+                                  <div class="comparison-col flex-50">
+                                    <div class="comparison-box">
+                                      <h6 class="comparison-title text-extralight font-16 premium-title">GST@18</h6>
+                                    </div>
+                                  </div>
+                                  <div class="comparison-col flex-25">
+                                    <div class="comparison-box premium-value-box">
+                                      <p class="premium-value font-16">₹1526</p>
+                                    </div>
+                                  </div>
+                                </button>
+                              </h2>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="total-box">
+                      <div class="premium-detail-box">
+                        <div class="premium-title-box">
+                          <p class="premium-title font-18 text-extralight">Final Premium</p>
+                        </div>
+                        <div class="premium-value-box">
+                          <span class="premium-value font-24 weight-700 title-text text-extralight">₹10,001</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="policy-info-area">
+                  <div class="policy-info-box">
+                    <div class="insurance-logo-box">
+                      <img src="https://origin-cdnh.policyboss.com/website/UI22/images/term-insurance-listing/hdfc-life.png" alt="HDFC Life Insurance" />
+                    </div>
+                    <div class="policy-info-detail-box">
+                      <h2 class="poilcy-info-title title-text text-extralight font-18">HDFC Life Insurance</h2>
+
+                      <div class="policy-info-listing">
+
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">Life Cover </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">₹85 Lakhs</p>
+                          </div>
+                        </div>
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">CRN </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">5566896</p>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon term_buy_now_btn" id="">
+                        <div class="icon-box">
+                          <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+                        </div>
+                        Buy Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="nav-model" role="tabpanel" aria-labelledby="nav-model-tab">
+              <div class="modal-content-area">
+                <div class="policy-detail-area">
+                  <div class="policy-detail-box">
+                    <h2 class="poilcy-detail-title title-text text-extralight font-18">Policy Benefits</h2>
+                    <div class="policy-coverage-area">
+                      <ul class="row-area">
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                            </div>
+                            <p class="text">Death due to any cause
+                            </p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                            </div>
+                            <p class="text">Waiver of Premium Cover
+                            </p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                            </div>
+                            <p class="text">100% payout on Terminal illness
+                            </p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                            </div>
+                            <p class="text">Early payout on Terminal illness
+                            </p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                            </div>
+                            <p class="text">Cover for spouse
+                            </p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                            </div>
+                            <p class="text">Child care benefit
+                            </p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                            </div>
+                            <p class="text">Hospicare Benefit
+                            </p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="note-area">
+                      <p class="note-text">This is a broad view of the claims components. Please refer to the policy
+                        wording for more details.
+                      </p>
+                      <p class="note-text"> <span class="weight-700">Note:</span> You will pay a compulsory deductible
+                        of
+                        ₹1,000 per claim, which is a claims processing fee mandated by the IRDAI. This is same for all
+                        insurers.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="policy-info-area">
+                  <div class="policy-info-box">
+                    <div class="insurance-logo-box">
+                      <img src="https://origin-cdnh.policyboss.com/website/UI22/images/term-insurance-listing/hdfc-life.png" alt="HDFC Life Insurance" />
+                    </div>
+                    <div class="policy-info-detail-box">
+                      <h2 class="poilcy-info-title title-text text-extralight font-18">HDFC Life Insurance</h2>
+
+                      <div class="policy-info-listing">
+
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">Life Cover </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">₹85 Lakhs</p>
+                          </div>
+                        </div>
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">CRN </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">5566896</p>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon term_buy_now_btn" id="">
+                        <div class="icon-box">
+                          <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+                        </div>
+                        Buy Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="nav-fuel" role="tabpanel" aria-labelledby="nav-fuel-tab">
+              <div class="modal-content-area">
+                <div class="policy-detail-area">
+                  <div class="policy-detail-box">
+                    <h2 class="poilcy-detail-title title-text text-extralight font-18">Policy Exlusions</h2>
+                    <div class="policy-exlusions-area">
+                      <ul class="row-area">
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close-icon.svg" alt="Exlusion" />
+                            </div>
+                            <p class="text">Suicide during first year of the policy</p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close-icon.svg" alt="Exlusion" />
+                            </div>
+                            <p class="text">Worldwide coverage</p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close-icon.svg" alt="Exlusion" />
+                            </div>
+                            <p class="text">Domestic evacuation</p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close-icon.svg" alt="Exlusion" />
+                            </div>
+                            <p class="text">E-consultation</p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close-icon.svg" alt="Exlusion" />
+                            </div>
+                            <p class="text">Discount on Renewal</p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close-icon.svg" alt="Exlusion" />
+                            </div>
+                            <p class="text">Daily cash allowance</p>
+                          </div>
+                        </li>
+                        <li class="col-area">
+                          <div class="box-area">
+                            <div class="icon-box">
+                              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/close-icon.svg" alt="Exlusion" />
+                            </div>
+                            <p class="text">Animal bite vaccination</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="policy-info-area">
+                  <div class="policy-info-box">
+                    <div class="insurance-logo-box">
+                      <img src="https://origin-cdnh.policyboss.com/website/UI22/images/term-insurance-listing/hdfc-life.png" alt="HDFC Life Insurance" />
+                    </div>
+                    <div class="policy-info-detail-box">
+                      <h2 class="poilcy-info-title title-text text-extralight font-18">HDFC Life Insurance</h2>
+                      <div class="policy-info-listing">
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">Life Cover </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">₹85 Lakhs</p>
+                          </div>
+                        </div>
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">CRN </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">5566896</p>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon term_buy_now_btn" id="">
+                        <div class="icon-box">
+                          <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+                        </div>
+                        Buy Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="nav-variant" role="tabpanel" aria-labelledby="nav-variant-tab">
+              <div class="modal-content-area">
+                <div class="policy-detail-area">
+                  <div class="policy-detail-box">
+                    <div class="flex-box">
+                      <div class="title-box">
+                        <h2 class="poilcy-detail-title title-text text-extralight font-18 mb-0">Cashless Hospitals</h2>
+                      </div>
+                      <div class="search-box modal-search-box">
+                        <div class="input-field-box">
+                          <input type="text" class="input-field search-input" placeholder="Search by City" />
+                          <div class="icon-box">
+                            <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/search-icon.svg" alt="Search for Car Brands">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cashless-garage-area">
+                      <div class="cashless-garage-listing">
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Dev Medical Hospital</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              Dev Commercial Complex,Near Nanbham Centre,Gotri Road,Vadodara
+                            </a>
+                          </div>
+                        </div>
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Max Super Speciality Hospital</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              1,Press Enclave Road,-Saket
+                            </a>
+                          </div>
+                        </div>
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Apollo Spectra Hospitals</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              No.66 A/2,New Rohtak Road,Karol Bagh
+                            </a>
+                          </div>
+                        </div>
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Ram Lal Kundan Lal Orthopaedic Hospital</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              Bunglow Plot No-8,Pandu Nagar,Parpar Ganj Road,Off Mother Dairy,Patparganj
+                            </a>
+                          </div>
+                        </div>
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Akshar Children Hospital</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              No.301,1st Floor,Doctor House,Near Hariam Bunglow,Katargam Main Road,Katargam
+                            </a>
+                          </div>
+                        </div>
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Vision Eye Hospital</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              3rd Floor, Union Point BuildingNear Kakadiya Complex,Ghoddod Road,Parle Point
+                            </a>
+                          </div>
+                        </div>
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Shalby Hospitals</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              Opp. Karnavati Club,Sarkhej Gandhinagar Highway,Ahmedabad
+                            </a>
+                          </div>
+                        </div>
+                        <div class="cashless-garage-col">
+                          <div class="cashless-garage-box">
+                            <h3 class="font-16 garage-title title-text">Bopal Eye Care Centre</h3>
+                            <a href="" class="link-box address-link" title="address">
+                              <span class="icon-box">
+                                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/location-light.png" alt="address" />
+                              </span>
+                              Office No.BS-22 to 25, B Wing, 2nd Floor,Amrapali Mall, Nr.City Gold Theatre,Ambi-Bopal
+                              Cross Road,Bopal
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="policy-info-area">
+                  <div class="policy-info-box">
+                    <div class="insurance-logo-box">
+                      <img src="https://origin-cdnh.policyboss.com/website/UI22/images/term-insurance-listing/hdfc-life.png" alt="HDFC Life Insurance" />
+                    </div>
+                    <div class="policy-info-detail-box">
+                      <h2 class="poilcy-info-title title-text text-extralight font-18">HDFC Life Insurance</h2>
+
+                      <div class="policy-info-listing">
+
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">Life Cover </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">₹85 Lakhs</p>
+                          </div>
+                        </div>
+                        <div class="policy-info-listing-col">
+                          <div class="policy-info-listing-box">
+                            <h3 class="policy-info-listing-title font-18">CRN </h3>
+                            <p class="policy-info-listing-text font-16 text-extralight">5566896</p>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon term_buy_now_btn" id="">
+                        <div class="icon-box">
+                          <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+                        </div>
+                        Buy Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mob-buy-btn-box">
+            <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon term_buy_now_btn" id="">
+              <div class="icon-box">
+                <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+              </div>
+              Buy Now
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- Alert Modal -->
+  <div class="modal alert-popup-modal modal-common mob-modal-view fade" id="alertModal" data-bs-keyboard="false"
+    data-bs-backdrop="static" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content modal-popup-shadow">
+        <div class="modal-body">
+          <div class="alert-area">
+            <div class="icon-box">
+              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/warning.png" alt="Alert" />
+            </div>
+            <p class="alert-message-text font-24">
+              Sorry, !ts seems we were not able to meet your expectations.
+            </p>
+            <div class="alert-area-buttons flex-box">
+              <button class="main-btn ">Yes! Arrange me a callback</button>
+              <button class="main-btn light-btn" data-bs-dismiss="modal" aria-label="Close">No! Proceed to
+                close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insurance Summary Modal -->
+  <div class="modal insurance-summary-modal modal-common fade" id="insuranceSummaryModal" data-bs-keyboard="false"
+    data-bs-backdrop="static" tabindex="-1" aria-labelledby="insuranceSummaryLabel" aria-hidden="true">
+    <div class="modal-dialog wrapper-750 modal-dialog-centered">
+      <div class="modal-content modal-popup-shadow">
+        <div class="modal-header">
+          <h2 class="font-30 title-text">Insurance Summary</h2>
+          <button type="button" class="btn-close js_modal_close" id="selectCarModalBackBtn"
+            data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="insurance-summary-area">
+            <p class="profile-detail-text font-16">CRN:
+              <span class="profile-detail-value">{{pb_crn}}</span>
+            </p>
+            <h5 class="font-20 insurance-summary-sub-title">Following list of Insurer are not available due to below
+              error.</h5>
+            <div class="insurance-summary-box">
+              <ul class="insurance-summary-listing">
+                <li class="insurance-summary-listing-row">
+                  <div class="listing-heading listing-box flex-35">
+                    <h6 class="font-18">Insurer</h6>
+                  </div>
+                  <div class="listing-heading listing-box flex-65">
+                    <h6 class="font-18">Summary</h6>
+                  </div>
+                </li>
+                <li class="insurance-summary-listing-row">
+                  <div class="listing-body listing-box flex-35">
+                    <p class="font-16">liberty General Insurance</p>
+                  </div>
+                  <div class="listing-body listing-box flex-65">
+                    <p class="font-16">Idv Not Available</p>
+                  </div>
+                </li>
+                <li class="insurance-summary-listing-row">
+                  <div class="listing-body listing-box flex-35">
+                    <p class="font-16">Digit</p>
+                  </div>
+                  <div class="listing-body listing-box flex-65">
+                    <p class="font-16">Idv Not Available</p>
+                  </div>
+                </li>
+                <li class="insurance-summary-listing-row">
+                  <div class="listing-body listing-box flex-35">
+                    <p class="font-16">Reliance General Insurance</p>
+                  </div>
+                  <div class="listing-body listing-box flex-65">
+                    <p class="font-16">Idv Not Available</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Sheet For Mobile -->
+  <div class="mob-fixed-section detail-and-filter-section travel-detail-and-filter-section">
+    <div class="detail-and-filter-area">
+      <div class="detail-and-filter-box">
+        <div class="detail-modal-box">
+          <button type="submit" class="modal-open-btn" data-bs-toggle="modal"
+            data-bs-target="#otherDetailModalFromBottom">
+            <div class="icon-box">
+              <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/details.svg" alt="Vehical details" />
+            </div>
+            <span class="title-text">Travel Details</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Policy Detail Modal -->
+<div class="modal menu-popup modal-common modal-mob-full policy-detail-modal health-policy-detail-modal " id="policyDetailModal"
+data-bs-keyboard="false" data-bs-backdrop="static" tabindex="-1" aria-labelledby="policyDetailModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered wrapper-945">
+    <div class="modal-content modal-popup-shadow">
+        <div class="modal-header">
+            <div class="tab-control-panel-area">
+                <nav>
+                    <div class="nav nav-tabs tab-change-wrap tab-view-main" id="nav-tab" role="tablist">
+                        <button class="nav-link tab-change-btn flex-col-4 font-18 active" id="nav-model-tab" data-bs-toggle="tab" data-bs-target="#nav-model"
+                            type="button" role="tab" aria-controls="nav-modal" aria-selected="false" data-text-mob="1" style="width:40%">
+                                    Policy Benefits
+                                </button>
+                        <button style="display: none;" class="nav-link tab-change-btn flex-col-4 font-18 " id="nav-make-tab" data-bs-toggle="tab" data-bs-target="#nav-make"
+                            type="button" role="tab" aria-controls="nav-make" aria-selected="true" data-text-mob="2" style="width:40%">
+                                    Premium Breakup
+                                </button>
+                        <!--<button class="nav-link tab-change-btn flex-col-4 font-18" id="nav-fuel-tab" data-bs-toggle="tab" data-bs-target="#nav-fuel"
+                            type="button" role="tab" aria-controls="nav-fuel" aria-selected="false" data-text-mob="3">
+                                    Policy Exclusions
+                                </button>
+                        <button class="nav-link tab-change-btn flex-col-4 font-18" id="nav-variant-tab" data-bs-toggle="tab" data-bs-target="#nav-variant"
+                            type="button" role="tab" aria-controls="nav-variant" aria-selected="false" data-text-mob="4">
+                                    Cashless Hospitals
+                                </button>-->
+                    </div>
+                </nav>
+            </div>
+            <div class="btn-close-wrapper">
+                <button type="button" class="btn-close js_modal_close align-self-start mt-0" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="mob-policy-info-area">
+                <div class="policy-info-area">
+                    <div class="policy-info-box">
+                        <div class="insurance-logo-box">
+                            <!--<img src="https://origin-cdnh.policyboss.com/website/UI22/images/InsurerLogo/{{premium_breakup_details ? premium_breakup_details.Insurer_Logo_Name : ''}}" alt="{{premium_breakup_details ? premium_breakup_details.Insurer_Name :''}}"
+                            />-->
+                               <img src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{Insurer_Logo_Name_pd}}"
+                                                alt="" />
+                        </div>
+                        <div class="policy-info-detail-box">
+                            <div class="flex-box justify-content-between">
+                                <h2 class="poilcy-info-title title-text text-extralight font-18">{{Insurer_Name_pd}}</h2>
+                                <a class="primary-text view-info-btn">View Info</a>
+                            </div>
+
+                            <div class="policy-info-listing mob-detail-info-box btn-hidden">
+                                <div class="policy-info-listing-col">
+                                    <div class="policy-info-listing-box">
+                                        <h3 class="policy-info-listing-title font-18">Insurance Cover </h3>
+                                        <p class="policy-info-listing-text font-16 text-extralight">{{Sum_Insured_format_pd}}
+                                          {{currency_format(Sum_Insured_pd)}}</p>
+                                    </div>
+                                </div>
+                                <div class="policy-info-listing-col">
+                                    <div class="policy-info-listing-box">
+                                        <h3 class="policy-info-listing-title font-18">CRN </h3>
+                                        <p class="policy-info-listing-text font-16 text-extralight">{{pb_crn}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane" id="nav-make" role="tabpanel" aria-labelledby="nav-make-tab">
+                    <div class="modal-content-area">
+                        <div class="policy-detail-area">
+                            <div class="policy-detail-box">
+                                <h2 class="poilcy-detail-title title-text text-extralight font-18">Premium Breakup</h2>
+                                <div class="premium-breakup-area">
+                                    <div class="premium-breakup-box">
+                                        <h3 class="premium-sub-title font-16" style="display:none">Plan Name & Type </h3>
+                                        <div class="plan-comparison-listing-box premium-detail-box">
+                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                                        <button class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                                                            type="button" data-bs-toggle="collapse" aria-expanded="false"
+                                                            aria-controls="flush-collapseTwo">
+                                                                <div class="comparison-col flex-50">
+                                                                    <div class="comparison-box">
+                                                                        <h6 class="comparison-title text-extralight font-16 premium-title">Plan Name</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="comparison-col flex-25">
+                                                                    <div class="comparison-box premium-value-box">
+                                                                        <p class="premium-value font-16">{{plan_name_pd}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="plan-comparison-listing-box premium-detail-box">
+                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                                        <button class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                                                            type="button" data-bs-toggle="collapse" aria-expanded="false"
+                                                            aria-controls="flush-collapseTwo">
+                                                                <div class="comparison-col flex-50">
+                                                                    <div class="comparison-box">
+                                                                        <h6 class="comparison-title text-extralight font-16 premium-title">Type</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="comparison-col flex-25">
+                                                                    <div class="comparison-box premium-value-box">
+                                                                        <p class="premium-value font-16">{{travel_insurance_type}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="premium-breakup-box">
+                                        <h3 class="premium-sub-title font-16">Premium </h3>
+                                        <div class="plan-comparison-listing-box premium-detail-box">
+                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="flush-headingTwo">
+                                                        <button class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                                                            type="button" data-bs-toggle="collapse" aria-expanded="false"
+                                                            aria-controls="flush-collapseTwo">
+                                                                <div class="comparison-col flex-50">
+                                                                    <div class="comparison-box">
+                                                                        <h6 class="comparison-title text-extralight font-16 premium-title">Net Premium</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="comparison-col flex-25">
+                                                                    <div class="comparison-box premium-value-box">
+                                                                        <p class="premium-value font-16">₹ {{currency_format(net_premium_pd)}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="premium-breakup-box">
+                                        <h3 class="premium-sub-title font-16">Taxes</h3>
+                                        <div class="plan-comparison-listing-box premium-detail-box">
+                                            <div class="accordion accordion-flush" id="accordionFlushExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="flush-headingThree">
+                                                        <button class="accordion-button tab-btn-normal comparison-row accordion-button-working collapsed title-text make-claim-title make-claim-accordion-title font-18"
+                                                            type="button" data-bs-toggle="collapse" aria-expanded="false"
+                                                            aria-controls="flush-collapseThree">
+                                                                <div class="comparison-col flex-50">
+                                                                    <div class="comparison-box">
+                                                                        <h6 class="comparison-title text-extralight font-16 premium-title">GST@18</h6>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="comparison-col flex-25">
+                                                                    <div class="comparison-box premium-value-box">
+                                                                        <p class="premium-value font-16">₹ {{currency_format(service_tax_pd)||0}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </button>
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="total-box">
+                                    <div class="premium-detail-box">
+                                        <div class="premium-title-box">
+                                            <p class="premium-title font-18 text-extralight">Final Premium</p>
+                                        </div>
+                                        <div class="premium-value-box">
+                                            <span class="premium-value font-24 weight-700 title-text text-extralight">₹ {{currency_format(final_premium_pd)}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="policy-info-area">
+                            <div class="policy-info-box">
+                                <div class="insurance-logo-box">
+                                    <!--<img src="https://origin-cdnh.policyboss.com/website/UI22/images/InsurerLogo/{{premium_breakup_details ? premium_breakup_details.Insurer_Logo_Name : ''}}" alt="{{premium_breakup_details ? premium_breakup_details.Insurer_Name :''}}"
+                                    />-->
+                                       <img src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{Insurer_Logo_Name_pd}}"
+                                                alt="{{Insurer_Logo_Name_pd}}" />
+                                </div>
+                                <div class="policy-info-detail-box">
+                                    <h2 class="poilcy-info-title title-text text-extralight font-18">{{Insurer_Name_pd}}</h2>
+
+                                    <div class="policy-info-listing">
+                                        <!-- <div class="policy-info-listing-col">
+                                                    <div class="policy-info-listing-box">
+                                                        <h3 class="policy-info-listing-title font-18">Car Model</h3>
+                                                        <p class="policy-info-listing-text font-16 ">
+                                                            <span class="car-brand">Honda</span>,
+                                                            <span class="car-modal">Amaze</span>,
+                                                            <span class="car-fuel-type">Petrol</span>,
+                                                            <span class="car-engine">1.5 VTEC (1493 CC)</span>
+                                                        </p>
+                                                    </div>
+                                                </div> -->
+                                        <div class="policy-info-listing-col">
+                                            <div class="policy-info-listing-box">
+                                                <h3 class="policy-info-listing-title font-18">Insurance Cover </h3>
+                                                <p class="policy-info-listing-text font-16 text-extralight">{{Sum_Insured_format_pd}}{{currency_format(Sum_Insured_pd)}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="policy-info-listing-col">
+                                            <div class="policy-info-listing-box">
+                                                <h3 class="policy-info-listing-title font-18">CRN </h3>
+                                                <p class="policy-info-listing-text font-16 text-extralight">{{pb_crn}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="policy-info-listing-col">
+                                            <div class="policy-info-listing-box">
+                                                <h3 class="policy-info-listing-title font-18">Service Log Id </h3>
+                                                <p class="policy-info-listing-text font-16 text-extralight">{{service_log_id}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon health_buy_now_btn" id="" (click) = "proposal_redirect(arn_pd?arn_pd:'')">
+                                        <div class="icon-box">
+                                            <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+                                        </div>
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane active" id="nav-model" role="tabpanel" aria-labelledby="nav-model-tab">
+                    <div class="modal-content-area">
+                        <div class="policy-detail-area">
+                            <div class="policy-detail-box">
+                                <h2 class="poilcy-detail-title title-text text-extralight font-18">Policy Benefits</h2>
+                                <div class="policy-coverage-area">
+                                    <ul class="row-area" style="align-items: stretch;flex-direction: column">
+                                        <li class="col-area" *ngFor="let item of BenefitsDetails;let in of index" style="max-width:100%;max-height:65px;">
+                                            <div class="box-area pc-div" style="flex-wrap: wrap;">
+                                                <div class="icon-box" style="height: 63px">
+                                                    <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check-icon.svg" alt="coverage" />
+                                                </div>
+                                                <div style="display:flex;flex-direction: column;flex:0 0 50%; ">
+                                                    <p class="text pc-p">{{item[0]}}</p>
+                                                    <p class="text pc-p">{{item[1]}} </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+
+                              
+                            </div>
+                        </div>
+                        <div class="policy-info-area">
+                            <div class="policy-info-box">
+                                <div class="insurance-logo-box">
+                                    <!--<img src="https://origin-cdnh.policyboss.com/website/UI22/images/InsurerLogo/{{premium_breakup_details ? premium_breakup_details.Insurer_Logo_Name : ''}}" alt="{{premium_breakup_details ? premium_breakup_details.Insurer_Name :''}}"
+                                    />-->
+                                       <img src="https://origin-cdnh.policyboss.com/website/UI22/images/insurer_logo/{{Insurer_Logo_Name_pd}}"
+                                                alt="" />
+                                </div>
+                                <div class="policy-info-detail-box">
+                                    <h2 class="poilcy-info-title title-text text-extralight font-18"></h2>
+
+                                    <div class="policy-info-listing">
+                                        <div class="policy-info-listing-col">
+                                            <div class="policy-info-listing-box">
+                                                <h3 class="policy-info-listing-title font-18">Insurance Cover </h3>
+                                                <p class="policy-info-listing-text font-16 text-extralight">{{Sum_Insured_format_pd}}{{currency_format(Sum_Insured_pd)}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="policy-info-listing-col">
+                                            <div class="policy-info-listing-box">
+                                                <h3 class="policy-info-listing-title font-18">CRN </h3>
+                                                <p class="policy-info-listing-text font-16 text-extralight">{{pb_crn}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="policy-info-listing-col">
+                                            <div class="policy-info-listing-box">
+                                                <h3 class="policy-info-listing-title font-18">Service Log Id </h3>
+                                                <p class="policy-info-listing-text font-16 text-extralight">{{service_log_id}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon health_buy_now_btn" id="" (click) = "proposal_redirect(arn_pd?arn_pd:'')">
+                                        <div class="icon-box">
+                                            <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+                                        </div>
+                                        Buy Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>                   
+            </div>
+            <div class="mob-buy-btn-box">
+                <a href="javascript:void(0)" class="main-btn font-18 width-full btn-icon health_buy_now_btn" id="" (click) = "proposal_redirect()">
+                    <div class="icon-box">
+                        <img src="https://origin-cdnh.policyboss.com/website/UI22/images/icons/check.svg" alt="Check" />
+                    </div>
+                    Buy Now
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- <---------------------------------- The End ------------------------------------------>

@@ -1,0 +1,79 @@
+[
+    {
+        "_salutations" :  [
+            {"id" :"0","name":"Title"},
+            {"id" :"Mr","name": "Mr"},
+            {"id" :"Mrs","name": "Mrs"},
+            {"id" :"Ms","name": "Miss"}
+        ],
+        "_MaritalStatus" : [
+            {"id" :"Marital Status","name":"Marital Status"},
+            {"id" :"1","name": "Married"},
+            {"id" :"2","name": "Single"},
+            {"id" :"3","name": "Widowed"},
+            {"id" :"4","name": "Divorced"},
+            {"id" :"5","name": "Separated"}
+        ],
+        "_occupation" : [
+            {"id" :"","name": "Select Occupation"},
+            {"id":"4","name":"Not Working"},
+            {"id":"1","name":"Student"},
+            {"id":"2","name":"Private Service"},
+            {"id":"3","name":"Self Employed"},
+            {"id":"8","name":"Housewife"},
+            {"id":"9","name":"Retired"},
+            {"id":"107","name":"Goverment Employed"},
+            {"id":"11","name":"Other"}
+        ],
+        "_travelPurpose" : [
+            {"id" :"2","name": "HOLIDAY"},
+            {"id" :"3","name": "BUSINESS"},
+            {"id" :"4","name": "OTHER"}
+        ],
+        "_relation" : [
+            {"id" :"Self","name": "Self"},
+            {"id" :"Spouse","name": "Spouse"},
+            {"id" :"Son","name": "Son"},
+            {"id" :"Daughter","name": "Daughter"},
+            {"id" :"Father","name": "Father"},
+            {"id" :"Mother","name": "Mother"}
+
+        ],
+        "nominee_relation" : [
+            {"id" :"0","name": "Relation"},
+            {"id" :"Spouse","name": "Spouse"},
+            {"id" :"Son","name": "Son"},
+            {"id" :"Daughter","name": "Daughter"},
+            {"id" :"Father","name": "Father"},
+            {"id" :"Mother","name": "Mother"}
+        ],
+        "_qualification": [
+            {"id" :"0","name": "Select Qualification"},
+            {"id" :"1","name": "Graduate"},
+            {"id" :"2","name": "Matric"},
+            {"id" :"3","name": "Non-matric"},
+            {"id" :"4","name": "Professional Course"},
+            {"id" :"5","name": "Other"}
+        ],
+        "_existingDiseases" : [
+            {"id":1,"name":"Diabetes Mellitus"},
+            {"id":2,"name":"Hypertension"},
+            {"id":5,"name":"Thyroid Disorder"},
+            {"id":6,"name":"Arthritis"},
+            {"id":9,"name":"Gall bladder disease"},
+            {"id":10,"name":"Joint Replacement Surgery"},
+            {"id":11,"name":"Disc Prolapse"},
+            {"id":12,"name":"Gastric Ulcer"},
+            {"id":13,"name":"Asthma / Bronchitis"},
+            {"id":14,"name":"Cataract"}
+        ],
+        "_nomineeDetails" : "personal",
+        "hasSubQuestion": false,
+        "QueSubqueArray":[    
+            {
+                "QuestionId": "101",
+                "QuestionText": "Traveller(s) are residents of India and the trip is starting from India?"
+            }
+        ]
+    }
+]
